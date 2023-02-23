@@ -14,9 +14,9 @@ class LightTheme {
     appBarTheme: AppBarTheme(
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.only(
-              bottomEnd: Radius.circular(20),
-              bottomStart: Radius.circular(20))),
-      color: LigthColor().appBarColor,
+              bottomEnd: Radius.circular(10),
+              bottomStart: Radius.circular(10))),
+      color: LigthColor().bgColorGrey,
       iconTheme: IconThemeData(color: LigthColor().appBarIconColor),
     ),
     checkboxTheme: CheckboxThemeData(
@@ -112,6 +112,7 @@ class LigthColor {
   final Color textColorOffBlack = const Color(0XFF24292F);
   final Color bgColorWhite = const Color(0xFFFFFFFF);
   final Color bgColorGrey = const Color(0xFF252C35);
+  final Color bgColorGreyGradient = const Color(0xFF22262B);
   final Color buttonColorYellow = const Color(0xFFFFA610);
   final Color buttonTextColorWhite = const Color(0xffffffff);
   final Color buttonColorGrey = const Color(0xFF252C35);

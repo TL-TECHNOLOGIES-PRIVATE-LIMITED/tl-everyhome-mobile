@@ -6,10 +6,12 @@ class CustomFormField extends StatelessWidget {
     this.controller,
     required this.hintText,
     this.suffixIcon,
+    this.prefixIcon,
   });
   final TextEditingController? controller;
   final String hintText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class CustomFormField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           border: InputBorder.none,
           filled: true,
           fillColor: const Color(0xffE8E8E8),
