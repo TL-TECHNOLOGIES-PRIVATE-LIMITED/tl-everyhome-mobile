@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/presentation/login/otp_screen/widgets/custom_submit_button.dart';
 import 'package:every_home/presentation/login/otp_screen/widgets/custom_text.dart';
 import 'package:every_home/presentation/login/widgets/custom_signin_text.dart';
+import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
@@ -77,7 +77,7 @@ class OtpScreen extends StatelessWidget {
                       const CustomText(
                         text: 'A 4 digit code has been sent to',
                       ),
-                      const CustomText(text: '+91 '),
+                      const CustomText(text: '+91 8987878699'),
                       const SizedBox(height: 24),
                       Form(
                         child: Column(
@@ -103,13 +103,16 @@ class OtpScreen extends StatelessWidget {
                       ),
 
                       const SizedBox(height: 25),
-                      CustomSubmitButton(
+                      CustomYellowButton(
+                        bgColor: LigthColor().buttonColorYellow,
+                        label: 'Submit',
+                        labelColor: LigthColor().buttonTextColorWhite,
                         onPress: () {
                           Navigator.of(context).pushNamedAndRemoveUntil(
                               '/signin_screen', (route) => false);
                         },
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 50),
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).pushNamedAndRemoveUntil(

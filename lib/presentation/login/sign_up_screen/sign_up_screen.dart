@@ -2,9 +2,8 @@ import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/login/sign_in_screen/widgets/custom_signup_text.dart';
 import 'package:every_home/presentation/login/sign_up_screen/widgets/custom_facebook_button.dart';
 import 'package:every_home/presentation/login/sign_up_screen/widgets/custom_google_button.dart';
-import 'package:every_home/presentation/login/sign_up_screen/widgets/custom_signup_button.dart';
-import 'package:every_home/presentation/login/widgets/custom_signin_text.dart';
 import 'package:every_home/presentation/widgets/CustomFormField.dart';
+import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -81,10 +80,14 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 25),
-                    CustomSignUpButton(
+                    // TODO sign up button logic implemetation
+                    CustomYellowButton(
+                      bgColor: LigthColor().buttonColorYellow,
+                      label: 'Sign Up',
+                      labelColor: LigthColor().buttonTextColorWhite,
                       onPress: () {
-                        Navigator.of(context)
-                            .pushReplacementNamed('/otp_screen');
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/otp_screen', (route) => false);
                       },
                     ),
                     const SizedBox(height: 20),
@@ -107,9 +110,13 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const CustomFacebookButton(),
+                    CustomFacebookButton(
+                      onPress: () {},
+                    ),
                     const SizedBox(height: 17),
-                    const CustomGoogleButton(),
+                    CustomGoogleButton(
+                      onPress: () {},
+                    ),
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {

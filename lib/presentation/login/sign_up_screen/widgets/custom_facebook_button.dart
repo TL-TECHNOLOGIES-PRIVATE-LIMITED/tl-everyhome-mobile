@@ -5,7 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomFacebookButton extends StatelessWidget {
   const CustomFacebookButton({
-    super.key, this.onPress,
+    super.key,
+    this.onPress,
   });
   final void Function()? onPress;
 

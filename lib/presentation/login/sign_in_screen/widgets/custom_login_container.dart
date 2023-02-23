@@ -54,12 +54,17 @@ class CustomLoginContainer extends StatelessWidget {
                 ],
               )),
               const SizedBox(height: 16),
-              const Text(
-                'Forgot Password?',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xffF6F6F6),
-                  fontWeight: FontWeight.w500,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/forget_password_screen');
+                },
+                child: const Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0xffF6F6F6),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
               const SizedBox(height: 25),

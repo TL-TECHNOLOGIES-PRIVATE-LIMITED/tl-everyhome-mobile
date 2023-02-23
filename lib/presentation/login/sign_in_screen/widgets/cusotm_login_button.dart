@@ -11,7 +11,7 @@ class CustomLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPress,
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
         minimumSize: const Size(350, 55),
