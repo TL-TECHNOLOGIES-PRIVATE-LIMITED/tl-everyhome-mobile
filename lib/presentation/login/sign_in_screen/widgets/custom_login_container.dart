@@ -1,7 +1,7 @@
 import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/presentation/login/sign_in_screen/widgets/cusotm_login_button.dart';
 import 'package:every_home/presentation/login/sign_in_screen/widgets/custom_signup_text.dart';
 import 'package:every_home/presentation/widgets/CustomFormField.dart';
+import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -53,7 +53,7 @@ class CustomLoginContainer extends StatelessWidget {
                   ),
                 ],
               )),
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).pushNamed('/forget_password_screen');
@@ -68,8 +68,17 @@ class CustomLoginContainer extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 25),
-              CustomLoginButton(
-                onPress: () {},
+              // CustomLoginButton(
+              //   onPress: () {},
+              // ),
+              CustomYellowButton(
+                label: 'Login',
+                bgColor: LigthColor().buttonColorYellow,
+                labelColor: LigthColor().buttonTextColorWhite,
+                onPress: () {
+                  //TODO need to change pushNamed to pushNamedAndRemoveUntil
+                  Navigator.of(context).pushNamed('/customer_home_screen');
+                },
               ),
               const SizedBox(height: 10),
               GestureDetector(

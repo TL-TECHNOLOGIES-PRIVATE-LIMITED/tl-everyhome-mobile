@@ -1,12 +1,13 @@
-
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/widgets/CustomFormField.dart';
 import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class Custom extends StatelessWidget {
-  const Custom({
+class CustomResetContainer extends StatelessWidget {
+  const CustomResetContainer({
     super.key,
   });
 
@@ -28,9 +29,18 @@ class Custom extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/signin_screen', (route) => false);
+                },
+                child: SvgPicture.asset('assets/icons/arrow_left.svg'),
+              ),
+              const SizedBox(height: 20),
               const Text(
-                'Forgot',
+                'Reset',
                 style: TextStyle(
                   fontSize: 40,
                   color: Color(0xffF6F6F6),
@@ -38,40 +48,31 @@ class Custom extends StatelessWidget {
                 ),
               ),
               const Text(
-                'Password?',
+                'Password',
                 style: TextStyle(
                   fontSize: 40,
                   color: Color(0xffF6F6F6),
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              // const SizedBox(height: 5),
-              const Text(
-                'Don\'t Worry. Please enter your email',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Color(0xffF6F6F6),
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              const Text(
-                'associated with your account',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Color(0xffF6F6F6),
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
               Form(
                 child: Column(
                   children: const [
-                    CustomFormField(hintText: 'Email ID'),
+                    CustomFormField(
+                      hintText: 'New Password',
+                      suffixIcon: Icon(MdiIcons.eyeOffOutline,
+                          color: Color(0xffBDBDBD)),
+                    ),
+                    SizedBox(height: 16),
+                    CustomFormField(
+                      hintText: 'Confirm New Password',
+                      suffixIcon: Icon(MdiIcons.eyeOffOutline,
+                          color: Color(0xffBDBDBD)),
+                    ),
                   ],
                 ),
               ),
-
               const SizedBox(height: 25),
               CustomYellowButton(
                 bgColor: LigthColor().buttonColorYellow,

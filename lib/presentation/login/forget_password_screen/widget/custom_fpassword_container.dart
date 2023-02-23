@@ -3,9 +3,10 @@ import 'package:every_home/presentation/widgets/CustomFormField.dart';
 import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({
+class CustomForgotPasswordContainer extends StatelessWidget {
+  const CustomForgotPasswordContainer({
     super.key,
   });
 
@@ -28,6 +29,14 @@ class CustomContainer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/signin_screen', (route) => false);
+                },
+                child: SvgPicture.asset('assets/icons/arrow_left.svg'),
+              ),
+              const SizedBox(height: 20),
               const Text(
                 'Forgot',
                 style: TextStyle(
@@ -62,7 +71,7 @@ class CustomContainer extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
               Form(
                 child: Column(
                   children: const [
@@ -78,7 +87,7 @@ class CustomContainer extends StatelessWidget {
                 labelColor: LigthColor().buttonTextColorWhite,
                 onPress: () {
                   Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/signin_screen', (route) => false);
+                      '/reset_password_screen', (route) => false);
                 },
               ),
             ],
