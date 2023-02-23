@@ -77,7 +77,7 @@ class OtpScreen extends StatelessWidget {
                       const CustomText(
                         text: 'A 4 digit code has been sent to',
                       ),
-                      const CustomText(text: '+91 8080807808'),
+                      const CustomText(text: '+91 '),
                       const SizedBox(height: 24),
                       Form(
                         child: Column(
