@@ -5,6 +5,7 @@ import 'package:every_home/presentation/login/reset_password_screen/reset_passwo
 import 'package:every_home/presentation/login/sign_in_screen/sign_in_screen.dart';
 import 'package:every_home/presentation/login/sign_up_screen/sign_up_screen.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
+import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
 import 'package:every_home/presentation/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,7 @@ class MainApp extends StatelessWidget {
               '/reset_password_screen': (context) =>
                   const ResetPasswordScreen(),
               '/customer_home_screen': (context) => const CusHomeScreen(),
+              '/notification_screen': (context) => const NotificationScreen(),
             },
           );
         });

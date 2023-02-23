@@ -84,17 +84,22 @@ class CusHomeScreen extends StatelessWidget {
             actions: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.fromBorderSide(
-                      BorderSide(color: Colors.white),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/notification_screen');
+                  },
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.fromBorderSide(
+                        BorderSide(color: Colors.white),
+                      ),
                     ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child:
-                        SvgPicture.asset('assets/icons/notification_icon.svg'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset(
+                          'assets/icons/notification_icon.svg'),
+                    ),
                   ),
                 ),
               ),
