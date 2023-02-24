@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomYellowButton extends StatelessWidget {
   const CustomYellowButton({
@@ -19,7 +20,7 @@ class CustomYellowButton extends StatelessWidget {
       onPressed: onPress,
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
-        minimumSize: const Size(350, 55),
+        minimumSize: Size(350.w, 55.h),
         backgroundColor: bgColor,
       ),
       child: Text(

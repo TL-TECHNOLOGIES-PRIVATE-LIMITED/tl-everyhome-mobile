@@ -7,8 +7,8 @@ class LightTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       elevation: 1,
       backgroundColor: LigthColor().bgColorGrey,
-      selectedIconTheme: IconThemeData(color: LigthColor().bgColorWhite),
-      selectedLabelStyle: TextStyle(color: LigthColor().textColorWhite),
+      // selectedIconTheme: IconThemeData(color: LigthColor().bgColorWhite),
+      // selectedLabelStyle: TextStyle(color: LigthColor().textColorWhite),
     ),
     scaffoldBackgroundColor: LigthColor().bgColorWhite,
     appBarTheme: AppBarTheme(

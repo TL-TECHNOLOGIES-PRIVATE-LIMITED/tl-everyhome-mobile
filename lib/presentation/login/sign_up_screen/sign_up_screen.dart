@@ -21,6 +21,7 @@ class SignUpScreen extends StatelessWidget {
         body: Stack(
           children: [
             // Image.asset('assets/logo/logo_outline_right.png'),
+            SizedBox(height: 100.h),
             SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(30.0),
@@ -28,58 +29,59 @@ class SignUpScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const SizedBox(
-                      width: 300,
+                    SizedBox(
+                      width: 239.w,
+                      height: 96.h,
                       child: Text(
                         'Create your Account',
                         style: TextStyle(
-                          fontSize: 40,
+                          fontSize: 40.sp,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xffFFFFFF),
+                          color: const Color(0xffFFFFFF),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    SizedBox(height: 40.h),
                     SizedBox(
-                      height: 50,
-                      width: 0.85.sw,
+                      height: 50.h,
+                      width: 368.w,
                       child: const CustomFormField(
                         hintText: 'Full Name',
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                     SizedBox(
-                      height: 50,
-                      width: 0.85.sw,
+                      height: 50.h,
+                      width: 368.w,
                       child: const CustomFormField(
                         hintText: 'Email',
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                     SizedBox(
-                      height: 50,
-                      width: 0.85.sw,
+                      height: 50.h,
+                      width: 368.w,
                       child: const CustomFormField(
                         hintText: 'Mobile Number',
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                     SizedBox(
-                      height: 50,
-                      width: 0.85.sw,
+                      height: 50.h,
+                      width: 368.w,
                       child: const CustomFormField(
                         hintText: 'Password',
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                     SizedBox(
-                      height: 50,
-                      width: 0.85.sw,
+                      height: 50.h,
+                      width: 368.w,
                       child: const CustomFormField(
                         hintText: 'Confirm Password',
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    SizedBox(height: 30.h),
                     // TODO sign up button logic implemetation
                     CustomYellowButton(
                       bgColor: LigthColor().buttonColorYellow,
@@ -90,7 +92,7 @@ class SignUpScreen extends StatelessWidget {
                             '/otp_screen', (route) => false);
                       },
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     SizedBox(
                       width: 0.9.sw,
                       child: Row(
@@ -109,15 +111,15 @@ class SignUpScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 30.h),
                     CustomFacebookButton(
                       onPress: () {},
                     ),
-                    const SizedBox(height: 17),
+                    SizedBox(height: 20.h),
                     CustomGoogleButton(
                       onPress: () {},
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 40.h),
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).pop();

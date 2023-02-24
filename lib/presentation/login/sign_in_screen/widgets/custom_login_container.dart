@@ -16,8 +16,8 @@ class CustomLoginContainer extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 0.5.sh,
+        width: 428.w,
+        height: 454.h,
         decoration: BoxDecoration(
           color: LigthColor().bgColorGrey,
           borderRadius: const BorderRadius.only(
@@ -30,57 +30,54 @@ class CustomLoginContainer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Login',
                 style: TextStyle(
-                  fontSize: 40,
-                  color: Color(0xffF6F6F6),
+                  fontSize: 40.sp,
+                  color: const Color(0xffF6F6F6),
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               Form(
                   child: Column(
-                children: const [
-                  CustomFormField(
+                children: [
+                  const CustomFormField(
                     hintText: 'Email',
                   ),
-                  SizedBox(height: 20),
-                  CustomFormField(
+                  SizedBox(height: 20.h),
+                  const CustomFormField(
                     hintText: 'Password',
                     suffixIcon:
                         Icon(MdiIcons.eyeOffOutline, color: Color(0xffBDBDBD)),
                   ),
                 ],
               )),
-              const SizedBox(height: 20),
+              SizedBox(height: 16.h),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).pushNamed('/forget_password_screen');
                 },
-                child: const Text(
+                child: Text(
                   'Forgot Password?',
                   style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xffF6F6F6),
+                    fontSize: 14.sp,
+                    color: const Color(0xffF6F6F6),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-              const SizedBox(height: 25),
-              // CustomLoginButton(
-              //   onPress: () {},
-              // ),
+              SizedBox(height: 35.h),
               CustomYellowButton(
                 label: 'Login',
                 bgColor: LigthColor().buttonColorYellow,
                 labelColor: LigthColor().buttonTextColorWhite,
                 onPress: () {
                   //TODO need to change pushNamed to pushNamedAndRemoveUntil
-                  Navigator.of(context).pushNamed('/customer_home_screen');
+                  Navigator.of(context).pushNamed('/cus_main_screen');
                 },
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 25.h),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).pushNamed('/signup_screen');

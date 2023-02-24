@@ -4,6 +4,7 @@ import 'package:every_home/presentation/login/otp_screen/otp_screen.dart';
 import 'package:every_home/presentation/login/reset_password_screen/reset_password_screen.dart';
 import 'package:every_home/presentation/login/sign_in_screen/sign_in_screen.dart';
 import 'package:every_home/presentation/login/sign_up_screen/sign_up_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_main_screen/cus_main_screen.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
 import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
@@ -36,6 +37,7 @@ class MainApp extends StatelessWidget {
                   const ResetPasswordScreen(),
               '/customer_home_screen': (context) => const CusHomeScreen(),
               '/notification_screen': (context) => const NotificationScreen(),
+              '/cus_main_screen': (context) => CusMainScreen(),
             },
           );
         });

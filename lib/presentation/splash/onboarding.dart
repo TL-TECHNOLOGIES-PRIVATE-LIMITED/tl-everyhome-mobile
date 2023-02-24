@@ -78,8 +78,8 @@ class Onboarding extends StatelessWidget {
             child: Image.asset('assets/polygons/polygon_3.png'),
           ),
           Positioned(
-            bottom: 0.1.sh,
-            left: 0.06.sw,
+            bottom: 90.h,
+            left: 45.w,
             child: Align(
               alignment: Alignment.bottomCenter,
               child: CustomYellowButton(

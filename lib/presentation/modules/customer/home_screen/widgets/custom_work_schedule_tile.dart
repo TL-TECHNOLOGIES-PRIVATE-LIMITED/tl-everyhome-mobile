@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,7 +22,7 @@ class CustomWorkScheduleTile extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Container(
-          width: 0.35.sw,
+          width: 157.w,
           decoration: const BoxDecoration(
             border: Border.fromBorderSide(
               BorderSide(
@@ -34,6 +33,7 @@ class CustomWorkScheduleTile extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,8 +43,8 @@ class CustomWorkScheduleTile extends StatelessWidget {
                         width: 100,
                         child: Text(
                           workName,
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style: TextStyle(
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -53,15 +53,15 @@ class CustomWorkScheduleTile extends StatelessWidget {
                         children: [
                           Text(
                             postedDate,
-                            style: const TextStyle(
-                              fontSize: 12,
+                            style: TextStyle(
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
                             ', $postedTime',
-                            style: const TextStyle(
-                              fontSize: 12,
+                            style: TextStyle(
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           )
