@@ -90,7 +90,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const CustomResetContainer()
+            CustomResetContainer()
           ],
         ),
       ),

@@ -1,14 +1,16 @@
 import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/presentation/widgets/CustomFormField.dart';
-import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
+import 'package:every_home/domain/validation/signin_screen/signin_validation.dart';
+import 'package:every_home/presentation/widgets/custom_form_field.dart';
+import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomForgotPasswordContainer extends StatelessWidget {
-  const CustomForgotPasswordContainer({
+class CustomForgotPasswordContainer extends StatelessWidget
+    with InputValidationMixin {
+  CustomForgotPasswordContainer({
     super.key,
   });
+  final formGlobalKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CustomForgotPasswordContainer extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 0.5.sh,
+        // height: 0.5.sh,
         decoration: BoxDecoration(
           color: LigthColor().bgColorGrey,
           borderRadius: const BorderRadius.only(
@@ -28,6 +30,7 @@ class CustomForgotPasswordContainer extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               GestureDetector(
                 onTap: () {
@@ -73,9 +76,21 @@ class CustomForgotPasswordContainer extends StatelessWidget {
 
               const SizedBox(height: 30),
               Form(
+                key: formGlobalKey,
                 child: Column(
-                  children: const [
-                    CustomFormField(hintText: 'Email ID'),
+                  children: [
+                    CustomFormField(
+                      hintText: 'Email ID',
+                      keyboardType: TextInputType.emailAddress,
+                      textInputAction: TextInputAction.done,
+                      validator: (email) {
+                        if (isEmailValid(email!)) {
+                          return null;
+                        } else {
+                          return 'Enter a valid email address';
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -86,8 +101,9 @@ class CustomForgotPasswordContainer extends StatelessWidget {
                 label: 'Submit',
                 labelColor: LigthColor().buttonTextColorWhite,
                 onPress: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/reset_password_screen', (route) => false);
+                  if (formGlobalKey.currentState!.validate()) {
+                    Navigator.of(context).pushNamed('/otp_screen');
+                  }
                 },
               ),
             ],

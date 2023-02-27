@@ -5,6 +5,7 @@ import 'package:every_home/presentation/login/reset_password_screen/reset_passwo
 import 'package:every_home/presentation/login/sign_in_screen/sign_in_screen.dart';
 import 'package:every_home/presentation/login/sign_up_screen/sign_up_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_main_screen/cus_main_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_profile_screen/cus_profile_screen.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
 import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
@@ -29,7 +30,7 @@ class MainApp extends StatelessWidget {
             routes: {
               '/onboarding': (context) => const Onboarding(),
               '/signin_screen': (context) => const SignInScreen(),
-              '/signup_screen': (context) => const SignUpScreen(),
+              '/signup_screen': (context) => SignUpScreen(),
               '/otp_screen': (context) => const OtpScreen(),
               '/forget_password_screen': (context) =>
                   const ForgetPasswordScreen(),
@@ -38,6 +39,7 @@ class MainApp extends StatelessWidget {
               '/customer_home_screen': (context) => const CusHomeScreen(),
               '/notification_screen': (context) => const NotificationScreen(),
               '/cus_main_screen': (context) => CusMainScreen(),
+              '/cus_profile_screen': (context) => const CusProfileScreen(),
             },
           );
         });

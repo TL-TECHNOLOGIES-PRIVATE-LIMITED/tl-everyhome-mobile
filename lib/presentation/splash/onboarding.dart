@@ -1,5 +1,5 @@
 import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
+import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,28 +20,30 @@ class Onboarding extends StatelessWidget {
           ),
           Positioned(
             top: 0.2.sh,
-            left: 0.25.sw,
-            child: const Text(
-              'Welcome',
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF111D1E),
+            left: 120.w,
+            child: Align(
+              child: Text(
+                'Welcome',
+                style: TextStyle(
+                  fontSize: 50.sp,
+                  fontWeight: FontWeight.w500,
+                  color: const Color(0xFF111D1E),
+                ),
               ),
             ),
           ),
           Positioned(
             top: 0.28.sh,
             left: 0.1.sw,
-            child: const SizedBox(
+            child: SizedBox(
                 width: 335,
                 child: Text(
                   'Professional Services & Product Details a Click Away',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 23.sp,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xFF111D1E),
+                    color: const Color(0xFF111D1E),
                   ),
                 )),
           ),

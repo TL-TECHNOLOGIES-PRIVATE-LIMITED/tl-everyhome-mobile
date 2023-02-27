@@ -17,7 +17,7 @@ class SignInScreen extends StatelessWidget {
               width: double.infinity,
               child: Image.asset('assets/bg_images/login_screen_bg.png'),
             ),
-            const CustomLoginContainer(),
+            CustomLoginContainer(),
           ],
         ),
       ),

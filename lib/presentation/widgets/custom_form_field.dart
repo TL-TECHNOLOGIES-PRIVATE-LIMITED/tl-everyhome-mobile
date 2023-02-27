@@ -7,11 +7,21 @@ class CustomFormField extends StatelessWidget {
     required this.hintText,
     this.suffixIcon,
     this.prefixIcon,
+    this.onChanged,
+    this.validator,
+    this.obscureText,
+    this.keyboardType,
+    this.textInputAction,
   });
   final TextEditingController? controller;
   final String hintText;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
+  final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
+  final bool? obscureText;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +31,12 @@ class CustomFormField extends StatelessWidget {
         style: const TextStyle(
           color: Colors.black,
         ),
+        obscureText: obscureText ?? false,
+        keyboardType: keyboardType,
+        textInputAction: textInputAction,
         controller: controller,
+        onChanged: onChanged,
+        validator: validator,
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,

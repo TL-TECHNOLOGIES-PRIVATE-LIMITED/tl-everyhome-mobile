@@ -90,7 +90,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const CustomForgotPasswordContainer()
+            CustomForgotPasswordContainer()
           ],
         ),
       ),

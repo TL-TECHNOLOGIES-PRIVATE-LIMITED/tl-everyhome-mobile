@@ -1,7 +1,7 @@
 import 'package:every_home/presentation/modules/customer/home_screen/widgets/custom_search_badge.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/widgets/custom_service_section.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/widgets/custom_work_schedule_tile.dart';
-import 'package:every_home/presentation/widgets/CustomFormField.dart';
+import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -32,9 +32,15 @@ class CusHomeScreen extends StatelessWidget {
                 children: [
                   ListTile(
                     leading: Stack(
-                      children: const [
-                        CircleAvatar(),
-                        Positioned(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed('/cus_profile_screen');
+                          },
+                          child: const CircleAvatar(),
+                        ),
+                        const Positioned(
                           bottom: 0,
                           right: 0,
                           child: CircleAvatar(

@@ -1,15 +1,21 @@
 import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/presentation/widgets/CustomFormField.dart';
-import 'package:every_home/presentation/widgets/CustomYellowButton.dart';
+import 'package:every_home/domain/validation/signin_screen/signin_validation.dart';
+import 'package:every_home/presentation/widgets/custom_form_field.dart';
+import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class CustomResetContainer extends StatelessWidget {
-  const CustomResetContainer({
+// ignore: must_be_immutable
+class CustomResetContainer extends StatelessWidget with InputValidationMixin {
+  CustomResetContainer({
     super.key,
   });
+  final formGlobalKey = GlobalKey<FormState>();
+  ValueNotifier<bool> hidePasswordNotifier = ValueNotifier(true);
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class CustomResetContainer extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: 0.5.sh,
+        // height: 0.5.sh,
         decoration: BoxDecoration(
           color: LigthColor().bgColorGrey,
           borderRadius: const BorderRadius.only(
@@ -57,19 +63,60 @@ class CustomResetContainer extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Form(
+                key: formGlobalKey,
                 child: Column(
-                  children: const [
+                  children: [
                     CustomFormField(
+                      controller: passwordController,
                       hintText: 'New Password',
-                      suffixIcon: Icon(MdiIcons.eyeOffOutline,
-                          color: Color(0xffBDBDBD)),
+
+                      textInputAction: TextInputAction.next,
+                      validator: (password) {
+                        if (isPasswordValid(password!)) {
+                          return null;
+                        } else {
+                          return 'Enter a valid password';
+                        }
+                      },
+                      // suffixIcon: Icon(MdiIcons.eyeOffOutline,
+                      //     color: Color(0xffBDBDBD)),
                     ),
-                    SizedBox(height: 16),
-                    CustomFormField(
-                      hintText: 'Confirm New Password',
-                      suffixIcon: Icon(MdiIcons.eyeOffOutline,
-                          color: Color(0xffBDBDBD)),
-                    ),
+                    const SizedBox(height: 16),
+                    ValueListenableBuilder(
+                        valueListenable: hidePasswordNotifier,
+                        builder: (context, value, _) {
+                          return CustomFormField(
+                            controller: confirmPasswordController,
+                            textInputAction: TextInputAction.done,
+                            hintText: 'Confirm New Password',
+                            obscureText: hidePasswordNotifier.value,
+                            validator: (password) {
+                              final passwordval = passwordController.value;
+                              final confirmPassword =
+                                  confirmPasswordController.value;
+                              if (isPasswordValid(password!)) {
+                                if (passwordval == confirmPassword) {
+                                  return null;
+                                } else {
+                                  return 'Password doesn\'t match';
+                                }
+                              } else {
+                                return 'Enter a valid password';
+                              }
+                            },
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                hidePasswordNotifier.value =
+                                    !hidePasswordNotifier.value;
+                              },
+                              child: value
+                                  ? const Icon(MdiIcons.eyeOffOutline,
+                                      color: Color(0xffBDBDBD))
+                                  : const Icon(MdiIcons.eyeOutline,
+                                      color: Color(0xffBDBDBD)),
+                            ),
+                          );
+                        }),
                   ],
                 ),
               ),
@@ -79,8 +126,11 @@ class CustomResetContainer extends StatelessWidget {
                 label: 'Submit',
                 labelColor: LigthColor().buttonTextColorWhite,
                 onPress: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/signin_screen', (route) => false);
+                  // final confirmPassword = confirmPasswordController.value;
+                  if (formGlobalKey.currentState!.validate()) {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/signin_screen', (route) => false);
+                  }
                 },
               ),
             ],

@@ -1,8 +1,8 @@
 import 'package:every_home/domain/core/theme.dart';
 import 'package:flutter/material.dart';
 
-class CustomSignUpText extends StatelessWidget {
-  const CustomSignUpText({
+class CustomSignInText extends StatelessWidget {
+  const CustomSignInText({
     super.key,
   });
 
