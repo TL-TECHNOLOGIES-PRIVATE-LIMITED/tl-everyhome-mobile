@@ -105,19 +105,21 @@ class CustomLoginContainer extends StatelessWidget with InputValidationMixin {
                 ),
               ),
               SizedBox(height: 35.h),
-              CustomYellowButton(
-                label: 'Login',
-                bgColor: LigthColor().buttonColorYellow,
-                labelColor: LigthColor().buttonTextColorWhite,
-                onPress: () {
-                  //TODO need to change pushNamed to pushNamedAndRemoveUntil
-                  if (formGlobalKey.currentState!.validate()) {
-                    // formGlobalKey.currentState!.save();
-                    Navigator.of(context).pushNamed('/cus_main_screen');
+              Center(
+                child: CustomYellowButton(
+                  label: 'Login',
+                  bgColor: LigthColor().buttonColorYellow,
+                  labelColor: LigthColor().buttonTextColorWhite,
+                  onPress: () {
+                    //TODO need to change pushNamed to pushNamedAndRemoveUntil
+                    if (formGlobalKey.currentState!.validate()) {
+                      // formGlobalKey.currentState!.save();
+                      Navigator.of(context).pushNamed('/cus_main_screen');
 
-                    // use the email provided here
-                  }
-                },
+                      // use the email provided here
+                    }
+                  },
+                ),
               ),
               SizedBox(height: 25.h),
               GestureDetector(

@@ -31,8 +31,7 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
         backgroundColor: LigthColor().bgColorGrey,
         body: Stack(
           children: [
-            // Image.asset('assets/logo/logo_outline_right.png'),
-            SizedBox(height: 100.h),
+            // Image.asset('assets/logo/logo_outline_right.png')
             SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(30.0),
@@ -43,18 +42,21 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
                     // mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(
-                        width: 239.w,
-                        height: 96.h,
+                        height: 0.05.sh,
+                      ),
+                      SizedBox(
+                        // width: 239.w,
+                        // height: 96.h,
                         child: Text(
                           'Create your Account',
                           style: TextStyle(
-                            fontSize: 40.sp,
+                            fontSize: 0.06.sh,
                             fontWeight: FontWeight.w500,
                             color: const Color(0xffFFFFFF),
                           ),
                         ),
                       ),
-                      SizedBox(height: 40.h),
+                      SizedBox(height: 25.h),
                       CustomFormField(
                         hintText: 'Full Name',
                         textInputAction: TextInputAction.next,
@@ -146,43 +148,51 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
                           }),
                       SizedBox(height: 30.h),
                       // TODO sign up button logic implemetation
-                      CustomYellowButton(
-                        bgColor: LigthColor().buttonColorYellow,
-                        label: 'Sign Up',
-                        labelColor: LigthColor().buttonTextColorWhite,
-                        onPress: () {
-                          if (formGlobalKey.currentState!.validate()) {
-                            Navigator.of(context).pushNamedAndRemoveUntil(
-                                '/otp_screen', (route) => false);
-                          }
-                        },
+                      Center(
+                        child: CustomYellowButton(
+                          bgColor: LigthColor().buttonColorYellow,
+                          label: 'Sign Up',
+                          labelColor: LigthColor().buttonTextColorWhite,
+                          onPress: () {
+                            if (formGlobalKey.currentState!.validate()) {
+                              Navigator.of(context).pushNamedAndRemoveUntil(
+                                  '/otp_screen', (route) => false);
+                            }
+                          },
+                        ),
                       ),
                       SizedBox(height: 20.h),
-                      SizedBox(
-                        width: 0.9.sw,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset('assets/polygons/line.png'),
-                            const Text(
-                              'or continue with',
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400,
+                      Center(
+                        child: SizedBox(
+                          width: 0.9.sw,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset('assets/polygons/line.png'),
+                              Text(
+                                'or continue with',
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                            Image.asset('assets/polygons/line.png'),
-                          ],
+                              Image.asset('assets/polygons/line.png'),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 30.h),
-                      CustomFacebookButton(
-                        onPress: () {},
+                      Center(
+                        child: CustomFacebookButton(
+                          onPress: () {},
+                        ),
                       ),
                       SizedBox(height: 20.h),
-                      CustomGoogleButton(
-                        onPress: () {},
+                      Center(
+                        child: CustomGoogleButton(
+                          onPress: () {},
+                        ),
                       ),
                       SizedBox(height: 40.h),
                       GestureDetector(

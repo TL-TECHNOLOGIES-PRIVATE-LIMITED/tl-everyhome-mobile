@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
@@ -25,27 +26,29 @@ class CustomFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: TextFormField(
-        style: const TextStyle(
-          color: Colors.black,
-        ),
-        obscureText: obscureText ?? false,
-        keyboardType: keyboardType,
-        textInputAction: textInputAction,
-        controller: controller,
-        onChanged: onChanged,
-        validator: validator,
-        decoration: InputDecoration(
-          suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
-          border: InputBorder.none,
-          filled: true,
-          fillColor: const Color(0xffE8E8E8),
-          hintText: hintText,
-          hintStyle: const TextStyle(
-            color: Color(0xffBDBDBD),
+    return SizedBox(
+      // height: MediaQuery.of(context).size.height,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: TextFormField(
+          style: TextStyle(color: Colors.black, fontSize: 14.sp),
+          obscureText: obscureText ?? false,
+          keyboardType: keyboardType,
+          textInputAction: textInputAction,
+          controller: controller,
+          onChanged: onChanged,
+          validator: validator,
+          decoration: InputDecoration(
+            suffixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
+            suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon,
+            border: InputBorder.none,
+            filled: true,
+            fillColor: const Color(0xffE8E8E8),
+            hintText: hintText,
+            hintStyle: const TextStyle(
+              color: Color(0xffBDBDBD),
+            ),
           ),
         ),
       ),

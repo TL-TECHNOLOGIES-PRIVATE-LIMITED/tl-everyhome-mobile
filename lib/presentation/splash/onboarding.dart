@@ -18,9 +18,9 @@ class Onboarding extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Positioned(
-            top: 0.2.sh,
-            left: 120.w,
+          Positioned.fill(
+            bottom: 0.5.sh,
+            // left: 120.w,
             child: Align(
               child: Text(
                 'Welcome',
@@ -32,20 +32,22 @@ class Onboarding extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 0.28.sh,
-            left: 0.1.sw,
-            child: SizedBox(
-                width: 335,
-                child: Text(
-                  'Professional Services & Product Details a Click Away',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 23.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF111D1E),
-                  ),
-                )),
+          Positioned.fill(
+            bottom: 0.35.sh,
+            // left: 0.1.sw,
+            child: Align(
+              child: SizedBox(
+                  width: 335,
+                  child: Text(
+                    'Professional Services & Product Details a Click Away',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 23.sp,
+                      fontWeight: FontWeight.w500,
+                      color: const Color(0xFF111D1E),
+                    ),
+                  )),
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -79,9 +81,8 @@ class Onboarding extends StatelessWidget {
             right: 0.15.sw,
             child: Image.asset('assets/polygons/polygon_3.png'),
           ),
-          Positioned(
+          Positioned.fill(
             bottom: 90.h,
-            left: 45.w,
             child: Align(
               alignment: Alignment.bottomCenter,
               child: CustomYellowButton(
