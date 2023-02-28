@@ -13,6 +13,10 @@ class CustomFormField extends StatelessWidget {
     this.obscureText,
     this.keyboardType,
     this.textInputAction,
+    this.maxLines,
+    this.minLines,
+    this.initialValue,
+    this.readOnly,
   });
   final TextEditingController? controller;
   final String hintText;
@@ -23,6 +27,10 @@ class CustomFormField extends StatelessWidget {
   final bool? obscureText;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
+  final int? maxLines;
+  final int? minLines;
+  final String? initialValue;
+  final bool? readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +39,22 @@ class CustomFormField extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: TextFormField(
+          initialValue: initialValue,
           style: TextStyle(color: Colors.black, fontSize: 14.sp),
+          scrollPadding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom + 14.sp * 4),
           obscureText: obscureText ?? false,
           keyboardType: keyboardType,
           textInputAction: textInputAction,
           controller: controller,
           onChanged: onChanged,
           validator: validator,
+          maxLines: maxLines ?? 1,
+          minLines: minLines,
+          readOnly: readOnly ?? false,
           decoration: InputDecoration(
             suffixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
+            prefixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
             border: InputBorder.none,
