@@ -11,12 +11,17 @@ class NearByShopsList extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemCount: 5,
       itemBuilder: (context, index) {
-        return const CustomJobCard(
-          image: '',
-          jobTitle: 'Sijo Simon',
-          jobLocation: 'Trivandrum, Palayam',
-          rating: 3.5,
-          reviewCount: '6',
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed('/cus_view_job_card');
+          },
+          child: const CustomJobCard(
+            image: '',
+            jobTitle: 'Sijo Simon',
+            jobLocation: 'Trivandrum, Palayam',
+            rating: 3.5,
+            reviewCount: '6',
+          ),
         );
       },
     );
