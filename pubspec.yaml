@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  calendar_date_picker2: ^0.4.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -40,6 +41,7 @@ dependencies:
   pin_code_fields: ^7.4.0
   pinput: ^2.2.31
   provider: ^6.0.5
+  time_range: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

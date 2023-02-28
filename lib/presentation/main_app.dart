@@ -7,7 +7,7 @@ import 'package:every_home/presentation/login/sign_up_screen/sign_up_screen.dart
 import 'package:every_home/presentation/modules/customer/cus_book_worker/cus_book_worker.dart';
 import 'package:every_home/presentation/modules/customer/cus_main_screen/cus_main_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_screen/cus_profile_screen.dart';
-import 'package:every_home/presentation/modules/customer/date_and_time_screen/date_and_time_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_date_and_time_screen/cus_date_and_time_screen.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
 import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
@@ -51,7 +51,7 @@ class MainApp extends StatelessWidget {
                 '/cus_main_screen': (context) => CusMainScreen(),
                 '/cus_profile_screen': (context) => const CusProfileScreen(),
                 '/cus_book_worker': (context) => const CusBookWorker(),
-                '/date_and_time_screen': (context) => const DateAndTimeScreen(),
+                '/date_and_time_screen': (context) => CusDateAndTimeScreen(),
               },
             ),
           );
