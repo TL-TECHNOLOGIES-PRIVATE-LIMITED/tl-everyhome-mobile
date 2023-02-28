@@ -57,7 +57,7 @@ class CusDateAndTimeScreen extends StatelessWidget {
           onPress: () {
             //TODO book worker authentication
             // log(cusAddressContoller.text.toString());
-            Navigator.of(context).pushNamed('/date_and_time_screen');
+            Navigator.of(context).pushNamed('/cus_pick_price_range');
           },
         ),
       ),
