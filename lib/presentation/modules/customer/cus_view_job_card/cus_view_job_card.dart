@@ -1,69 +1,42 @@
+import 'package:every_home/presentation/modules/customer/cus_view_job_card/about_list.dart';
+import 'package:every_home/presentation/modules/customer/cus_view_job_card/portfolio_list.dart';
+import 'package:every_home/presentation/modules/customer/cus_view_job_card/reviews_list.dart';
+import 'package:every_home/presentation/modules/customer/cus_view_job_card/widgets/custom_bottom_button.dart';
+import 'package:every_home/presentation/modules/customer/cus_view_job_card/widgets/custom_profile_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CusViewJobCard extends StatelessWidget {
-  const CusViewJobCard({super.key});
+  CusViewJobCard({super.key});
+
+  final ValueNotifier<int> _indexNotifier = ValueNotifier(0);
+  final List<Widget> _pages = [
+    const AboutList(),
+    const ReviewsList(),
+    const PortfolioList(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(200.h),
-          child: ListTile(
-            leading: Stack(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushNamed('/cus_profile_screen');
-                  },
-                  child: const CircleAvatar(),
-                ),
-                const Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: CircleAvatar(
-                    radius: 5,
-                    backgroundColor: Colors.green,
-                  ),
-                )
-              ],
-            ),
-            title: const Padding(
-              padding: EdgeInsets.only(top: 8.0),
-              child: Text(
-                'Samuel john',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 19,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-            subtitle: Wrap(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: SvgPicture.asset('assets/icons/location_icon.svg'),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'Trivandrum, Palayam',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-              ],
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomProfileContainer(indexNotifier: _indexNotifier),
+          Expanded(
+            child: ValueListenableBuilder(
+              valueListenable: _indexNotifier,
+              builder: (context, newIndex, _) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: _pages[newIndex],
+                );
+              },
             ),
           ),
-        ),
+        ],
       ),
+      bottomNavigationBar: const CustomBottomButton(),
     );
   }
 }

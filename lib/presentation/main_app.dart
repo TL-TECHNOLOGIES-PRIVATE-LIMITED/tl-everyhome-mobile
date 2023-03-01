@@ -55,7 +55,7 @@ class MainApp extends StatelessWidget {
                 '/cus_book_worker': (context) => const CusBookWorker(),
                 '/date_and_time_screen': (context) => CusDateAndTimeScreen(),
                 '/cus_pick_price_range': (context) => CusPickPriceRange(),
-                '/cus_view_job_card': (context) => const CusViewJobCard(),
+                '/cus_view_job_card': (context) =>  CusViewJobCard(),
               },
             ),
           );

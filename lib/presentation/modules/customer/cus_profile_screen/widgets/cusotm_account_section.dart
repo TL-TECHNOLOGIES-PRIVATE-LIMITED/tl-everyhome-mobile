@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -86,7 +85,11 @@ class CustomAccountSection extends StatelessWidget {
               spacing: 5,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                SvgPicture.asset('assets/profile/product_owner_profile.svg'),
+                SvgPicture.asset(
+                  'assets/profile/product_owner_profile.svg',
+                  height: 40,
+                  width: 40,
+                ),
                 Text(
                   'Product Owner',
                   style: TextStyle(
