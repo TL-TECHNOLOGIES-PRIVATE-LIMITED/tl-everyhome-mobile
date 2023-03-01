@@ -10,6 +10,7 @@ class CustomJobCard extends StatelessWidget {
     required this.jobLocation,
     required this.rating,
     required this.reviewCount,
+    this.isFavourite,
   });
 
   final String image;
@@ -17,6 +18,7 @@ class CustomJobCard extends StatelessWidget {
   final String jobLocation;
   final double rating;
   final String reviewCount;
+  final bool? isFavourite;
 
   @override
   Widget build(BuildContext context) {
@@ -115,11 +117,17 @@ class CustomJobCard extends StatelessWidget {
                 // runAlignment: WrapAlignment.spaceBetween,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.amber,
-                    size: 18.h,
-                  ),
+                  isFavourite!
+                      ? Icon(
+                          Icons.favorite,
+                          color: Colors.amber,
+                          size: 18.h,
+                        )
+                      : Icon(
+                          Icons.favorite_border,
+                          color: Colors.amber,
+                          size: 18.h,
+                        ),
                   const Icon(
                     Icons.arrow_forward_ios,
                     size: 14,

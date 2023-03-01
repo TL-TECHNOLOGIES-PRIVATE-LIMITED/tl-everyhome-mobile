@@ -1,4 +1,4 @@
-import 'package:every_home/presentation/modules/customer/cus_pick_price_range/widgets/custom_job_card.dart';
+import 'package:every_home/presentation/modules/customer/widgets/custom_job_card.dart';
 import 'package:flutter/material.dart';
 
 class EnablerList extends StatelessWidget {

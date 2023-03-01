@@ -1,3 +1,4 @@
+import 'package:every_home/presentation/modules/customer/widgets/custom_job_card.dart';
 import 'package:flutter/material.dart';
 
 class CusFavouritesScreen extends StatelessWidget {
@@ -10,8 +11,21 @@ class CusFavouritesScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: const Text('Favourites'),
       ),
-      body: const Center(
-        child: Text('Favourites Screen'),
+      body: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(top: 10),
+        itemCount: 20,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return const CustomJobCard(
+            image: '',
+            jobTitle: 'Sijo Simon',
+            jobLocation: 'Kottayam, Changhanasseri',
+            rating: 3,
+            reviewCount: '10',
+            isFavourite: true,
+          );
+        },
       ),
     );
   }
