@@ -43,6 +43,11 @@ class _CusBookWorkerState extends State<CusBookWorker> {
       child: Scaffold(
         backgroundColor: LigthColor().bgColorGrey,
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new_outlined,
+                color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           elevation: 0,
           title: Text(args.toString()),
         ),

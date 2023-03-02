@@ -1,4 +1,3 @@
-
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/widgets/custom_job_details_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -16,8 +15,11 @@ class CustomProfileContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 428;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
     return SizedBox(
-      height: 370.h,
+      height: 330 * fem,
       child: Stack(
         children: [
           ClipRRect(
@@ -25,8 +27,7 @@ class CustomProfileContainer extends StatelessWidget {
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10)),
             child: Container(
-              height: 320.h,
-              width: double.infinity,
+              // height: 340.h,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -35,11 +36,14 @@ class CustomProfileContainer extends StatelessWidget {
                   ],
                 ),
               ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: MediaQuery.of(context).viewPadding.top,
-                    child: SizedBox(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 30.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).viewPadding.top),
+                    SizedBox(
                       width: 1.sw,
                       child: Row(
                         children: [
@@ -63,65 +67,58 @@ class CustomProfileContainer extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
-                  Positioned.fill(
-                    child: Align(
-                      child: ListTile(
-                        leading: Stack(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: const CircleAvatar(),
-                            ),
-                            const Positioned(
-                              bottom: 0,
-                              right: 0,
-                              child: CircleAvatar(
-                                radius: 5,
-                                backgroundColor: Colors.green,
-                              ),
-                            )
-                          ],
-                        ),
-                        title: const Padding(
-                          padding: EdgeInsets.only(top: 8.0),
-                          child: Text(
-                            'Samuel john',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500,
-                            ),
+                    ListTile(
+                      dense: true,
+                      visualDensity:
+                          const VisualDensity(horizontal: 0, vertical: -4),
+                      leading: Stack(
+                        children: [
+                          GestureDetector(
+                            onTap: () {},
+                            child: const CircleAvatar(),
                           ),
-                        ),
-                        subtitle: Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/location_icon.svg',
-                              height: 15,
-                              width: 15,
+                          const Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: CircleAvatar(
+                              radius: 5,
+                              backgroundColor: Colors.green,
                             ),
-                            const Padding(
-                              padding: EdgeInsets.all(4.0),
-                              child: Text(
-                                'Trivandrum, Palayam',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ],
+                          )
+                        ],
+                      ),
+                      title: Text(
+                        'Samuel john',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
+                      subtitle: Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/icons/location_icon.svg',
+                            height: 15,
+                            width: 15,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Text(
+                              'Trivandrum, Palayam',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Positioned.fill(
-                    top: 80.h,
-                    right: 160.w,
-                    child: Align(
+                    Padding(
+                      padding: EdgeInsets.only(left: .18.sw, bottom: 20.h),
                       child: Wrap(
                         spacing: 5,
                         children: [
@@ -152,10 +149,7 @@ class CustomProfileContainer extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
-                  Positioned.fill(
-                    top: 200.h,
-                    child: Align(
+                    Align(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: const [
@@ -177,14 +171,16 @@ class CustomProfileContainer extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
-          Positioned.fill(
-            top: 270.h,
+          Positioned(
+            top: 270 * fem,
+            left: 75 * fem,
             child: Align(
+              alignment: Alignment.bottomCenter,
               child: ValueListenableBuilder(
                   valueListenable: _indexNotifier,
                   builder: (context, newIndex, _) {
@@ -204,8 +200,7 @@ class CustomProfileContainer extends StatelessWidget {
                       selectionIndex: newIndex,
                       children: {
                         0: Padding(
-                            padding:
-                                EdgeInsets.symmetric(horizontal: 25.h),
+                            padding: EdgeInsets.symmetric(horizontal: 25.h),
                             child: const Text('About')),
                         1: const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 10),
@@ -223,4 +218,3 @@ class CustomProfileContainer extends StatelessWidget {
     );
   }
 }
-

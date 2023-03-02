@@ -14,9 +14,9 @@ class CusViewJobCard extends StatelessWidget {
     const ReviewsList(),
     const PortfolioList(),
   ];
-
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.min,

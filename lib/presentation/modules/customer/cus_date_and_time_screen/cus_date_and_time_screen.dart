@@ -13,6 +13,11 @@ class CusDateAndTimeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_outlined,
+              color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         title: const Text('Select Date & Time'),
       ),
       body: Column(

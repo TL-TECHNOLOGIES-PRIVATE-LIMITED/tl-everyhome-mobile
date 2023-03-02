@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomJobCard extends StatelessWidget {
-  const CustomJobCard({
+class CustomWorkJobCard extends StatelessWidget {
+  const CustomWorkJobCard({
     super.key,
     required this.image,
     required this.jobTitle,
     required this.jobLocation,
-    required this.rating,
-    required this.reviewCount,
-    this.isFavourite,
+    required this.date,
+    required this.cardType,
+    required this.time,
+    required this.isPending,
+    required this.isActive,
   });
 
   final String image;
   final String jobTitle;
   final String jobLocation;
-  final double rating;
-  final String reviewCount;
-  final bool? isFavourite;
+  final String date;
+  final String cardType;
+  final String time;
+  final bool isPending;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
@@ -84,24 +87,48 @@ class CustomJobCard extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: Wrap(
                         spacing: 5,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
-                          RatingBar.builder(
-                            ignoreGestures: true,
-                            initialRating: rating,
-                            allowHalfRating: true,
-                            itemSize: 16,
-                            itemBuilder: (context, index) {
-                              return const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              );
-                            },
-                            onRatingUpdate: (value) {},
-                          ),
+                          isPending
+                              ? Text(
+                                  'Pending',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.clip,
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Colors.red,
+                                  ),
+                                )
+                              : isActive
+                                  ? Text(
+                                      'Active',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.clip,
+                                      style: TextStyle(
+                                        fontSize: 12.sp,
+                                        color: Colors.green,
+                                      ),
+                                    )
+                                  : Text(
+                                      'Completed',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.clip,
+                                      style: TextStyle(
+                                        fontSize: 12.sp,
+                                        color: Colors.amber,
+                                      ),
+                                    ),
                           Text(
-                            '$rating($reviewCount Reviews)',
+                            date,
                             maxLines: 1,
                             overflow: TextOverflow.clip,
+                            style: TextStyle(fontSize: 12.sp),
+                          ),
+                          Text(
+                            time,
+                            maxLines: 1,
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(fontSize: 12.sp),
                           ),
                         ],
                       ),
@@ -113,35 +140,13 @@ class CustomJobCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                // direction: Axis.vertical,
-                // runAlignment: WrapAlignment.spaceBetween,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  isFavourite ?? true
-                      ? Icon(
-                          Icons.favorite,
-                          color: Colors.amber,
-                          size: 18.h,
-                        )
-                      : Icon(
-                          Icons.favorite_border,
-                          color: Colors.amber,
-                          size: 18.h,
-                        ),
-                  const Icon(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(
                     Icons.arrow_forward_ios,
                     size: 14,
                     color: Color(0xffC7C7C7),
                   ),
-                  SizedBox(
-                    height: 12,
-                    width: 12,
-                    child: Checkbox(
-                      tristate: true,
-                      value: false,
-                      onChanged: (value) {},
-                    ),
-                  )
                 ],
               ),
             )

@@ -6,6 +6,7 @@ import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
+import 'package:quickalert/quickalert.dart';
 
 class CusPickPriceRange extends StatelessWidget {
   CusPickPriceRange({super.key});
@@ -22,6 +23,11 @@ class CusPickPriceRange extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_outlined,
+              color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         title: const Text('Select Price Range'),
         elevation: 0,
         bottom: AppBar(
@@ -164,8 +170,16 @@ class CusPickPriceRange extends StatelessWidget {
           onPress: () {
             //TODO book worker authentication
             // log(cusAddressContoller.text.toString());
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/cus_main_screen', (route) => false);
+            QuickAlert.show(
+                context: context,
+                type: QuickAlertType.success,
+                text: 'Your request has submitted succesfully',
+                confirmBtnColor: const Color(0xffFEBA45),
+                autoCloseDuration: const Duration(seconds: 5),
+                onConfirmBtnTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/cus_main_screen', (route) => false);
+                });
           },
         ),
       ),

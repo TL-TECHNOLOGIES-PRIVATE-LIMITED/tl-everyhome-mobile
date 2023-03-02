@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -49,7 +48,7 @@ class CustomBottomButton extends StatelessWidget {
               children: [
                 SvgPicture.asset('assets/icons/chat_icon.svg'),
                 const Text(
-                  'Call',
+                  'Chat',
                   style: TextStyle(
                     color: Color(0xffFFFFFF),
                   ),

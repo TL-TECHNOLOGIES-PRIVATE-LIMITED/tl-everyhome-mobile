@@ -1,4 +1,4 @@
-import 'package:every_home/presentation/modules/customer/cus_profile_screen/widgets/cusotm_account_section.dart';
+import 'package:every_home/presentation/modules/customer/cus_profile_screen/widgets/custom_account_section.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_screen/widgets/custom_profile_container.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_screen/widgets/custom_profile_tile.dart';
 import 'package:flutter/material.dart';
@@ -34,23 +34,23 @@ class CusProfileScreen extends StatelessWidget {
             ),
             const CustomProfileTile(
               title: 'My Address',
-              icon: IconlyLight.wallet,
+              icon: IconlyLight.discovery,
             ),
             const CustomProfileTile(
               title: 'Support',
-              icon: IconlyLight.wallet,
+              icon: IconlyLight.info_circle,
             ),
             const CustomProfileTile(
               title: 'FAQ',
-              icon: IconlyLight.wallet,
+              icon: IconlyLight.shield_done,
             ),
             const CustomProfileTile(
               title: 'Refer & Earn',
-              icon: IconlyLight.wallet,
+              icon: IconlyLight.chat,
             ),
             const CustomProfileTile(
               title: 'Logout',
-              icon: IconlyLight.wallet,
+              icon: IconlyLight.logout,
             ),
             SizedBox(height: 50.h),
           ],

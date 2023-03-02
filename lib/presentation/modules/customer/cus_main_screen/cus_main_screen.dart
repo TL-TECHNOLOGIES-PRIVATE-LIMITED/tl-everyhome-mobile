@@ -10,7 +10,7 @@ class CusMainScreen extends StatelessWidget {
 
   final _cusPages = [
     const CusHomeScreen(),
-    const CusWorksScreeen(),
+    CusWorksScreeen(),
     const CusWalletScreen(),
     const CusFavouritesScreen(),
   ];

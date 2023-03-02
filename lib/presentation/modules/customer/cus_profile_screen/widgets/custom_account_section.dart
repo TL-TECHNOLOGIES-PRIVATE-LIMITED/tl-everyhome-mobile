@@ -66,40 +66,38 @@ class CustomAccountSection extends StatelessWidget {
             ],
           )),
         ),
-        ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(10),
-            bottomRight: Radius.circular(10),
-          ),
-          child: Container(
-            height: 100.h,
-            width: 120.w,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: const Color(0xffFEBA45),
-              ),
+        Container(
+          height: 100.h,
+          width: 120.w,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(10),
+              bottomRight: Radius.circular(10),
             ),
-            child: Center(
-                child: Wrap(
-              direction: Axis.vertical,
-              spacing: 5,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  'assets/profile/product_owner_profile.svg',
-                  height: 40,
-                  width: 40,
-                ),
-                Text(
-                  'Product Owner',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            )),
+            border: Border.all(
+              color: const Color(0xffFEBA45),
+            ),
           ),
+          child: Center(
+              child: Wrap(
+            direction: Axis.vertical,
+            spacing: 5,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'assets/profile/product_owner_profile.svg',
+                height: 40,
+                width: 40,
+              ),
+              Text(
+                'Product Owner',
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              )
+            ],
+          )),
         ),
       ],
     );

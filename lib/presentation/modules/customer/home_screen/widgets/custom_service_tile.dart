@@ -17,9 +17,11 @@ class CustomServicesTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        decoration: BoxDecoration(
+            color: const Color(0xffD9D9D9),
+            borderRadius: BorderRadius.circular(10)),
         height: 72,
         width: 72,
-        color: const Color(0xffD9D9D9),
         child: Center(
           child: Wrap(
               direction: Axis.vertical,
