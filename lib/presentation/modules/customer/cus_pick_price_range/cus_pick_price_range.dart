@@ -166,7 +166,7 @@ class CusPickPriceRange extends StatelessWidget {
         child: CustomYellowButton(
           label: 'Send Request',
           bgColor: const Color(0xffFFA610),
-          labelColor: const Color(0xff000000),
+          labelColor: Colors.white,
           onPress: () {
             //TODO book worker authentication
             // log(cusAddressContoller.text.toString());

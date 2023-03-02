@@ -26,7 +26,7 @@ class CustomYellowButton extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          fontSize: 23,
+          fontSize: 20.sp,
           fontWeight: FontWeight.w500,
           color: labelColor,
         ),

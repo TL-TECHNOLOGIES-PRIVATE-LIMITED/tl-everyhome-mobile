@@ -20,6 +20,11 @@ class CustomFormField extends StatelessWidget {
     this.border,
     this.fillColor,
     this.filled,
+    this.errorBorder,
+    this.focusedBorder,
+    this.focusedErrorBorder,
+    this.disabledBorder,
+    this.enabledBorder,
   });
   final TextEditingController? controller;
   final String hintText;
@@ -37,6 +42,11 @@ class CustomFormField extends StatelessWidget {
   final InputBorder? border;
   final Color? fillColor;
   final bool? filled;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedBorder;
+  final InputBorder? focusedErrorBorder;
+  final InputBorder? disabledBorder;
+  final InputBorder? enabledBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +71,11 @@ class CustomFormField extends StatelessWidget {
           prefixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
+          errorBorder: errorBorder,
+          focusedBorder: focusedBorder,
+          focusedErrorBorder: focusedErrorBorder,
+          disabledBorder: disabledBorder,
+          enabledBorder: enabledBorder,
           border: border ??
               OutlineInputBorder(
                 borderSide: BorderSide.none,

@@ -93,9 +93,6 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                   builder: (context, value, _) {
                     return CustomFormField(
                       controller: cusAddressContoller,
-                      // onChanged: (value) {
-                      //   cusAddressContoller.text = value;
-                      // },
                       prefixIcon: const Icon(
                         Icons.home,
                         color: Color(0xffFEBA45),
@@ -109,6 +106,11 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                           Icons.edit_location_alt_outlined,
                           color: Colors.grey,
                         ),
+                      ),
+
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.amber),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       hintText: 'Enter your address',
                       maxLines: 5,
