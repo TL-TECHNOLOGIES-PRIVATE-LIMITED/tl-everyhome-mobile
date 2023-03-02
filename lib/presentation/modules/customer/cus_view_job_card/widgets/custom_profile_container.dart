@@ -15,14 +15,11 @@ class CustomProfileContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 428;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
-    return SizedBox(
-      height: 330 * fem,
-      child: Stack(
-        children: [
-          ClipRRect(
+    return Stack(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(bottom: 30.h),
+          child: ClipRRect(
             borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10)),
@@ -176,45 +173,43 @@ class CustomProfileContainer extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 270 * fem,
-            left: 75 * fem,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: ValueListenableBuilder(
-                  valueListenable: _indexNotifier,
-                  builder: (context, newIndex, _) {
-                    return MaterialSegmentedControl(
-                      verticalOffset: 10.w,
-                      horizontalPadding: const EdgeInsets.all(10),
-                      borderWidth: 1,
-                      selectedColor: const Color(0xffFEBA45),
-                      onSegmentTapped: (value) {
-                        _indexNotifier.value = value;
-                      },
-                      unselectedColor: const Color(0xffE9E9E9),
-                      unselectedTextStyle:
-                          const TextStyle(color: Color(0xff727272)),
-                      selectedTextStyle:
-                          const TextStyle(color: Color(0xff252C35)),
-                      selectionIndex: newIndex,
-                      children: {
-                        0: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 25.h),
-                            child: const Text('About')),
-                        1: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text('Reviews')),
-                        2: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text('Portfolio')),
-                      },
-                    );
-                  }),
-            ),
+        ),
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: ValueListenableBuilder(
+                valueListenable: _indexNotifier,
+                builder: (context, newIndex, _) {
+                  return MaterialSegmentedControl(
+                    verticalOffset: 10.w,
+                    horizontalPadding: const EdgeInsets.all(10),
+                    borderWidth: 1,
+                    selectedColor: const Color(0xffFEBA45),
+                    onSegmentTapped: (value) {
+                      _indexNotifier.value = value;
+                    },
+                    unselectedColor: const Color(0xffE9E9E9),
+                    unselectedTextStyle:
+                        const TextStyle(color: Color(0xff727272)),
+                    selectedTextStyle:
+                        const TextStyle(color: Color(0xff252C35)),
+                    selectionIndex: newIndex,
+                    children: {
+                      0: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.h),
+                          child: const Text('About')),
+                      1: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('Reviews')),
+                      2: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('Portfolio')),
+                    },
+                  );
+                }),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

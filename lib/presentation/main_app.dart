@@ -10,6 +10,8 @@ import 'package:every_home/presentation/modules/customer/cus_pick_price_range/cu
 import 'package:every_home/presentation/modules/customer/cus_profile_screen/cus_profile_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_date_and_time_screen/cus_date_and_time_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/cus_view_job_card.dart';
+import 'package:every_home/presentation/modules/customer/cus_worker_negotiate_screen/cus_worker_negotiate_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_worker_rating_screen/cus_worker_rating_screen.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
 import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
@@ -56,6 +58,10 @@ class MainApp extends StatelessWidget {
                 '/date_and_time_screen': (context) => CusDateAndTimeScreen(),
                 '/cus_pick_price_range': (context) => CusPickPriceRange(),
                 '/cus_view_job_card': (context) => CusViewJobCard(),
+                '/cus_worker_rating_screen': (context) =>
+                    const CusWorkerRatingScreen(),
+                '/cus_worker_negotiate_screen': (context) =>
+                    const CusWorkerNegotiateScreen()
               },
             ),
           );

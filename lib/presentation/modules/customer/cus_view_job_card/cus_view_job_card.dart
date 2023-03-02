@@ -10,13 +10,12 @@ class CusViewJobCard extends StatelessWidget {
 
   final ValueNotifier<int> _indexNotifier = ValueNotifier(0);
   final List<Widget> _pages = [
-    const AboutList(),
     const ReviewsList(),
+    const AboutList(),
     const PortfolioList(),
   ];
   @override
   Widget build(BuildContext context) {
- 
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.min,
@@ -27,10 +26,7 @@ class CusViewJobCard extends StatelessWidget {
             child: ValueListenableBuilder(
               valueListenable: _indexNotifier,
               builder: (context, newIndex, _) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: _pages[newIndex],
-                );
+                return _pages[newIndex];
               },
             ),
           ),

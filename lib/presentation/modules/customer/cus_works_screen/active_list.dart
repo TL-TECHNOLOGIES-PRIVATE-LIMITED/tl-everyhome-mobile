@@ -12,15 +12,20 @@ class ActiveList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: 10,
       itemBuilder: (context, index) {
-        return const CustomWorkJobCard(
-          image: '',
-          jobTitle: 'Celing light repairing',
-          jobLocation: 'Ernakkulam, Kakkanad',
-          cardType: 'Pending',
-          date: '01 oct 2022',
-          time: '9:00 AM',
-          isActive: true,
-          isPending: false,
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed('/cus_worker_rating_screen');
+          },
+          child: const CustomWorkJobCard(
+            image: '',
+            jobTitle: 'Celing light repairing',
+            jobLocation: 'Ernakkulam, Kakkanad',
+            cardType: 'Pending',
+            date: '01 oct 2022',
+            time: '9:00 AM',
+            isActive: true,
+            isPending: false,
+          ),
         );
       },
     );

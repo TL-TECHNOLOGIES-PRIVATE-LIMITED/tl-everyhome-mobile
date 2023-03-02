@@ -15,131 +15,125 @@ class CustomAppbarContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 428;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
-    return SizedBox(
-      // height: 200 * fem,
-      child: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: 30.h),
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10)),
-              child: Container(
-                // height: 340.h,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xff22262B),
-                      Color(0xFF252E39),
-                    ],
-                  ),
+    return Stack(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(bottom: 30.h),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10)),
+            child: Container(
+              // height: 340.h,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xff22262B),
+                    Color(0xFF252E39),
+                  ],
                 ),
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 30.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(height: MediaQuery.of(context).viewPadding.top),
-                      SizedBox(
-                        width: 1.sw,
-                        child: Row(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: const Icon(
-                                Icons.arrow_back_ios_new,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              'Works Lists',
-                              style: TextStyle(
-                                color: const Color(0xffFFFDFD),
-                                fontSize: 24.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 30.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).viewPadding.top),
+                    SizedBox(
+                      width: 1.sw,
+                      child: Row(
                         children: [
-                          SizedBox(
-                            width: 0.75.sw,
-                            child: const CustomFormField(
-                                prefixIcon: Icon(
-                                  IconlyLight.search,
-                                  color: Colors.black,
-                                ),
-                                hintText: 'Search your Requirements'),
-                          ),
-                          SizedBox(width: 0.02.sh),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Container(
-                              height: 50,
-                              width: 50,
+                          IconButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_ios_new,
                               color: Colors.white,
-                              child: Center(
-                                child: SvgPicture.asset(
-                                  'assets/icons/filter_icon.svg',
-                                ),
-                              ),
+                            ),
+                          ),
+                          Text(
+                            'Works Lists',
+                            style: TextStyle(
+                              color: const Color(0xffFFFDFD),
+                              fontSize: 24.sp,
+                              fontWeight: FontWeight.w400,
                             ),
                           )
                         ],
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 0.75.sw,
+                          child: const CustomFormField(
+                              prefixIcon: Icon(
+                                IconlyLight.search,
+                                color: Colors.black,
+                              ),
+                              hintText: 'Search your Requirements'),
+                        ),
+                        SizedBox(width: 0.02.sh),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            color: Colors.white,
+                            child: Center(
+                              child: SvgPicture.asset(
+                                'assets/icons/filter_icon.svg',
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
                 ),
               ),
             ),
           ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: ValueListenableBuilder(
-                  valueListenable: _indexNotifier,
-                  builder: (context, newIndex, _) {
-                    return MaterialSegmentedControl(
-                      verticalOffset: 10.w,
-                      horizontalPadding: const EdgeInsets.all(10),
-                      borderWidth: 1,
-                      selectedColor: const Color(0xffFEBA45),
-                      onSegmentTapped: (value) {
-                        _indexNotifier.value = value;
-                      },
-                      unselectedColor: const Color(0xffE9E9E9),
-                      unselectedTextStyle:
-                          const TextStyle(color: Color(0xff727272)),
-                      selectedTextStyle:
-                          const TextStyle(color: Color(0xff252C35)),
-                      selectionIndex: newIndex,
-                      children: {
-                        0: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 25.h),
-                            child: const Text('Pending')),
-                        1: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text('Active')),
-                        2: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text('Completed')),
-                      },
-                    );
-                  }),
-            ),
+        ),
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: ValueListenableBuilder(
+                valueListenable: _indexNotifier,
+                builder: (context, newIndex, _) {
+                  return MaterialSegmentedControl(
+                    verticalOffset: 10.w,
+                    horizontalPadding: const EdgeInsets.all(10),
+                    borderWidth: 1,
+                    selectedColor: const Color(0xffFEBA45),
+                    onSegmentTapped: (value) {
+                      _indexNotifier.value = value;
+                    },
+                    unselectedColor: const Color(0xffE9E9E9),
+                    unselectedTextStyle:
+                        const TextStyle(color: Color(0xff727272)),
+                    selectedTextStyle:
+                        const TextStyle(color: Color(0xff252C35)),
+                    selectionIndex: newIndex,
+                    children: {
+                      0: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 25.h),
+                          child: const Text('Pending')),
+                      1: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('Active')),
+                      2: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('Completed')),
+                    },
+                  );
+                }),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
