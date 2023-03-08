@@ -1,5 +1,5 @@
 import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/widgets/action_button.dart';
-import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/widgets/custom_ena_job_details_card.dart';
+import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_job_details_card.dart';
 import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/widgets/custom_ena_workers_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

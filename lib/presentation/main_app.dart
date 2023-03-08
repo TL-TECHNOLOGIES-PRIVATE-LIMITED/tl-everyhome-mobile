@@ -15,6 +15,7 @@ import 'package:every_home/presentation/modules/customer/cus_worker_rating_scree
 import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_home_screen/ena_home_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/ena_job_details_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_negotatiate_screen/ena_negotiate_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_notification_screen/ena_notification_screen.dart';
 import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
@@ -70,6 +71,8 @@ class MainApp extends StatelessWidget {
                     const EnaNotificationScreen(),
                 '/ena_job_details_screen': (context) =>
                     const EnaJobDetailsScreen(),
+                '/ena_negotiate_screen': (context) =>
+                    const EnaNegotiateScreen(),
               },
             ),
           );

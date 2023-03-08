@@ -18,17 +18,23 @@ class ActionButton extends StatelessWidget {
             shape: const StadiumBorder(),
             backgroundColor: const Color(0xffE83838),
           ),
-          child: const Text('Reject'),
+          child: Text(
+            'Reject',
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+          ),
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.of(context).pushNamed('/negotiate_screen');
+            Navigator.of(context).pushNamed('/ena_negotiate_screen');
           },
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
             minimumSize: Size(174.w, 50.h),
           ),
-          child: const Text('Negotiate'),
+          child: Text(
+            'Negotiate',
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+          ),
         )
       ],
     );
