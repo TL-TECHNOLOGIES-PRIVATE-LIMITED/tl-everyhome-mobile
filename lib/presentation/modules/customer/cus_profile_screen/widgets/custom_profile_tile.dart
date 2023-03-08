@@ -12,6 +12,7 @@ class CustomProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Padding(
       padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 24.h),
       child: Container(

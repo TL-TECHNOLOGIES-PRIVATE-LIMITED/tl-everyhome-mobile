@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:every_home/domain/dummy/db_function.dart';
 import 'package:every_home/presentation/modules/customer/cus_pick_price_range/enabler_list.dart';
 import 'package:every_home/presentation/modules/customer/cus_pick_price_range/near_by_shops_list.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
@@ -21,6 +22,7 @@ class CusPickPriceRange extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

@@ -1,3 +1,4 @@
+import 'package:every_home/domain/dummy/db_function.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/widgets/custom_search_badge.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/widgets/custom_service_section.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/widgets/custom_work_schedule_tile.dart';
@@ -12,6 +13,8 @@ class CusHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO customer dummy data
+    final customers = DBFunction().fetchCustomer();
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -35,10 +38,15 @@ class CusHomeScreen extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context)
-                                .pushNamed('/cus_profile_screen');
+                            //TODO customer details passing to profile page
+                            Navigator.of(context).pushNamed(
+                                '/cus_profile_screen',
+                                arguments: customers[1]);
                           },
-                          child: const CircleAvatar(),
+                          child: CircleAvatar(
+                            backgroundImage:
+                                AssetImage(customers[1].profilePic.toString()),
+                          ),
                         ),
                         const Positioned(
                           bottom: 0,
@@ -50,32 +58,43 @@ class CusHomeScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    title: const Padding(
-                      padding: EdgeInsets.only(top: 8.0),
+                    title: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        'Samuel john',
-                        style: TextStyle(
+                        //TODO customer name update
+                        customers[1].name.toString(),
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 19,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    subtitle: Wrap(
+                    subtitle: Row(
+                      // direction: Axis.horizontal,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: SvgPicture.asset(
-                              'assets/icons/location_icon.svg'),
+                            'assets/icons/location_icon.svg',
+                            height: 12,
+                            width: 12,
+                          ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            'Trivandrum, Palayam',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: SizedBox(
+                            width: 160.w,
+                            child: Text(
+                              //TODO customer place update
+                              customers[1].place.toString(),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ),
@@ -119,35 +138,33 @@ class CusHomeScreen extends StatelessWidget {
                 elevation: 0,
                 automaticallyImplyLeading: false,
                 toolbarHeight: 80,
-                title: Wrap(
-                  spacing: 10,
+                title: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Wrap(
-                      children: [
-                        SizedBox(
-                          width: 0.75.sw,
-                          child: const CustomFormField(
-                              prefixIcon: Icon(
-                                IconlyLight.search,
-                                color: Colors.black,
-                              ),
-                              hintText: 'Search your Requirements'),
-                        ),
-                        SizedBox(width: 0.02.sh),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.white,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/filter_icon.svg',
-                              ),
+                    SizedBox(
+                      width: 0.75.sw,
+                      child: const CustomFormField(
+                          prefixIcon: Icon(
+                            IconlyLight.search,
+                            color: Colors.black,
+                          ),
+                          hintText: 'Search your Requirements'),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Container(
+                        height: 65.h,
+                        color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              'assets/icons/filter_icon.svg',
                             ),
                           ),
-                        )
-                      ],
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -189,30 +206,44 @@ class CusHomeScreen extends StatelessWidget {
                       //TODO onTap of the offers section
                     },
                   ),
-                  SizedBox(
-                    height: 0.15.sh,
-                    width: 1.sw,
-                    child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 200,
-                            color: Colors.green[50],
-                          ),
-                        );
-                      },
-                    ),
+                  const CustomOffersContainer(
+                    offerImage: 'assets/persons/offer1.png',
                   )
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CustomOffersContainer extends StatelessWidget {
+  const CustomOffersContainer({
+    super.key,
+    required this.offerImage,
+  });
+  final String offerImage;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 0.15.sh,
+      width: 1.sw,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: 4,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: Image.asset(offerImage),
+            ),
+          );
+        },
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:every_home/domain/dummy/models/dummy_worker_model.dart';
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/widgets/custom_job_details_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -9,9 +10,11 @@ class CustomProfileContainer extends StatelessWidget {
   const CustomProfileContainer({
     super.key,
     required ValueNotifier<int> indexNotifier,
+    required this.data,
   }) : _indexNotifier = indexNotifier;
 
   final ValueNotifier<int> _indexNotifier;
+  final DummyWorker data;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +75,11 @@ class CustomProfileContainer extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {},
-                            child: const CircleAvatar(),
+                            child: CircleAvatar(
+                              //TODO profile image
+                              backgroundImage:
+                                  AssetImage(data.profilePic.toString()),
+                            ),
                           ),
                           const Positioned(
                             bottom: 0,
@@ -84,13 +91,38 @@ class CustomProfileContainer extends StatelessWidget {
                           )
                         ],
                       ),
-                      title: Text(
-                        'Samuel john',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      title: Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 5,
+                        children: [
+                          Text(
+                            //TODO profile name
+                            data.name.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: Text(
+                                '1000 INR/hr',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                       subtitle: Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
@@ -102,12 +134,17 @@ class CustomProfileContainer extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(4.0),
-                            child: Text(
-                              'Trivandrum, Palayam',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
+                            child: SizedBox(
+                              width: 200,
+                              child: Text(
+                                data.place.toString(),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
                           ),

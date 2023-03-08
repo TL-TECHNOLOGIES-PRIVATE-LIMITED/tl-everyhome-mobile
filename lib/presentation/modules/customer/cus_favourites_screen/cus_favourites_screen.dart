@@ -9,7 +9,7 @@ class CusFavouritesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Favourites'),
+        title: const Text('Favourites (20)'),
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),

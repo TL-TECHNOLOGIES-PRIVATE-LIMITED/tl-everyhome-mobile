@@ -44,21 +44,24 @@ class CustomAppbarContainer extends StatelessWidget {
                       width: 1.sw,
                       child: Row(
                         children: [
-                          IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: const Icon(
-                              Icons.arrow_back_ios_new,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            'Works Lists',
-                            style: TextStyle(
-                              color: const Color(0xffFFFDFD),
-                              fontSize: 24.sp,
-                              fontWeight: FontWeight.w400,
+                          // IconButton(
+                          //   onPressed: () {
+                          //     Navigator.of(context).pop();
+                          //   },
+                          //   icon: const Icon(
+                          //     Icons.arrow_back_ios_new,
+                          //     color: Colors.white,
+                          //   ),
+                          // ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Works Lists',
+                              style: TextStyle(
+                                color: const Color(0xffFFFDFD),
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           )
                         ],

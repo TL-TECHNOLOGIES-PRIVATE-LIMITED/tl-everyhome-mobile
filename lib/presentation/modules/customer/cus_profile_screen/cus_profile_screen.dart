@@ -1,3 +1,4 @@
+import 'package:every_home/domain/dummy/models/dummy_customer_model.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_screen/widgets/custom_account_section.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_screen/widgets/custom_profile_container.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_screen/widgets/custom_profile_tile.dart';
@@ -10,12 +11,18 @@ class CusProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO customer details recieving
+    final args = ModalRoute.of(context)!.settings.arguments as DummyCustomer;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomProfileContainer(),
+            //TODO customer details passing to customProfileContainer
+            CustomProfileContainer(
+              customerName: args.name.toString(),
+              customerProfilePic: args.profilePic.toString(),
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 30, top: 24, bottom: 16),
               child: Text(

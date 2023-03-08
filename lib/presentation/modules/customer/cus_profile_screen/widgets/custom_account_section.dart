@@ -24,21 +24,22 @@ class CustomAccountSection extends StatelessWidget {
               color: Colors.amber,
             ),
             child: Center(
-                child: Wrap(
-              direction: Axis.vertical,
-              spacing: 5,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                SvgPicture.asset('assets/profile/customer_profile.svg'),
-                Text(
-                  'Customer',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            )),
+              child: Wrap(
+                direction: Axis.vertical,
+                spacing: 5,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  SvgPicture.asset('assets/profile/customer_profile.svg'),
+                  Text(
+                    'Customer',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
         Container(

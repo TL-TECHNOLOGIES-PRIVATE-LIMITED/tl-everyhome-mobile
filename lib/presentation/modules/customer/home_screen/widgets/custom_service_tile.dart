@@ -18,8 +18,9 @@ class CustomServicesTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-            color: const Color(0xffD9D9D9),
-            borderRadius: BorderRadius.circular(10)),
+          color: const Color(0xffD9D9D9),
+          borderRadius: BorderRadius.circular(10),
+        ),
         height: 72,
         width: 72,
         child: Center(

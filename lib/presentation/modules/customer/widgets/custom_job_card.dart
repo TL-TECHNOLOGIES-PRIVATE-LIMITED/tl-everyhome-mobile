@@ -36,12 +36,18 @@ class CustomJobCard extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
-              child: Container(
-                height: 80.h,
-                width: 80.h,
-                decoration: BoxDecoration(
-                  color: Colors.amber,
-                  borderRadius: BorderRadius.circular(10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  height: 80.h,
+                  width: 80.h,
+                  decoration: const BoxDecoration(
+                    color: Colors.amber,
+                  ),
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -72,10 +78,13 @@ class CustomJobCard extends StatelessWidget {
                             Icons.location_on,
                             size: 16,
                           ),
-                          Text(
-                            jobLocation,
-                            maxLines: 1,
-                            overflow: TextOverflow.clip,
+                          SizedBox(
+                            width: 200,
+                            child: Text(
+                              jobLocation,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ],
                       ),

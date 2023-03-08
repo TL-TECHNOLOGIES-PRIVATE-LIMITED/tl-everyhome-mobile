@@ -4,7 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomProfileContainer extends StatelessWidget {
   const CustomProfileContainer({
     super.key,
+    required this.customerName,
+    required this.customerProfilePic,
   });
+
+  final String customerName;
+  final String customerProfilePic;
 
   @override
   Widget build(BuildContext context) {
@@ -54,24 +59,35 @@ class CustomProfileContainer extends StatelessWidget {
           ),
           Stack(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
+                backgroundImage: AssetImage(customerProfilePic),
                 radius: 50,
               ),
               Positioned(
                 bottom: 0,
                 right: 0,
-                child: Container(
-                  height: 35.h,
-                  width: 35.w,
-                  decoration: const BoxDecoration(
-                    color: Color(0xffFEBA45),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Center(
-                    child: Icon(
-                      Icons.camera_alt_outlined,
-                      color: Colors.black,
-                      size: 18,
+                child: GestureDetector(
+                  onTap: () async {
+                    // final cameras = await availableCameras();
+                    // final firstCamera = cameras.first;
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => TakePictureScreen(
+                    //           camera: firstCamera,
+                    //         )));
+                  },
+                  child: Container(
+                    height: 35.h,
+                    width: 35.w,
+                    decoration: const BoxDecoration(
+                      color: Color(0xffFEBA45),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Center(
+                      child: Icon(
+                        Icons.camera_alt_outlined,
+                        color: Colors.black,
+                        size: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -82,7 +98,7 @@ class CustomProfileContainer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 15.0),
             child: Text(
-              'Samuel john',
+              customerName,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20.sp,

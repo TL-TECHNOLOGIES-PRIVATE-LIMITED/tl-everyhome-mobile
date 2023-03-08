@@ -1,3 +1,4 @@
+import 'package:every_home/domain/dummy/models/dummy_worker_model.dart';
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/about_list.dart';
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/portfolio_list.dart';
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/reviews_list.dart';
@@ -16,12 +17,17 @@ class CusViewJobCard extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    //TODO dummy worker
+    final args = ModalRoute.of(context)!.settings.arguments as DummyWorker;
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomProfileContainer(indexNotifier: _indexNotifier),
+          CustomProfileContainer(
+            indexNotifier: _indexNotifier,
+            data: args,
+          ),
           Expanded(
             child: ValueListenableBuilder(
               valueListenable: _indexNotifier,

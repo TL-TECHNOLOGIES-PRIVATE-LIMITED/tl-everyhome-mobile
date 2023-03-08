@@ -1,6 +1,7 @@
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/domain/validation/signin_screen/signin_validation.dart';
 import 'package:every_home/presentation/login/sign_in_screen/widgets/custom_signin_text.dart';
+import 'package:every_home/presentation/modules/enabler/ena_main_screen/cus_main_screen.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -124,7 +125,9 @@ class CustomLoginContainer extends StatelessWidget with InputValidationMixin {
               SizedBox(height: 25.h),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/signup_screen');
+                  // Navigator.of(context).pushNamed('/signup_screen');
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: ((context) => EnaMainScreen())));
                 },
                 child: const CustomSignInText(),
               ),

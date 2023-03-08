@@ -1,3 +1,4 @@
+import 'package:every_home/domain/dummy/db_function.dart';
 import 'package:every_home/presentation/modules/customer/widgets/custom_job_card.dart';
 import 'package:flutter/material.dart';
 
@@ -6,19 +7,22 @@ class NearByShopsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO worker dummy data
+    final bussiness = DBFunction().fetchBusiness();
     return ListView.builder(
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
-      itemCount: 5,
+      itemCount: bussiness.length,
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed('/cus_view_job_card');
+            // Navigator.of(context)
+            //     .pushNamed('/cus_view_job_card', arguments: bussiness[index]);
           },
-          child: const CustomJobCard(
-            image: '',
-            jobTitle: 'Sijo Simon',
-            jobLocation: 'Trivandrum, Palayam',
+          child: CustomJobCard(
+            image: bussiness[index].profilePic.toString(),
+            jobTitle: bussiness[index].name.toString(),
+            jobLocation: bussiness[index].place.toString(),
             rating: 3.5,
             reviewCount: '6',
           ),

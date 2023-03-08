@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,9 +13,12 @@ class CustomImageContainer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.amber,
+            ),
             width: 80.w,
             height: 80.h,
-            color: Colors.amber,
           ),
         ),
         Padding(
@@ -24,7 +26,10 @@ class CustomImageContainer extends StatelessWidget {
           child: Container(
             width: 80.w,
             height: 80.h,
-            color: Colors.amber,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.amber,
+            ),
           ),
         ),
         Padding(
@@ -32,7 +37,10 @@ class CustomImageContainer extends StatelessWidget {
           child: Container(
             width: 80.w,
             height: 80.h,
-            color: Colors.amber[50],
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.amber[50],
+            ),
             child: const Center(
               child: Icon(Icons.camera_alt_outlined),
             ),
