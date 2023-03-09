@@ -17,6 +17,9 @@ import 'package:every_home/presentation/modules/enabler/ena_home_screen/ena_home
 import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/ena_job_details_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_negotatiate_screen/ena_negotiate_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_notification_screen/ena_notification_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_create_screen/ena_profile_create_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_screen/cus_profile_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_work_finish_sreen/ena_work_finish_screen.dart';
 import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
 import 'package:every_home/presentation/splash/splash_screen.dart';
@@ -73,6 +76,11 @@ class MainApp extends StatelessWidget {
                     const EnaJobDetailsScreen(),
                 '/ena_negotiate_screen': (context) =>
                     const EnaNegotiateScreen(),
+                '/ena_profile_screen': (context) => const EnaProfileScreen(),
+                '/ena_work_finish_screen': (context) =>
+                    const EnaWorkFinshScreen(),
+                '/ena_profile_create_screen': (context) =>
+                    const EnaProfileCreateScreen(),
               },
             ),
           );

@@ -19,7 +19,12 @@ class EnaWorksScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomEnaWorksAppBar(indexNotifier: _indexNotifier),
+          CustomEnaWorksAppBar(
+            indexNotifier: _indexNotifier,
+            activeCount: '10',
+            pendingCount: '2',
+            completedCount: '3',
+          ),
           Expanded(
             child: ValueListenableBuilder(
               valueListenable: _indexNotifier,

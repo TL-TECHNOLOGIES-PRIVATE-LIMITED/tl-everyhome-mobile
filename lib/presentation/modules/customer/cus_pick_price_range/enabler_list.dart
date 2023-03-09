@@ -10,6 +10,7 @@ class EnablerList extends StatelessWidget {
     //TODO worker dummy data
     final worker = DBFunction().fetchWorker();
     return ListView.builder(
+      padding: EdgeInsets.zero,
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemCount: worker.length,

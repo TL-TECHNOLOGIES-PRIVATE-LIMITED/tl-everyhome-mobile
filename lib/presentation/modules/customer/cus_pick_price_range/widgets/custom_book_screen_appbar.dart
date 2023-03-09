@@ -5,19 +5,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconly/iconly.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 
-class CustomEnaWorksAppBar extends StatelessWidget {
-  const CustomEnaWorksAppBar({
+class CustomBookScreenAppBar extends StatelessWidget {
+  const CustomBookScreenAppBar({
     super.key,
     required ValueNotifier<int> indexNotifier,
-    required this.activeCount,
-    required this.pendingCount,
-    required this.completedCount,
   }) : _indexNotifier = indexNotifier;
 
   final ValueNotifier<int> _indexNotifier;
-  final String activeCount;
-  final String pendingCount;
-  final String completedCount;
 
   @override
   Widget build(BuildContext context) {
@@ -46,31 +40,23 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(height: MediaQuery.of(context).viewPadding.top),
-                    Container(
-                      // width: 1.sw,
-                      // decoration: const BoxDecoration(boxShadow: [
-                      //   BoxShadow(
-                      //       color: Colors.black,
-                      //       blurRadius: 10,
-                      //       spreadRadius: 0,
-                      //       offset: Offset(0, 2))
-                      // ]),
+                    SizedBox(
+                      width: 1.sw,
                       child: Row(
                         children: [
-                          // IconButton(
-                          //   onPressed: () {
-                          //     Navigator.of(context).pop();
-                          //   },
-                          //   icon: const Icon(
-                          //     Icons.arrow_back_ios_new,
-                          //     color: Colors.white,
-                          //   ),
-                          // ),
-                          SizedBox(width: 15.w),
+                          IconButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_ios_new,
+                              color: Colors.white,
+                            ),
+                          ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Works Lists',
+                              'Workers',
                               style: TextStyle(
                                 color: const Color(0xffFFFDFD),
                                 fontSize: 20.sp,
@@ -80,9 +66,6 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                           )
                         ],
                       ),
-                    ),
-                    const Divider(
-                      thickness: 2,
                     ),
                     SizedBox(height: 15.h),
                     Row(
@@ -142,13 +125,10 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                     children: {
                       0: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 25.h),
-                          child: Text('Pending ($pendingCount)')),
-                      1: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('Active ($activeCount)')),
-                      2: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('Completed ($completedCount)')),
+                          child: const Text('Choose Enabler')),
+                      1: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text('Nearby Shops')),
                     },
                   );
                 }),

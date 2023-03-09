@@ -2,6 +2,7 @@ import 'package:every_home/presentation/modules/enabler/ena_home_screen/widgets/
 import 'package:every_home/presentation/modules/enabler/ena_home_screen/widgets/custom_wallet_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
@@ -24,7 +25,7 @@ class CustomAppBar extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/create_profile_screen');
+                    Navigator.of(context).pushNamed('/ena_profile_screen');
                   },
                   child: const CircleAvatar(
                     backgroundImage: AssetImage(''),
@@ -40,26 +41,23 @@ class CustomAppBar extends StatelessWidget {
                 )
               ],
             ),
-            title: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Wrap(
-                children: const [
-                  Text(
-                    'Samuel John',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  SizedBox(width: 10),
-                  CircleAvatar(
-                    backgroundColor: Colors.amber,
-                    radius: 12,
-                    child: Icon(
-                      Icons.expand_more,
-                      size: 25,
-                      color: Colors.black,
-                    ),
-                  )
-                ],
-              ),
+            title: Wrap(
+              children: const [
+                Text(
+                  'Samuel John',
+                  style: TextStyle(fontSize: 18),
+                ),
+                SizedBox(width: 10),
+                // CircleAvatar(
+                //   backgroundColor: Colors.amber,
+                //   radius: 12,
+                //   child: Icon(
+                //     Icons.expand_more,
+                //     size: 25,
+                //     color: Colors.black,
+                //   ),
+                // )
+              ],
             ),
             subtitle: Wrap(
               children: const [
@@ -78,14 +76,44 @@ class CustomAppBar extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed('/ena_notification_screen');
               },
-              icon: const Icon(Icons.notification_add),
+              icon: Stack(
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.fromBorderSide(
+                        BorderSide(color: Colors.white),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset(
+                          'assets/icons/notification_icon.svg'),
+                    ),
+                  ),
+                  Positioned(
+                    right: 0.w,
+                    top: -4.h,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Color(0xffFEBA45),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(4.0),
+                        child: Text('4'),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],
       ),
       bottom: AppBar(
         automaticallyImplyLeading: false,
-        elevation: 0,
+        elevation: 3,
         toolbarHeight: 180.h,
         backgroundColor: const Color(0xff22262B),
         title: Column(mainAxisSize: MainAxisSize.min, children: [

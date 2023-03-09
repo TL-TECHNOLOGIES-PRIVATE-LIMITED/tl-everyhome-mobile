@@ -67,6 +67,7 @@ class CustomAppbarContainer extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(height: 15.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

@@ -9,37 +9,58 @@ class CustomImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: Container(
+            width: 85.w,
+            height: 85.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.amber,
+              color: const Color(0xffDEDEDE),
             ),
-            width: 80.w,
-            height: 80.h,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Container(
-            width: 80.w,
-            height: 80.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.amber,
+            child: const Center(
+              child: Icon(Icons.camera_alt_outlined),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: Container(
-            width: 80.w,
-            height: 80.h,
+            width: 85.w,
+            height: 85.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.amber[50],
+              color: const Color(0xffDEDEDE),
+            ),
+            child: const Center(
+              child: Icon(Icons.camera_alt_outlined),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 85.w,
+            height: 85.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color(0xffDEDEDE),
+            ),
+            child: const Center(
+              child: Icon(Icons.camera_alt_outlined),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: Container(
+            width: 85.w,
+            height: 85.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color(0xffDEDEDE),
             ),
             child: const Center(
               child: Icon(Icons.camera_alt_outlined),

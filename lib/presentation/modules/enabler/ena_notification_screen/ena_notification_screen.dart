@@ -1,6 +1,6 @@
+import 'package:every_home/presentation/modules/enabler/ena_notification_screen/widgets/custom_cus_notification_message.dart';
 import 'package:every_home/presentation/notification_screen/widgets/notification_view_all_badge.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EnaNotificationScreen extends StatelessWidget {
   const EnaNotificationScreen({super.key});
@@ -9,7 +9,7 @@ class EnaNotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification (1)'),
+        title: const Text('Notification (4)'),
       ),
       body: ListView(
         children: [
@@ -18,39 +18,39 @@ class EnaNotificationScreen extends StatelessWidget {
             viewAll: 'View all',
             onPress: () {},
           ),
-          ListTile(
-            leading: const CircleAvatar(),
-            title: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                Text(
-                  'Electrician',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(width: 5.w),
-                Text(
-                  'Today',
-                  style: TextStyle(
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-            subtitle: Text(
-              'Accepts your Bookings Request,and Negotiate the Amount to 700',
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400,
-                color: Colors.black,
-              ),
-            ),
-          )
+          const CustomCusNotificationMessage(
+            name: 'Electrician',
+            message: 'Accepts your bookings request,Negotiated amount 700',
+            profilePicture: '',
+            time: 'Today',
+          ),
+          const Divider(),
+          const CustomCusNotificationMessage(
+            name: 'Electrician',
+            message: 'Accepts your bookings request,Negotiated amount 700',
+            profilePicture: '',
+            time: 'Today',
+          ),
+          const Divider(),
+          const CustomCusNotificationMessage(
+            name: 'Plumber',
+            message: 'Accepts your bookings request,Negotiated amount 700',
+            profilePicture: '',
+            time: 'Today',
+          ),
+          const Divider(),
+          NotificationViewAllBadge(
+            searchTitle: 'Yesterday',
+            viewAll: 'View all',
+            onPress: () {},
+          ),
+          const CustomCusNotificationMessage(
+            name: 'Taxi',
+            message:
+                'Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount ',
+            profilePicture: '',
+            time: '1 day ago',
+          ),
         ],
       ),
     );

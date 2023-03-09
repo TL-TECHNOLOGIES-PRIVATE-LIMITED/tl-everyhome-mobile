@@ -12,6 +12,7 @@ class EnaHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           const CustomAppBar(),
           SliverList(
@@ -43,13 +44,19 @@ class EnaHomeScreen extends StatelessWidget {
                     itemCount: 10,
                     padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
-                      return const CustomEnaJobTile(
-                        tileType: 'New',
-                        jobName: 'Ceiling Fan Repairing',
-                        jobPlace: 'Trivandrum,Playam',
-                        workerName: 'Daniel Jo',
-                        postedDate: '1d ago',
-                        jobPrice: '800',
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed('/ena_job_details_screen');
+                        },
+                        child: const CustomEnaJobTile(
+                          tileType: 'New',
+                          jobName: 'Ceiling Fan Repairing',
+                          jobPlace: 'Trivandrum,Playam',
+                          workerName: 'Daniel Jo',
+                          postedDate: '1d ago',
+                          jobPrice: '800',
+                        ),
                       );
                     }),
               ],

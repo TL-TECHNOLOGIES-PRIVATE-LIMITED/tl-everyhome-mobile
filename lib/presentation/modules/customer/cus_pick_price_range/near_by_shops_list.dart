@@ -10,6 +10,7 @@ class NearByShopsList extends StatelessWidget {
     //TODO worker dummy data
     final bussiness = DBFunction().fetchBusiness();
     return ListView.builder(
+      padding: EdgeInsets.zero,
       shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemCount: bussiness.length,
