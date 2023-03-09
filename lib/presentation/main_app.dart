@@ -13,6 +13,7 @@ import 'package:every_home/presentation/modules/customer/cus_view_job_card/cus_v
 import 'package:every_home/presentation/modules/customer/cus_worker_negotiate_screen/cus_worker_negotiate_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_worker_rating_screen/cus_worker_rating_screen.dart';
 import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_create_portfolio_screen/ena_create_portfolio_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_home_screen/ena_home_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/ena_job_details_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_negotatiate_screen/ena_negotiate_screen.dart';
@@ -81,6 +82,8 @@ class MainApp extends StatelessWidget {
                     const EnaWorkFinshScreen(),
                 '/ena_profile_create_screen': (context) =>
                     const EnaProfileCreateScreen(),
+                '/ena_create_portfolio_screen': (context) =>
+                    const EnaCreatePortfolioScreen(),
               },
             ),
           );
