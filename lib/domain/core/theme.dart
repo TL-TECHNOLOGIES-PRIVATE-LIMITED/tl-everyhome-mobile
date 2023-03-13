@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //class for color theme of the application
 class LightTheme {
@@ -12,6 +13,7 @@ class LightTheme {
     ),
     scaffoldBackgroundColor: LigthColor().bgColorWhite,
     appBarTheme: AppBarTheme(
+      toolbarHeight: 80.h,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.only(
               bottomEnd: Radius.circular(10),

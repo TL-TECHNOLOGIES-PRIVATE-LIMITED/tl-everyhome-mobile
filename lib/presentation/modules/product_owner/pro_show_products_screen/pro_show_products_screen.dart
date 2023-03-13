@@ -30,7 +30,9 @@ class ProShowProductsScreen extends StatelessWidget {
             ),
             SizedBox(height: 100.h),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/pro_add_product_screen');
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xffFFA610),
                 minimumSize: Size(256.w, 62.w),
