@@ -23,11 +23,11 @@ class CustomProHomeAppBar extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/ena_profile_screen');
+                    Navigator.of(context).pushNamed('/pro_profile_screen');
                   },
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage(''),
-                  ),
+                      // backgroundImage: AssetImage(''),
+                      ),
                 ),
                 const Positioned(
                   right: 0,
@@ -42,7 +42,7 @@ class CustomProHomeAppBar extends StatelessWidget {
             title: Wrap(
               children: const [
                 Text(
-                  'Samuel John',
+                  'Hamdan L',
                   style: TextStyle(fontSize: 18),
                 ),
                 SizedBox(width: 10),

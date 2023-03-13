@@ -22,6 +22,7 @@ import 'package:every_home/presentation/modules/enabler/ena_profile_create_scree
 import 'package:every_home/presentation/modules/enabler/ena_profile_screen/cus_profile_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_work_finish_sreen/ena_work_finish_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_main_screen/pro_main_screen.dart';
+import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/pro_profile_screen.dart';
 import 'package:every_home/presentation/notification_screen/notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
 import 'package:every_home/presentation/splash/splash_screen.dart';
@@ -86,6 +87,7 @@ class MainApp extends StatelessWidget {
                 '/ena_create_portfolio_screen': (context) =>
                     const EnaCreatePortfolioScreen(),
                 '/pro_main_screen': (context) => ProMainScreen(),
+                '/pro_profile_screen': (context) => const ProProfileScreen(),
               },
             ),
           );
