@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EnaNotificationViewAllBadge extends StatelessWidget {
-  const EnaNotificationViewAllBadge({
+class CustomCusNotificationViewAllBadge extends StatelessWidget {
+  const CustomCusNotificationViewAllBadge({
     super.key,
     required this.searchTitle,
     this.onPress,

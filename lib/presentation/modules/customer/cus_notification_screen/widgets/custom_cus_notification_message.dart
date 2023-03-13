@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomEnaNotificationMessage extends StatelessWidget {
-  const CustomEnaNotificationMessage({
+class CustomCusNotificationMessage extends StatelessWidget {
+  const CustomCusNotificationMessage({
     super.key,
     required this.name,
     required this.message,

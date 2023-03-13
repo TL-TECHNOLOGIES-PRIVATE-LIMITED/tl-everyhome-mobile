@@ -72,7 +72,7 @@ class CustomProHomeAppBar extends StatelessWidget {
             ),
             trailing: IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/ena_notification_screen');
+                Navigator.of(context).pushNamed('/pro_notification_screen');
               },
               icon: Stack(
                 children: [
@@ -99,7 +99,7 @@ class CustomProHomeAppBar extends StatelessWidget {
                       ),
                       child: const Padding(
                         padding: EdgeInsets.all(4.0),
-                        child: Text('4'),
+                        child: Text('5'),
                       ),
                     ),
                   )

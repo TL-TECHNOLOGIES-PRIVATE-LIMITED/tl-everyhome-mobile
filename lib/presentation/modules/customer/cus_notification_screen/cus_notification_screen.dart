@@ -1,10 +1,9 @@
-import 'package:every_home/presentation/modules/enabler/ena_notification_screen/widgets/custom_cus_notification_message.dart';
-import 'package:every_home/presentation/modules/enabler/ena_notification_screen/widgets/custom_ena_notification_view_all_badge.dart';
-
+import 'package:every_home/presentation/modules/customer/cus_notification_screen/widgets/custom_cus_notification_message.dart';
+import 'package:every_home/presentation/modules/customer/cus_notification_screen/widgets/custom_cus_notification_view_all_badge.dart';
 import 'package:flutter/material.dart';
 
-class EnaNotificationScreen extends StatelessWidget {
-  const EnaNotificationScreen({super.key});
+class NotificationScreen extends StatelessWidget {
+  const NotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,43 +13,50 @@ class EnaNotificationScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          CustomEnaNotificationViewAllBadge(
+          CustomCusNotificationViewAllBadge(
             searchTitle: 'Today',
             viewAll: 'View all',
             onPress: () {},
           ),
-          const CustomEnaNotificationMessage(
+          const CustomCusNotificationMessage(
             name: 'Electrician',
             message: 'Accepts your bookings request,Negotiated amount 700',
             profilePicture: '',
-            time: 'Today',
+            time: '3:15pm',
           ),
           const Divider(),
-          const CustomEnaNotificationMessage(
+          const CustomCusNotificationMessage(
             name: 'Electrician',
             message: 'Accepts your bookings request,Negotiated amount 700',
             profilePicture: '',
-            time: 'Today',
+            time: '10:00am',
           ),
           const Divider(),
-          const CustomEnaNotificationMessage(
+          const CustomCusNotificationMessage(
             name: 'Plumber',
             message: 'Accepts your bookings request,Negotiated amount 700',
             profilePicture: '',
-            time: 'Today',
+            time: '11:50am',
           ),
           const Divider(),
-          CustomEnaNotificationViewAllBadge(
+          CustomCusNotificationViewAllBadge(
             searchTitle: 'Yesterday',
             viewAll: 'View all',
             onPress: () {},
           ),
-          const CustomEnaNotificationMessage(
+          const CustomCusNotificationMessage(
             name: 'Taxi',
             message:
                 'Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount 700,Accepts your bookings request,Negotiated amount ',
             profilePicture: '',
-            time: '1 day ago',
+            time: '5:45pm',
+          ),
+          const Divider(),
+          const CustomCusNotificationMessage(
+            name: 'Plumber',
+            message: 'Accepts your bookings request,Negotiated amount 700',
+            profilePicture: '',
+            time: '8:00pm',
           ),
         ],
       ),
