@@ -66,9 +66,13 @@ class CustomFormField extends StatelessWidget {
         maxLines: maxLines ?? 1,
         minLines: minLines,
         readOnly: readOnly ?? false,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           suffixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
           prefixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
+          errorStyle: TextStyle(
+            fontSize: 14.sp,
+          ),
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           errorBorder: errorBorder,
