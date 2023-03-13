@@ -3,6 +3,7 @@ import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quickalert/quickalert.dart';
 
 class ProAddProductScreen extends StatelessWidget {
   const ProAddProductScreen({super.key});
@@ -142,7 +143,15 @@ class ProAddProductScreen extends StatelessWidget {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(left: 20.0.w, right: 20.w, bottom: 45.h),
           child: CustomYellowButton(
-            onPress: () {},
+            onPress: () {
+              QuickAlert.show(
+                  context: context,
+                  type: QuickAlertType.success,
+                  text: "Product added successfully",
+                  onConfirmBtnTap: () {
+                    Navigator.of(context).pop();
+                  });
+            },
             label: 'Submit',
             bgColor: const Color(0xffFFA610),
           ),

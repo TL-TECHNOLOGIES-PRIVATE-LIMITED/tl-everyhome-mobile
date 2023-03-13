@@ -149,7 +149,8 @@ class CustomLoginContainer extends StatelessWidget with InputValidationMixin {
                               .pushNamed('/ena_profile_create_screen');
                         } else {
                           log('business');
-                          Navigator.of(context).pushNamed('/pro_main_screen');
+                          Navigator.of(context)
+                              .pushNamed('/pro_create_profile_screen');
                         }
                       } else {
                         QuickAlert.show(
