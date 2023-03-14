@@ -101,7 +101,7 @@ class CustomProfileContainer extends StatelessWidget {
               customerName,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20.sp,
+                fontSize: 24.sp,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
               ),

@@ -12,7 +12,7 @@ import 'package:every_home/presentation/modules/customer/cus_date_and_time_scree
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/cus_view_job_card.dart';
 import 'package:every_home/presentation/modules/customer/cus_worker_negotiate_screen/cus_worker_negotiate_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_worker_rating_screen/cus_worker_rating_screen.dart';
-import 'package:every_home/presentation/modules/customer/home_screen/home_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_home_screen/cus_home_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_create_portfolio_screen/ena_create_portfolio_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_home_screen/ena_home_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/ena_job_details_screen.dart';
@@ -25,6 +25,7 @@ import 'package:every_home/presentation/modules/product_owner/pro_add_product_sc
 import 'package:every_home/presentation/modules/product_owner/pro_create_profile_screen/pro_create_profile_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_main_screen/pro_main_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_notification_screen/pro_notification_screen.dart';
+import 'package:every_home/presentation/modules/product_owner/pro_product_showcase_screen/pro_product_showcase_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/pro_profile_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_notification_screen/cus_notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
@@ -97,6 +98,8 @@ class MainApp extends StatelessWidget {
                     const ProAddProductScreen(),
                 '/pro_create_profile_screen': (context) =>
                     const ProCreateProfileScreen(),
+                '/pro_product_showcase_screen': (context) =>
+                    const ProProductShowcaseScreen(),
               },
             ),
           );

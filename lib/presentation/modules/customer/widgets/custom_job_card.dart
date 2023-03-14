@@ -108,7 +108,7 @@ class CustomJobCard extends StatelessWidget {
                             onRatingUpdate: (value) {},
                           ),
                           Text(
-                            '$rating($reviewCount Reviews)',
+                            '$rating ($reviewCount Reviews)',
                             maxLines: 1,
                             overflow: TextOverflow.clip,
                           ),

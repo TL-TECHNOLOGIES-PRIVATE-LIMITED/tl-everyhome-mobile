@@ -40,51 +40,32 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 30.h),
+                padding: EdgeInsets.only(bottom: 30.h, top: 10.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(height: MediaQuery.of(context).viewPadding.top),
-                    Container(
-                      // width: 1.sw,
-                      // decoration: const BoxDecoration(boxShadow: [
-                      //   BoxShadow(
-                      //       color: Colors.black,
-                      //       blurRadius: 10,
-                      //       spreadRadius: 0,
-                      //       offset: Offset(0, 2))
-                      // ]),
-                      child: Row(
-                        children: [
-                          // IconButton(
-                          //   onPressed: () {
-                          //     Navigator.of(context).pop();
-                          //   },
-                          //   icon: const Icon(
-                          //     Icons.arrow_back_ios_new,
-                          //     color: Colors.white,
-                          //   ),
-                          // ),
-                          SizedBox(width: 15.w),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Works Lists',
-                              style: TextStyle(
-                                color: const Color(0xffFFFDFD),
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15.w),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Works Lists (15)',
+                            style: TextStyle(
+                              color: const Color(0xffFFFDFD),
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w500,
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                     const Divider(
                       thickness: 2,
                     ),
-                    SizedBox(height: 15.h),
+                    SizedBox(height: 10.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -126,7 +107,7 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                 valueListenable: _indexNotifier,
                 builder: (context, newIndex, _) {
                   return MaterialSegmentedControl(
-                    verticalOffset: 10.w,
+                    verticalOffset: 10.h,
                     horizontalPadding: const EdgeInsets.all(10),
                     borderWidth: 1,
                     selectedColor: const Color(0xffFEBA45),
@@ -134,10 +115,10 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                       _indexNotifier.value = value;
                     },
                     unselectedColor: const Color(0xffE9E9E9),
-                    unselectedTextStyle:
-                        const TextStyle(color: Color(0xff727272)),
-                    selectedTextStyle:
-                        const TextStyle(color: Color(0xff252C35)),
+                    unselectedTextStyle: TextStyle(
+                        color: const Color(0xff727272), fontSize: 14.sp),
+                    selectedTextStyle: TextStyle(
+                        color: const Color(0xff252C35), fontSize: 14.sp),
                     selectionIndex: newIndex,
                     children: {
                       0: Padding(

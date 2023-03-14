@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:every_home/domain/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,26 +26,26 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: LigthColor().bgColorGrey,
       body: Stack(
         children: [
-          // Image.asset('assets/logo/logo_outline_right.png'),
-          Positioned(
-            top: 0.34.sh,
-            right: 0.38.sw,
+          Image.asset('assets/bg_images/background_image_1.png'),
+          Positioned.fill(
+            bottom: 180.h,
             child: Align(
-              child: Image.asset('assets/logo/logo.png'),
+              child: SvgPicture.asset('assets/logo/every_home_logo.svg'),
             ),
           ),
-          Positioned(
-            top: 0.53.sh,
-            right: 0.32.sw,
+          Positioned.fill(
+            child: Align(
+              child: SvgPicture.asset('assets/logo/app_name.svg'),
+            ),
+          ),
+          Positioned.fill(
+            top: 60.h,
             child: Align(
               child: Text(
                 '- TL TECHNOLOGIES -',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
-          ),
-          Align(
-            child: Image.asset('assets/logo/app_name.png'),
           ),
         ],
       ),

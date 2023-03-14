@@ -45,12 +45,6 @@ class CusDateAndTimeScreen extends StatelessWidget {
               ),
             ),
           ),
-          // TimeRange(
-          //   timeBlock: 00,
-          //   onRangeCompleted: (range) {},
-          //   firstTime: const TimeOfDay(hour: 14, minute: 30),
-          //   lastTime: const TimeOfDay(hour: 20, minute: 00),
-          // ),
         ],
       ),
       bottomNavigationBar: Padding(

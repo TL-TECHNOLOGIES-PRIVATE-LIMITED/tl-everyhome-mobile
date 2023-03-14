@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
         backgroundColor: LigthColor().bgColorGrey,
         body: Stack(
           children: [
-            // Image.asset('assets/logo/logo_outline_right.png')
+            Image.asset('assets/bg_images/background_image_1.png'),
             SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(30.0),

@@ -18,60 +18,64 @@ class ProCreateProfileScreen extends StatelessWidget {
           elevation: 3,
           title: const Text('Create Profile'),
           backgroundColor: const Color(0xff262E39),
-          actions: const [Icon(Icons.more_vert)],
         ),
-        body: Padding(
-          padding: EdgeInsets.only(top: 15.h, left: 15.w, right: 15.w),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 10.h),
-                const CustomFormField(hintText: 'Business Name'),
-                SizedBox(height: 17.h),
-                const CustomFormField(hintText: 'Contact Number'),
-                SizedBox(height: 12.h),
-                Text(
-                  "Add Category",
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
+        body: Stack(
+          children: [
+            Image.asset('assets/bg_images/background_image_1.png'),
+            Padding(
+              padding: EdgeInsets.only(top: 15.h, left: 15.w, right: 15.w),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10.h),
+                    const CustomFormField(hintText: 'Business Name'),
+                    SizedBox(height: 17.h),
+                    const CustomFormField(hintText: 'Contact Number'),
+                    SizedBox(height: 12.h),
+                    Text(
+                      "Add Category",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 12.h),
+                    const CustomFormField(
+                      hintText: 'Add here',
+                      maxLines: 2,
+                      minLines: 2,
+                    ),
+                    SizedBox(height: 8.h),
+                    Text(
+                      'Add upto 5 categories',
+                      style: TextStyle(
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 12.h),
+                    Text(
+                      "Product Details",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
+                    const CustomFormField(
+                      hintText: 'Add Description',
+                      maxLines: 4,
+                      minLines: 3,
+                    ),
+                  ],
                 ),
-                SizedBox(height: 12.h),
-                const CustomFormField(
-                  hintText: 'Add here',
-                  maxLines: 2,
-                  minLines: 2,
-                ),
-                SizedBox(height: 8.h),
-                Text(
-                  'Use slider or enter min and max price',
-                  style: TextStyle(
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(height: 12.h),
-                Text(
-                  "Product Details",
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(height: 10.h),
-                const CustomFormField(
-                  hintText: 'Add Description',
-                  maxLines: 4,
-                  minLines: 3,
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
         bottomNavigationBar: Padding(
           padding: EdgeInsets.only(left: 30.w, right: 30.w, bottom: 50.h),

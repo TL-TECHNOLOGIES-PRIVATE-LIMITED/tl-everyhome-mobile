@@ -68,33 +68,38 @@ class CustomBookScreenAppBar extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 15.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 0.75.sw,
-                          child: const CustomFormField(
-                              prefixIcon: Icon(
-                                IconlyLight.search,
-                                color: Colors.black,
-                              ),
-                              hintText: 'Search your Requirements'),
-                        ),
-                        SizedBox(width: 0.02.sh),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.white,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/filter_icon.svg',
-                              ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: SizedBox(
+                              height: 55.h,
+                              child: const CustomFormField(
+                                  prefixIcon: Icon(
+                                    IconlyLight.search,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: 'Search your Requirements'),
                             ),
                           ),
-                        )
-                      ],
+                          SizedBox(width: 10.w),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Container(
+                              height: 55.h,
+                              width: 55.w,
+                              color: Colors.white,
+                              child: Center(
+                                child: SvgPicture.asset(
+                                  'assets/icons/filter_icon.svg',
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),
@@ -117,10 +122,10 @@ class CustomBookScreenAppBar extends StatelessWidget {
                       _indexNotifier.value = value;
                     },
                     unselectedColor: const Color(0xffE9E9E9),
-                    unselectedTextStyle:
-                        const TextStyle(color: Color(0xff727272)),
-                    selectedTextStyle:
-                        const TextStyle(color: Color(0xff252C35)),
+                    unselectedTextStyle: TextStyle(
+                        color: const Color(0xff727272), fontSize: 14.sp),
+                    selectedTextStyle: TextStyle(
+                        color: const Color(0xff252C35), fontSize: 14.sp),
                     selectionIndex: newIndex,
                     children: {
                       0: Padding(

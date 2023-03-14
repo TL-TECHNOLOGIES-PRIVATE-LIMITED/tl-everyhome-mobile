@@ -1,3 +1,4 @@
+import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/login/sign_in_screen/widgets/custom_login_container.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class SignInScreen extends StatelessWidget {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Scaffold(
+        backgroundColor: LigthColor().bgColorGrey,
         body: Stack(
           children: [
             SizedBox(

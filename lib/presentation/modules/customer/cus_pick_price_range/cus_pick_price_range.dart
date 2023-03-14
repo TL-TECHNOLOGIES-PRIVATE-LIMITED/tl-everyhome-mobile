@@ -23,21 +23,6 @@ class CusPickPriceRange extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: IconButton(
-      //     icon: const Icon(Icons.arrow_back_ios_new_outlined,
-      //         color: Colors.white),
-      //     onPressed: () => Navigator.of(context).pop(),
-      //   ),
-      //   title: const Text('Select Price Range'),
-      //   elevation: 0,
-      //   bottom: AppBar(
-      //     automaticallyImplyLeading: false,
-      //     centerTitle: true,
-      //     toolbarHeight: 150.h,
-      //     // title: CustomRangeSliderContainer(),
-      //   ),
-      // ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,15 +48,16 @@ class CusPickPriceRange extends StatelessWidget {
             //TODO book worker authentication
             // log(cusAddressContoller.text.toString());
             QuickAlert.show(
-                context: context,
-                type: QuickAlertType.success,
-                text: 'Your request has submitted succesfully',
-                confirmBtnColor: const Color(0xffFEBA45),
-                autoCloseDuration: const Duration(seconds: 5),
-                onConfirmBtnTap: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/cus_main_screen', (route) => false);
-                });
+              context: context,
+              type: QuickAlertType.success,
+              text: 'Your request has submitted succesfully',
+              confirmBtnColor: const Color(0xffFEBA45),
+              autoCloseDuration: const Duration(seconds: 5),
+              onConfirmBtnTap: () {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    '/cus_main_screen', (route) => false);
+              },
+            );
           },
         ),
       ),

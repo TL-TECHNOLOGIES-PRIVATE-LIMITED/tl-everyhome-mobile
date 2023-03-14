@@ -21,7 +21,7 @@ class PendingList extends StatelessWidget {
             jobTitle: 'Celing light repairing',
             jobLocation: 'Ernakkulam, Kakkanad',
             cardType: 'Pending',
-            date: '01 oct 2022',
+            date: '01 Oct 2022',
             time: '9:00 AM',
             isActive: false,
             isPending: true,

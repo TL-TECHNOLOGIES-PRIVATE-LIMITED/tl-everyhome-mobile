@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 
-class CustomProProfileContainer extends StatelessWidget {
+class CustomProProfileContainer extends StatefulWidget {
   const CustomProProfileContainer({
     super.key,
     required this.customerName,
@@ -11,6 +14,13 @@ class CustomProProfileContainer extends StatelessWidget {
   final String customerName;
   final String customerProfilePic;
 
+  @override
+  State<CustomProProfileContainer> createState() =>
+      _CustomProProfileContainerState();
+}
+
+class _CustomProProfileContainerState extends State<CustomProProfileContainer> {
+  late File imageFile;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -70,12 +80,7 @@ class CustomProProfileContainer extends StatelessWidget {
                 right: 0,
                 child: GestureDetector(
                   onTap: () async {
-                    // final cameras = await availableCameras();
-                    // final firstCamera = cameras.first;
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => TakePictureScreen(
-                    //           camera: firstCamera,
-                    //         )));
+                    _getFromCamera();
                   },
                   child: Container(
                     height: 35.h,
@@ -100,10 +105,10 @@ class CustomProProfileContainer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 15.0),
             child: Text(
-              customerName,
+              widget.customerName,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20.sp,
+                fontSize: 24.sp,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
               ),
@@ -112,5 +117,29 @@ class CustomProProfileContainer extends StatelessWidget {
         ]),
       ),
     );
+  }
+
+  /// Get from gallery
+  _getFromGallery() async {
+    XFile? pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    setState(() {
+      imageFile = File(pickedFile!.path);
+    });
+  }
+
+  /// Get from Camera
+  _getFromCamera() async {
+    XFile? pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    setState(() {
+      imageFile = File(pickedFile!.path);
+    });
   }
 }

@@ -1,4 +1,4 @@
-import 'package:every_home/presentation/modules/customer/home_screen/widgets/custom_service_tile.dart';
+import 'package:every_home/presentation/modules/customer/cus_home_screen/widgets/custom_service_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

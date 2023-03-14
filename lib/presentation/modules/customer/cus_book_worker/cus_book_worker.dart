@@ -52,77 +52,65 @@ class _CusBookWorkerState extends State<CusBookWorker> {
           title: Text(args.toString()),
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CustomTitleText(
-                  title: 'Issue Type',
-                ),
-                CustomFormField(
-                  hintText: 'ex:fan installation',
-                  controller: issueTypeContoller,
-                ),
-                const CustomTitleText(title: 'Issue Description'),
-                CustomFormField(
-                  hintText: 'ex: Installation of new fan',
-                  maxLines: 5,
-                  minLines: 4,
-                  controller: issueDescriptionContoller,
-                ),
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(vertical: 16.0),
-                //   child: ClipRRect(
-                //     borderRadius: BorderRadius.circular(10),
-                //     child: Container(
-                //       height: 60.h,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(
-                //           color: Colors.amber,
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                const CustomTitleText(title: 'Images'),
-                const CustomImageContainer(),
-                const CustomTitleText(title: 'Select Address'),
-                ValueListenableBuilder(
-                  valueListenable: editTextFieldNotifier,
-                  builder: (context, value, _) {
-                    return CustomFormField(
-                      controller: cusAddressContoller,
-                      prefixIcon: const Icon(
-                        Icons.home,
-                        color: Color(0xffFEBA45),
-                      ),
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          editTextFieldNotifier.value =
-                              !editTextFieldNotifier.value;
-                        },
-                        child: const Icon(
-                          Icons.edit_location_alt_outlined,
-                          color: Colors.grey,
-                        ),
-                      ),
-
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.amber),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintText: 'Enter your address',
+          child: Stack(
+            children: [
+              Image.asset('assets/bg_images/background_image_1.png'),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CustomTitleText(
+                      title: 'Issue Type',
+                    ),
+                    CustomFormField(
+                      hintText: 'eg:fan installation',
+                      controller: issueTypeContoller,
+                    ),
+                    const CustomTitleText(title: 'Issue Description'),
+                    CustomFormField(
+                      hintText: 'eg: Installation of new fan',
                       maxLines: 5,
-                      readOnly: value,
                       minLines: 4,
-                      // initialValue:
-                      //     'Trivandrum, Nedumangadu,\n9876897867,\nKerala 695581, \nIndia',
-                    );
-                  },
+                      controller: issueDescriptionContoller,
+                    ),
+                    const CustomTitleText(title: 'Images'),
+                    const CustomImageContainer(),
+                    const CustomTitleText(title: 'Select Address'),
+                    ValueListenableBuilder(
+                      valueListenable: editTextFieldNotifier,
+                      builder: (context, value, _) {
+                        return CustomFormField(
+                          controller: cusAddressContoller,
+                          prefixIcon: const Icon(
+                            Icons.home,
+                            color: Color(0xffFEBA45),
+                          ),
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              editTextFieldNotifier.value =
+                                  !editTextFieldNotifier.value;
+                            },
+                            child: const Icon(
+                              Icons.edit_location_alt_outlined,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.amber),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          hintText: 'Enter your address',
+                          maxLines: 5,
+                          readOnly: value,
+                          minLines: 4,
+                        );
+                      },
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         bottomNavigationBar: Padding(

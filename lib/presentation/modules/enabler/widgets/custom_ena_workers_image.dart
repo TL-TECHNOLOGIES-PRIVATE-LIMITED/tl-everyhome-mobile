@@ -18,7 +18,8 @@ class CustomEnaWorkersImages extends StatelessWidget {
             child: Container(
               height: 136.h,
               width: 129.w,
-              color: Colors.amber,
+              color: Colors.white.withOpacity(0.5),
+              child: const Icon(Icons.camera_alt, size: 40),
               // child: Image.asset(
               //   'assets/user/image1.png',
               //   width: 120,
@@ -30,7 +31,8 @@ class CustomEnaWorkersImages extends StatelessWidget {
             child: Container(
               height: 136.h,
               width: 129.w,
-              color: Colors.amber,
+              color: Colors.white.withOpacity(0.5),
+              child: const Icon(Icons.camera_alt, size: 40),
               // child: Image.asset(
               //   'assets/user/image1.png',
               //   width: 120,
@@ -42,7 +44,8 @@ class CustomEnaWorkersImages extends StatelessWidget {
             child: Container(
               height: 136.h,
               width: 129.w,
-              color: Colors.amber,
+              color: Colors.white.withOpacity(0.5),
+              child: const Icon(Icons.camera_alt, size: 40),
               // child: Image.asset(
               //   'assets/user/image1.png',
               //   width: 120,

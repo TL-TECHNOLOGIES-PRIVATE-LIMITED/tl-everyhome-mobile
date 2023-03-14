@@ -34,7 +34,7 @@ class CustomAppbarContainer extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(bottom: 30.h),
+                padding: EdgeInsets.only(bottom: 30.h, top: 10.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -44,19 +44,10 @@ class CustomAppbarContainer extends StatelessWidget {
                       width: 1.sw,
                       child: Row(
                         children: [
-                          // IconButton(
-                          //   onPressed: () {
-                          //     Navigator.of(context).pop();
-                          //   },
-                          //   icon: const Icon(
-                          //     Icons.arrow_back_ios_new,
-                          //     color: Colors.white,
-                          //   ),
-                          // ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Works Lists',
+                              'Works Lists (16)',
                               style: TextStyle(
                                 color: const Color(0xffFFFDFD),
                                 fontSize: 20.sp,
@@ -109,7 +100,7 @@ class CustomAppbarContainer extends StatelessWidget {
                 valueListenable: _indexNotifier,
                 builder: (context, newIndex, _) {
                   return MaterialSegmentedControl(
-                    verticalOffset: 10.w,
+                    verticalOffset: 10.h,
                     horizontalPadding: const EdgeInsets.all(10),
                     borderWidth: 1,
                     selectedColor: const Color(0xffFEBA45),
@@ -117,21 +108,21 @@ class CustomAppbarContainer extends StatelessWidget {
                       _indexNotifier.value = value;
                     },
                     unselectedColor: const Color(0xffE9E9E9),
-                    unselectedTextStyle:
-                        const TextStyle(color: Color(0xff727272)),
-                    selectedTextStyle:
-                        const TextStyle(color: Color(0xff252C35)),
+                    unselectedTextStyle: TextStyle(
+                        color: const Color(0xff727272), fontSize: 14.sp),
+                    selectedTextStyle: TextStyle(
+                        color: const Color(0xff252C35), fontSize: 14.sp),
                     selectionIndex: newIndex,
                     children: {
                       0: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 25.h),
-                          child: const Text('Pending')),
+                          child: const Text('Pending (2)')),
                       1: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('Active')),
+                          child: Text('Active (10)')),
                       2: const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text('Completed')),
+                          child: Text('Completed (4)')),
                     },
                   );
                 }),
