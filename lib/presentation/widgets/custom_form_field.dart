@@ -86,10 +86,12 @@ class CustomFormField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
           filled: filled ?? true,
-          fillColor: fillColor ?? const Color(0xffE8E8E8),
+          fillColor: fillColor ?? const Color(0xFFFFFFFF),
           hintText: hintText,
-          hintStyle: const TextStyle(
-            color: Color(0xffBDBDBD),
+          hintStyle: TextStyle(
+            fontSize: 12.sp,
+            fontWeight: FontWeight.w500,
+            color: const Color(0xff181515),
           ),
         ),
       ),

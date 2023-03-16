@@ -21,6 +21,7 @@ import 'package:every_home/presentation/modules/enabler/ena_notification_screen/
 import 'package:every_home/presentation/modules/enabler/ena_profile_create_screen/ena_profile_create_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_profile_screen/cus_profile_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_work_finish_sreen/ena_work_finish_screen.dart';
+import 'package:every_home/presentation/modules/google_map_screen/google_map_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_add_product_screen/pro_add_product_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_create_profile_screen/pro_create_profile_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_main_screen/pro_main_screen.dart';
@@ -100,6 +101,7 @@ class MainApp extends StatelessWidget {
                     const ProCreateProfileScreen(),
                 '/pro_product_showcase_screen': (context) =>
                     const ProProductShowcaseScreen(),
+                '/google_map_screen': (context) => const GoogleMapScreen(),
               },
             ),
           );

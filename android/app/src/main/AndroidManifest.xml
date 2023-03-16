@@ -3,6 +3,24 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAcHxQh1Pt1zvDyEFGjXQCRZZvWdE1CueU"/>
+    <queries>
+        <!-- If your app checks for SMS support -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="sms" />
+        </intent>
+        <!-- If your app checks for call support -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="tel" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme= "map"/>
+        </intent>
+    </queries>
 
     <application android:label="Every Home" android:name="${applicationName}" android:icon="@mipmap/ic_launcher" android:requestLegacyExternalStorage="true">
 
@@ -13,7 +31,7 @@
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
             <meta-data android:name="io.flutter.embedding.android.NormalTheme" android:resource="@style/NormalTheme" />
-            <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAcHxQh1Pt1zvDyEFGjXQCRZZvWdE1CueU"/>
+
 
 
 

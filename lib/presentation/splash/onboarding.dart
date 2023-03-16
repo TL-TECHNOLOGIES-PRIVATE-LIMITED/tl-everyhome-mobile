@@ -90,7 +90,9 @@ class Onboarding extends StatelessWidget {
                 bgColor: LigthColor().buttonColorYellow,
                 labelColor: const Color(0xffFFFFFF),
                 onPress: () {
-                  Navigator.of(context).pushReplacementNamed('/signin_screen');
+                  // Navigator.of(context).pushReplacementNamed('/signin_screen');
+                  Navigator.of(context)
+                      .pushReplacementNamed('/google_map_screen');
                 },
               ),
             ),
