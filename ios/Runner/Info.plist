@@ -7,6 +7,12 @@
 		<string>Upload images</string>
 		<!-- camera access -->
 		<key>NSCameraUsageDescription</key>
+		<!-- redirecting to message or phone -->
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+			<string>sms</string>
+			<string>tel</string>
+		</array>
 		<string>Upload image</string>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>

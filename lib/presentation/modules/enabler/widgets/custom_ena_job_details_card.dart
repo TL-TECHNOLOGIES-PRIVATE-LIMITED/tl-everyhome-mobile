@@ -63,7 +63,7 @@ class CustomEnaJobDetailsCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 10.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -71,7 +71,8 @@ class CustomEnaJobDetailsCard extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
-                        direction: Axis.vertical,
+                        direction: Axis.horizontal,
+                        spacing: 5.w,
                         children: [
                           Text(
                             'Amount',

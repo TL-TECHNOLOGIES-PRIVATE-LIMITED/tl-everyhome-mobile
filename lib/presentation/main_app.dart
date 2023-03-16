@@ -80,8 +80,7 @@ class MainApp extends StatelessWidget {
                 '/ena_home_screen': (context) => const EnaHomeScreen(),
                 '/ena_notification_screen': (context) =>
                     const EnaNotificationScreen(),
-                '/ena_job_details_screen': (context) =>
-                    const EnaJobDetailsScreen(),
+                '/ena_job_details_screen': (context) => EnaJobDetailsScreen(),
                 '/ena_negotiate_screen': (context) =>
                     const EnaNegotiateScreen(),
                 '/ena_profile_screen': (context) => const EnaProfileScreen(),
