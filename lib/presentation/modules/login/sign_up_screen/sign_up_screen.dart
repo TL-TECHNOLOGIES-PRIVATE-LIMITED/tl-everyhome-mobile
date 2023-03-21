@@ -191,7 +191,8 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
                       SizedBox(height: 39.h),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                              '/signin_screen', (route) => false);
                         },
                         child: const CustomSignUpText(),
                       )

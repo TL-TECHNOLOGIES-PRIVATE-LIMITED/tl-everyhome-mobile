@@ -48,7 +48,9 @@ class CustomProfileContainer extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/');
+                  },
                   icon: const Icon(
                     Icons.mode_edit_outlined,
                     color: Colors.white,
@@ -63,35 +65,35 @@ class CustomProfileContainer extends StatelessWidget {
                 backgroundImage: AssetImage(customerProfilePic),
                 radius: 50,
               ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: GestureDetector(
-                  onTap: () async {
-                    // final cameras = await availableCameras();
-                    // final firstCamera = cameras.first;
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) => TakePictureScreen(
-                    //           camera: firstCamera,
-                    //         )));
-                  },
-                  child: Container(
-                    height: 35.h,
-                    width: 35.w,
-                    decoration: const BoxDecoration(
-                      color: Color(0xffFEBA45),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        color: Colors.black,
-                        size: 18,
-                      ),
-                    ),
-                  ),
-                ),
-              )
+              // Positioned(
+              //   bottom: 0,
+              //   right: 0,
+              //   child: GestureDetector(
+              //     onTap: () async {
+              //       // final cameras = await availableCameras();
+              //       // final firstCamera = cameras.first;
+              //       // Navigator.of(context).push(MaterialPageRoute(
+              //       //     builder: (context) => TakePictureScreen(
+              //       //           camera: firstCamera,
+              //       //         )));
+              //     },
+              //     child: Container(
+              //       height: 35.h,
+              //       width: 35.w,
+              //       decoration: const BoxDecoration(
+              //         color: Color(0xffFEBA45),
+              //         shape: BoxShape.circle,
+              //       ),
+              //       child: const Center(
+              //         child: Icon(
+              //           Icons.camera_alt_outlined,
+              //           color: Colors.black,
+              //           size: 18,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           ),
           SizedBox(height: 20.h),

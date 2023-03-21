@@ -35,6 +35,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.12.0
+  flutter_markdown: ^0.6.14
   flutter_native_splash: ^2.2.18
   flutter_rating_bar: ^4.0.1
   flutter_screenutil: ^5.6.1
@@ -98,6 +99,7 @@ flutter:
     - assets/icons/bottom_nav/
     - assets/profile/
     - assets/persons/
+    - assets/documents/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

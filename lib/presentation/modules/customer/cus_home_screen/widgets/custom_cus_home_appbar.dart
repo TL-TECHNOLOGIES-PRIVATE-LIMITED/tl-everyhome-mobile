@@ -1,4 +1,3 @@
-
 import 'package:every_home/domain/dummy/models/dummy_customer_model.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
@@ -169,20 +168,20 @@ class CustomCusHomeAppBar extends StatelessWidget {
                     hintText: 'Search your Requirements'),
               ),
             ),
-            SizedBox(width: 10.w),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Container(
-                height: 55.h,
-                width: 55.w,
-                color: Colors.white,
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/icons/filter_icon.svg',
-                  ),
-                ),
-              ),
-            )
+            // SizedBox(width: 10.w),
+            // ClipRRect(
+            //   borderRadius: BorderRadius.circular(8),
+            //   child: Container(
+            //     height: 55.h,
+            //     width: 55.w,
+            //     color: Colors.white,
+            //     child: Center(
+            //       child: SvgPicture.asset(
+            //         'assets/icons/filter_icon.svg',
+            //       ),
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

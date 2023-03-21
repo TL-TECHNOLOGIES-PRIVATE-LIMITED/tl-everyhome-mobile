@@ -32,8 +32,11 @@ import 'package:every_home/presentation/modules/product_owner/pro_profile_screen
 import 'package:every_home/presentation/modules/customer/cus_notification_screen/cus_notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
 import 'package:every_home/presentation/splash/splash_screen.dart';
+import 'package:every_home/presentation/support_documents/privacy_policy/privacy_policy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'support_documents/terms_and_conditions/terms_and_conditions.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -108,6 +111,9 @@ class MainApp extends StatelessWidget {
               '/pro_product_showcase_screen': (context) =>
                   const ProProductShowcaseScreen(),
               '/google_map_screen': (context) => const GoogleMapScreen(),
+              // Support Documents route
+              '/terms_and_conditions': (context) => const TermsAndConditions(),
+              '/privacy_policy': (context) => const PrivacyPolicy()
             },
           ),
         );
