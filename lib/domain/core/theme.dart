@@ -27,26 +27,36 @@ class LightTheme {
     buttonTheme: ThemeData.light().buttonTheme.copyWith(
           shape: const StadiumBorder(),
           buttonColor: LigthColor().buttonColorYellow,
+          minWidth: 343.w,
+          height: 55.h,
         ),
     textTheme: ThemeData.light().textTheme.copyWith(
-          displayLarge: const TextStyle(
-            // color: LigthColor().iconColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-            height: 1.2,
-            letterSpacing: 1.5,
+          // Text theme of headline
+          headlineLarge: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 40.sp,
+            color: LigthColor().textColorWhite,
           ),
-          displayMedium: const TextStyle(
-            // color: DarkColor().cardTextColor.withOpacity(0.5),
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-            height: 1.2,
-            letterSpacing: 1.5,
-          ),
+          // Medium title
           titleMedium: TextStyle(
             color: LigthColor().textColorWhite,
-            fontWeight: FontWeight.w800,
-            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            fontSize: 18.sp,
+          ),
+          // text theme for small text
+          titleSmall: TextStyle(
+            color: LigthColor().textColorYellow,
+            fontWeight: FontWeight.w700,
+            fontSize: 14.sp,
+          ),
+          displaySmall: TextStyle(
+            color: LigthColor().textColorWhite,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w500,
+          ),
+          displayMedium: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
             height: 1.2,
             letterSpacing: 1.5,
           ),
@@ -110,12 +120,12 @@ class LightTheme {
 class LigthColor {
   final Color textColorWhite = const Color(0xFFFFFFFF);
   final Color textColorBlack = const Color(0xFF232830);
-  final Color textColorYellow = const Color(0xFFFFA610);
+  final Color textColorYellow = const Color(0xffFCB001);
   final Color textColorOffBlack = const Color(0XFF24292F);
   final Color bgColorWhite = const Color(0xFFFFFFFF);
   final Color bgColorGrey = const Color(0xFF252C35);
   final Color bgColorGreyGradient = const Color(0xFF22262B);
-  final Color buttonColorYellow = const Color(0xFFFFA610);
+  final Color buttonColorYellow = const Color(0xffFCB001);
   final Color buttonTextColorWhite = const Color(0xffffffff);
   final Color buttonColorGrey = const Color(0xFF252C35);
   final Color offWhite = const Color(0xFFEEEEEE);

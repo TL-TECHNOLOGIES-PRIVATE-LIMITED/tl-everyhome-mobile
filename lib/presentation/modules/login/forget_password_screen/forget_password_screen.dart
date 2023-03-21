@@ -1,4 +1,4 @@
-import 'package:every_home/presentation/login/forget_password_screen/widget/custom_fpassword_container.dart';
+import 'package:every_home/presentation/modules/login/forget_password_screen/widget/custom_fpassword_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

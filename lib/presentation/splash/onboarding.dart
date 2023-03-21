@@ -1,4 +1,3 @@
-import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,9 +18,9 @@ class Onboarding extends StatelessWidget {
             ),
           ),
           Positioned.fill(
-            bottom: 0.5.sh,
-            // left: 120.w,
+            top: 153.h,
             child: Align(
+              alignment: Alignment.topCenter,
               child: Text(
                 'Welcome',
                 style: TextStyle(
@@ -33,11 +32,12 @@ class Onboarding extends StatelessWidget {
             ),
           ),
           Positioned.fill(
-            bottom: 0.35.sh,
-            // left: 0.1.sw,
+            top: 220.h,
             child: Align(
+              alignment: Alignment.topCenter,
               child: SizedBox(
-                  width: 335,
+                  width: 335.w,
+                  height: 56.h,
                   child: Text(
                     'Professional Services & Product Details a Click Away',
                     textAlign: TextAlign.center,
@@ -82,17 +82,13 @@ class Onboarding extends StatelessWidget {
             child: Image.asset('assets/polygons/polygon_3.png'),
           ),
           Positioned.fill(
-            bottom: 90.h,
+            bottom: 91.h,
             child: Align(
               alignment: Alignment.bottomCenter,
               child: CustomYellowButton(
                 label: 'Get Started',
-                bgColor: LigthColor().buttonColorYellow,
-                labelColor: const Color(0xffFFFFFF),
                 onPress: () {
-                  // Navigator.of(context).pushReplacementNamed('/signin_screen');
-                  Navigator.of(context)
-                      .pushReplacementNamed('/google_map_screen');
+                  Navigator.of(context).pushReplacementNamed('/signin_screen');
                 },
               ),
             ),

@@ -1,7 +1,8 @@
 import 'package:every_home/domain/map_integration/map_integration.dart';
 import 'package:every_home/domain/message_integration/message_integration.dart';
-import 'package:every_home/presentation/modules/google_map_screen/widgets/custom_adress_container.dart';
-import 'package:every_home/presentation/modules/google_map_screen/widgets/custom_web_view.dart';
+import 'package:every_home/presentation/modules/login/google_map_screen/widgets/custom_adress_container.dart';
+import 'package:every_home/presentation/modules/login/google_map_screen/widgets/custom_web_view.dart';
+
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
@@ -170,12 +171,17 @@ class GoogleMapScreenState extends State<GoogleMapScreen> {
                               onPress: () {
                                 if (isAddAddress == true) {
                                   if (formGlobalKey.currentState!.validate()) {
+                                    // Navigator.of(context)
+                                    //     .pushNamed('/signin_screen');
                                     Navigator.of(context)
-                                        .pushNamed('/signin_screen');
+                                        .pushNamedAndRemoveUntil(
+                                            '/signin_screen', (route) => false);
                                   }
                                 } else if (isFetchCurentAddress == true) {
                                   Navigator.of(context)
                                       .pushNamed('/signin_screen');
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      '/signin_screen', (route) => false);
                                 } else {
                                   Fluttertoast.showToast(
                                     toastLength: Toast.LENGTH_LONG,

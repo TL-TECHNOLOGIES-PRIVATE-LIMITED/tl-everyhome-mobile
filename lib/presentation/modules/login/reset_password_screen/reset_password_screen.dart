@@ -1,4 +1,4 @@
-import 'package:every_home/presentation/login/reset_password_screen/widgets/custom_reset_container.dart';
+import 'package:every_home/presentation/modules/login/reset_password_screen/widgets/custom_reset_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

@@ -22,8 +22,8 @@ class CustomYellowButton extends StatelessWidget {
       onPressed: onPress,
       style: ElevatedButton.styleFrom(
         shape: const StadiumBorder(),
-        minimumSize: Size(350.w, 55.h),
-        backgroundColor: bgColor ?? const Color(0xffFEBA45),
+        minimumSize: Size(343.w, 55.h),
+        backgroundColor: bgColor ?? const Color(0xffFCB001),
       ),
       child: Text(
         label,

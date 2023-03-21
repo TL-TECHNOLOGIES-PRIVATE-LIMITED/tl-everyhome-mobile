@@ -2,30 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomFormField extends StatelessWidget {
-  const CustomFormField({
-    super.key,
-    this.controller,
-    required this.hintText,
-    this.suffixIcon,
-    this.prefixIcon,
-    this.onChanged,
-    this.validator,
-    this.obscureText,
-    this.keyboardType,
-    this.textInputAction,
-    this.maxLines,
-    this.minLines,
-    this.initialValue,
-    this.readOnly,
-    this.border,
-    this.fillColor,
-    this.filled,
-    this.errorBorder,
-    this.focusedBorder,
-    this.focusedErrorBorder,
-    this.disabledBorder,
-    this.enabledBorder,
-  });
+  const CustomFormField(
+      {super.key,
+      this.controller,
+      required this.hintText,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.onChanged,
+      this.validator,
+      this.obscureText,
+      this.keyboardType,
+      this.textInputAction,
+      this.maxLines,
+      this.minLines,
+      this.initialValue,
+      this.readOnly,
+      this.border,
+      this.fillColor,
+      this.filled,
+      this.errorBorder,
+      this.focusedBorder,
+      this.focusedErrorBorder,
+      this.disabledBorder,
+      this.enabledBorder});
   final TextEditingController? controller;
   final String hintText;
   final Widget? suffixIcon;
@@ -51,7 +50,8 @@ class CustomFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // height: MediaQuery.of(context).size.height,
+      // width: 368.w,
+      // height: 50.h,
       child: TextFormField(
         initialValue: initialValue,
         style: TextStyle(color: Colors.black, fontSize: 14.sp),
@@ -68,11 +68,12 @@ class CustomFormField extends StatelessWidget {
         readOnly: readOnly ?? false,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
+          isDense: true,
           suffixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
           prefixIconConstraints: BoxConstraints.tightForFinite(width: 50.h),
-          errorStyle: TextStyle(
-            fontSize: 14.sp,
-          ),
+          contentPadding:
+              EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
+          errorStyle: TextStyle(fontSize: 14.sp),
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           errorBorder: errorBorder,
@@ -80,18 +81,19 @@ class CustomFormField extends StatelessWidget {
           focusedErrorBorder: focusedErrorBorder,
           disabledBorder: disabledBorder,
           enabledBorder: enabledBorder,
+          // enabled: readOnly ?? true,
           border: border ??
               OutlineInputBorder(
                 borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(8.r),
               ),
           filled: filled ?? true,
           fillColor: fillColor ?? const Color(0xFFF0F0F0),
           hintText: hintText,
           hintStyle: TextStyle(
-            fontSize: 12.sp,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w500,
-            color: const Color(0x8F181515),
+            color: const Color(0xffBDBDBD),
           ),
         ),
       ),

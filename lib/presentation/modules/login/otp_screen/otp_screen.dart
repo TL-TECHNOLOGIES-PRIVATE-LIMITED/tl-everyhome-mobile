@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/presentation/login/otp_screen/widgets/custom_text.dart';
-import 'package:every_home/presentation/login/widgets/custom_signin_text.dart';
+import 'package:every_home/presentation/modules/login/otp_screen/widgets/custom_text.dart';
+import 'package:every_home/presentation/modules/login/widgets/custom_signin_text.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,67 +52,59 @@ class OtpScreen extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 0.5.sh,
+                width: 428.w,
+                height: 453.h,
                 decoration: BoxDecoration(
                   color: LigthColor().bgColorGrey,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(24.r),
+                    topRight: Radius.circular(24.r),
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(30.0),
+                  padding: EdgeInsets.symmetric(horizontal: 30.0.w),
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
+                      SizedBox(height: 32.h),
+                      Text(
                         'Enter OTP',
-                        style: TextStyle(
-                          fontSize: 40,
-                          color: Color(0xffF6F6F6),
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: Theme.of(context).textTheme.headlineLarge,
                       ),
-                      // const SizedBox(height: 5),
+                      SizedBox(height: 6.h),
                       const CustomText(
                         text: 'A 4 digit code has been sent to',
                       ),
                       const CustomText(text: '+91 8987878699'),
-                      const SizedBox(height: 24),
+                      SizedBox(height: 32.h),
                       Form(
-                        child: Column(
-                          children: [
-                            Pinput(
-                              defaultPinTheme: const PinTheme(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10),
-                                  ),
-                                ),
+                        child: Pinput(
+                          defaultPinTheme: PinTheme(
+                            height: 50.h,
+                            width: 50.w,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.r),
                               ),
-                              onCompleted: (pin) {
-                                log(pin);
-                              },
                             ),
-                            const SizedBox(height: 20),
-                          ],
+                          ),
+                          onCompleted: (pin) {
+                            log(pin);
+                          },
                         ),
                       ),
-
-                      const SizedBox(height: 25),
+                      SizedBox(height: 64.h),
                       CustomYellowButton(
                         bgColor: LigthColor().buttonColorYellow,
                         label: 'Submit',
                         labelColor: LigthColor().buttonTextColorWhite,
                         onPress: () {
                           Navigator.of(context).pushNamedAndRemoveUntil(
-                              '/signin_screen', (route) => false);
+                              '/google_map_screen', (route) => false);
                         },
                       ),
-                      const SizedBox(height: 50),
+                      SizedBox(height: 59.h),
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).pushNamedAndRemoveUntil(

@@ -11,22 +11,16 @@ class CustomSignInText extends StatelessWidget {
     return Align(
       child: Wrap(
         children: [
-          const Text(
+          Text(
             'New Here?',
-            style: TextStyle(
-              fontSize: 14,
-              color: Color(0xffF6F6F6),
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(context).textTheme.displaySmall,
           ),
           const SizedBox(width: 5),
           Text(
             'Sign Up',
-            style: TextStyle(
-              fontSize: 14,
-              color: LigthColor().buttonColorYellow,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                  color: LigthColor().textColorYellow,
+                ),
           ),
         ],
       ),

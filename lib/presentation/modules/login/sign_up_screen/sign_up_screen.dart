@@ -1,8 +1,8 @@
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/domain/validation/signin_screen/signin_validation.dart';
-import 'package:every_home/presentation/login/sign_up_screen/widgets/custom_facebook_button.dart';
-import 'package:every_home/presentation/login/sign_up_screen/widgets/custom_google_button.dart';
-import 'package:every_home/presentation/login/sign_up_screen/widgets/custom_signup_text.dart';
+import 'package:every_home/presentation/modules/login/sign_up_screen/widgets/custom_facebook_button.dart';
+import 'package:every_home/presentation/modules/login/sign_up_screen/widgets/custom_google_button.dart';
+import 'package:every_home/presentation/modules/login/sign_up_screen/widgets/custom_signup_text.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -34,29 +34,23 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
             Image.asset('assets/bg_images/background_image_1.png'),
             SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(30.0),
+                padding: EdgeInsets.symmetric(horizontal: 43.w),
                 child: Form(
                   key: formGlobalKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisSize: MainAxisSize.min,
                     children: [
+                      SizedBox(height: 94.h),
                       SizedBox(
-                        height: 0.05.sh,
-                      ),
-                      SizedBox(
-                        // width: 239.w,
-                        // height: 96.h,
+                        width: 239.w,
+                        height: 96.h,
                         child: Text(
                           'Create your Account',
-                          style: TextStyle(
-                            fontSize: 0.06.sh,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xffFFFFFF),
-                          ),
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                       ),
-                      SizedBox(height: 25.h),
+                      SizedBox(height: 40.h),
                       CustomFormField(
                         hintText: 'Full Name',
                         textInputAction: TextInputAction.next,
@@ -161,7 +155,7 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
                           },
                         ),
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 21.h),
                       Center(
                         child: SizedBox(
                           width: 0.9.sw,
@@ -188,13 +182,13 @@ class SignUpScreen extends StatelessWidget with InputValidationMixin {
                           onPress: () {},
                         ),
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 17.h),
                       Center(
                         child: CustomGoogleButton(
                           onPress: () {},
                         ),
                       ),
-                      SizedBox(height: 40.h),
+                      SizedBox(height: 39.h),
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).pop();

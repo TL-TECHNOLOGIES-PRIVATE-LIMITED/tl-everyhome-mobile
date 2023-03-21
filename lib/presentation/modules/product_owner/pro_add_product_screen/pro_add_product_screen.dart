@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:every_home/domain/pick_image_integration/pick_image_integration.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_add_product_screen/widgets/custom_pro_range_slider.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
@@ -6,7 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quickalert/quickalert.dart';
 
 class ProAddProductScreen extends StatelessWidget {
-  const ProAddProductScreen({super.key});
+  ProAddProductScreen({super.key});
+  final ValueNotifier<File> _pickedImageNotifier = ValueNotifier(File(''));
+  bool isImagePicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +21,7 @@ class ProAddProductScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 50,
           title: const Text('Add Product Details'),
         ),
         backgroundColor: const Color(0xFF252C35),
@@ -76,16 +82,152 @@ class ProAddProductScreen extends StatelessWidget {
                       crossAxisCount: 3,
                       shrinkWrap: true,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Container(
-                              color: Colors.white.withOpacity(0.5),
-                              child: const Icon(Icons.camera_alt, size: 40),
-                            ),
-                          ),
-                        ),
+                        ValueListenableBuilder(
+                            valueListenable: _pickedImageNotifier,
+                            builder: (context, data, _) {
+                              if (data.path.isNotEmpty) {
+                                isImagePicked = true;
+                              } else {
+                                isImagePicked = false;
+                              }
+                              return isImagePicked
+                                  ? Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Container(
+                                          color: Colors.white.withOpacity(0.5),
+                                          child: Image.file(
+                                            data,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          // log('click');
+                                          showModalBottomSheet(
+                                            context: context,
+                                            builder: (context) {
+                                              return Container(
+                                                decoration: const BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  20),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  20)),
+                                                  color: Color.fromARGB(
+                                                      255, 178, 175, 175),
+                                                  // boxShadow: [
+                                                  //   BoxShadow(
+                                                  //     color: const Color.fromARGB(255, 7, 7, 7)
+                                                  //         .withOpacity(0.5),
+                                                  //     spreadRadius: 5,
+                                                  //     blurRadius: 7,
+                                                  //     offset: const Offset(
+                                                  //         10, 10), // changes position of shadow
+                                                  //   ),
+                                                  // ],
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 20.0,
+                                                      horizontal: 20),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      GestureDetector(
+                                                        onTap: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                        child: const Icon(
+                                                          Icons.close_rounded,
+                                                          color: Colors.black,
+                                                          size: 24,
+                                                        ),
+                                                      ),
+                                                      SizedBox(height: 10.h),
+                                                      Card(
+                                                        child: ListTile(
+                                                          leading: const Icon(Icons
+                                                              .camera_alt_rounded),
+                                                          title: Text(
+                                                            'Capture photo',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 18.sp,
+                                                            ),
+                                                          ),
+                                                          onTap: () async {
+                                                            _pickedImageNotifier
+                                                                    .value =
+                                                                await PickImageIntegrartion()
+                                                                    .getFromCamera();
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                        ),
+                                                      ),
+                                                      SizedBox(height: 5.h),
+                                                      Card(
+                                                        child: ListTile(
+                                                          leading: const Icon(
+                                                              Icons.image),
+                                                          title: Text(
+                                                            'Upload Photo',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 18.sp,
+                                                            ),
+                                                          ),
+                                                          onTap: () async {
+                                                            _pickedImageNotifier
+                                                                    .value =
+                                                                await PickImageIntegrartion()
+                                                                    .getFromGallery();
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          },
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          // log(image.path.toString());
+                                          // _pickedImageNotifier.value = image;
+                                        },
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          child: Container(
+                                            color:
+                                                Colors.white.withOpacity(0.5),
+                                            child: const Icon(Icons.camera_alt,
+                                                size: 40),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                            }),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ClipRRect(
@@ -164,5 +306,87 @@ class ProAddProductScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  File addImage(
+      {required BuildContext context,
+      Color backgroundColor = const Color(0xff22262B)}) {
+    late File pickedImage;
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            color: backgroundColor,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: const Color.fromARGB(255, 7, 7, 7)
+            //         .withOpacity(0.5),
+            //     spreadRadius: 5,
+            //     blurRadius: 7,
+            //     offset: const Offset(
+            //         10, 10), // changes position of shadow
+            //   ),
+            // ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Icon(
+                    Icons.close_rounded,
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.camera_alt_rounded),
+                    title: Text(
+                      'Capture picture',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                    onTap: () async {
+                      pickedImage =
+                          await PickImageIntegrartion().getFromCamera();
+                    },
+                  ),
+                ),
+                SizedBox(height: 5.h),
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.image),
+                    title: Text(
+                      'Upload picture from Photos',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                    onTap: () async {
+                      pickedImage =
+                          await PickImageIntegrartion().getFromGallery();
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+    return pickedImage;
   }
 }
