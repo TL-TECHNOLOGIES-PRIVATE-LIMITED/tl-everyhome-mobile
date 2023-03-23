@@ -48,13 +48,16 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                 color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          elevation: 0,
+          elevation: 3,
           title: Text(args.toString()),
         ),
         body: SingleChildScrollView(
           child: Stack(
             children: [
-              Image.asset('assets/bg_images/background_image_1.png'),
+              Image.asset(
+                'assets/bg_images/background_image_1.png',
+                height: 0.7.sh,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Column(
@@ -74,6 +77,13 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                       minLines: 4,
                       controller: issueDescriptionContoller,
                     ),
+                    const CustomTitleText(
+                      title: 'Amount/day',
+                    ),
+                    CustomFormField(
+                      hintText: '',
+                      controller: issueTypeContoller,
+                    ),
                     const CustomTitleText(title: 'Images'),
                     const CustomImageContainer(),
                     const CustomTitleText(title: 'Select Address'),
@@ -87,18 +97,18 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                             color: Color(0xffFEBA45),
                           ),
                           suffixIcon: GestureDetector(
-                            onTap: () {
-                              editTextFieldNotifier.value =
-                                  !editTextFieldNotifier.value;
-                            },
-                            child: const Icon(
-                              Icons.edit_location_alt_outlined,
-                              color: Colors.grey,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
+                              onTap: () {
+                                editTextFieldNotifier.value =
+                                    !editTextFieldNotifier.value;
+                              },
+                              child: editTextFieldNotifier.value
+                                  ? const Icon(Icons.edit_outlined,
+                                      color: Colors.grey)
+                                  : const Icon(Icons.edit_off_outlined,
+                                      color: Colors.grey)),
+                          focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.amber),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
                           hintText: 'Enter your address',
                           maxLines: 5,

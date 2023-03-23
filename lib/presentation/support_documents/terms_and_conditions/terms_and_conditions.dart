@@ -25,7 +25,7 @@ class TermsAndConditions extends StatelessWidget {
                         return rootBundle.loadString(
                             'assets/documents/terms_and_conditions.md');
                       }),
-                      builder: (constex, snapshot) {
+                      builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           return Markdown(data: snapshot.data.toString());
                         } else {

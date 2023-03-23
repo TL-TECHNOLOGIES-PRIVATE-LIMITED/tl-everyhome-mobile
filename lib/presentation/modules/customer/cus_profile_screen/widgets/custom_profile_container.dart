@@ -49,7 +49,7 @@ class CustomProfileContainer extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/');
+                    Navigator.of(context).pushNamed('/cus_profile_edit_screen');
                   },
                   icon: const Icon(
                     Icons.mode_edit_outlined,

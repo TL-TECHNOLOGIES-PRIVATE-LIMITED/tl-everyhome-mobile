@@ -1,4 +1,5 @@
 import 'package:every_home/domain/core/theme.dart';
+import 'package:every_home/presentation/modules/customer/cus_profile_edit_screen/cus_profile_edit_screen.dart';
 import 'package:every_home/presentation/modules/login/create_account_screen/create_account_screen.dart';
 import 'package:every_home/presentation/modules/login/forget_password_screen/forget_password_screen.dart';
 import 'package:every_home/presentation/modules/login/otp_screen/otp_screen.dart';
@@ -87,6 +88,8 @@ class MainApp extends StatelessWidget {
                   const CusWorkerRatingScreen(),
               '/cus_worker_negotiate_screen': (context) =>
                   const CusWorkerNegotiateScreen(),
+              '/cus_profile_edit_screen': (context) =>
+                  const CusProfileEditScreen(),
               // Enabler module routes
               '/ena_home_screen': (context) => const EnaHomeScreen(),
               '/ena_notification_screen': (context) =>
@@ -113,7 +116,7 @@ class MainApp extends StatelessWidget {
               '/google_map_screen': (context) => const GoogleMapScreen(),
               // Support Documents route
               '/terms_and_conditions': (context) => const TermsAndConditions(),
-              '/privacy_policy': (context) => const PrivacyPolicy()
+              '/privacy_policy': (context) => const PrivacyPolicy(),
             },
           ),
         );

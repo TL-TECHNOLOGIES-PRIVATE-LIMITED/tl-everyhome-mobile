@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
@@ -25,7 +26,7 @@ class CusDateAndTimeScreen extends StatelessWidget {
         children: [
           CalendarDatePicker2(
             config: CalendarDatePicker2Config(
-              selectedDayHighlightColor: const Color(0xffFEBA45),
+              selectedDayHighlightColor: LigthColor().buttonColorYellow,
             ),
             initialValue: [
               DateTime.now(),
@@ -35,7 +36,7 @@ class CusDateAndTimeScreen extends StatelessWidget {
             },
           ),
           Padding(
-            padding: EdgeInsets.only(left: 28.w, top: 20.h),
+            padding: EdgeInsets.only(left: 28.w),
             child: Text(
               'Available timings',
               style: TextStyle(
@@ -45,6 +46,106 @@ class CusDateAndTimeScreen extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 20.h),
+          Center(
+            child: Wrap(
+              alignment: WrapAlignment.spaceAround,
+              runSpacing: 8,
+              spacing: 10,
+              children:
+                  // controller.timings
+                  //     .map(
+                  //       (e) =>
+                  [
+                ChoiceChip(
+                  // selected: controller.selTime.value == e.timing,
+                  selected: true,
+                  selectedColor: LigthColor().buttonColorYellow,
+                  onSelected: (val) {
+                    // controller.selTime.value = e.timing;
+                    // controller.update();
+                  },
+                  label: const SizedBox(
+                      width: 60,
+                      child: Text('10:00 am', textAlign: TextAlign.center)),
+                ),
+                ChoiceChip(
+                  // selected: controller.selTime.value == e.timing,
+                  selected: false,
+                  selectedColor: LigthColor().buttonColorYellow,
+                  onSelected: (val) {
+                    // controller.selTime.value = e.timing;
+                    // controller.update();
+                  },
+                  label: const SizedBox(
+                      width: 60,
+                      child: Text('11:00 am', textAlign: TextAlign.center)),
+                ),
+                ChoiceChip(
+                  // selected: controller.selTime.value == e.timing,
+                  selected: false,
+                  selectedColor: LigthColor().buttonColorYellow,
+                  onSelected: (val) {
+                    // controller.selTime.value = e.timing;
+                    // controller.update();
+                  },
+                  label: const SizedBox(
+                      width: 60,
+                      child: Text('12:00 am', textAlign: TextAlign.center)),
+                ),
+                ChoiceChip(
+                  // selected: controller.selTime.value == e.timing,
+                  selected: false,
+                  selectedColor: LigthColor().buttonColorYellow,
+                  onSelected: (val) {
+                    // controller.selTime.value = e.timing;
+                    // controller.update();
+                  },
+                  label: const SizedBox(
+                      width: 60,
+                      child: Text('1:00 pm', textAlign: TextAlign.center)),
+                ),
+                ChoiceChip(
+                  // selected: controller.selTime.value == e.timing,
+                  selected: false,
+                  selectedColor: LigthColor().buttonColorYellow,
+                  onSelected: (val) {
+                    // controller.selTime.value = e.timing;
+                    // controller.update();
+                  },
+                  label: const SizedBox(
+                      width: 60,
+                      child: Text('2:00 pm', textAlign: TextAlign.center)),
+                ),
+                ChoiceChip(
+                  // selected: controller.selTime.value == e.timing,
+                  selected: false,
+                  selectedColor: LigthColor().buttonColorYellow,
+                  onSelected: (val) {
+                    // controller.selTime.value = e.timing;
+                    // controller.update();
+                  },
+                  label: const SizedBox(
+                      width: 60,
+                      child: Text('3:00 pm', textAlign: TextAlign.center)),
+                ),
+                ChoiceChip(
+                  // selected: controller.selTime.value == e.timing,
+                  selected: false,
+                  selectedColor: LigthColor().buttonColorYellow,
+                  onSelected: (val) {
+                    // controller.selTime.value = e.timing;
+                    // controller.update();
+                  },
+                  label: const SizedBox(
+                      width: 60,
+                      child: Text('4:00 pm', textAlign: TextAlign.center)),
+                ),
+              ],
+
+              // .toList(),
+            ),
+          )
         ],
       ),
       bottomNavigationBar: Padding(
