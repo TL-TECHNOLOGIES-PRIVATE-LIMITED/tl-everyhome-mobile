@@ -128,8 +128,8 @@ class CusProfileScreen extends StatelessWidget {
                         actions: [
                           TextButton(
                             onPressed: () {
-                              // Navigator.of(context).pushNamedAndRemoveUntil(
-                              //     '/signin_screen', (route) => false);
+                              Navigator.of(context).pushNamedAndRemoveUntil(
+                                  '/signin_screen', (route) => false);
                             },
                             style: TextButton.styleFrom(
                               textStyle: const TextStyle(
@@ -149,7 +149,6 @@ class CusProfileScreen extends StatelessWidget {
                       );
                     });
                 // Navigator.of(context).pushNamedAndRemoveUntil(
-                //     '/signin_screen', (route) => false);
               },
               child: const CustomProfileTile(
                 title: 'Logout',
@@ -167,6 +166,7 @@ class CusProfileScreen extends StatelessWidget {
   Future<dynamic> customBottomSheet(BuildContext context) {
     return showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       builder: (ctx) {
         return ClipRRect(
           child: Container(
@@ -206,6 +206,21 @@ class CusProfileScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context)
                             .pushNamed('/terms_and_conditions');
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.contact_support_outlined),
+                      title: Text(
+                        'Disclaimer',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/disclaimer');
                       },
                     ),
                   ),

@@ -1,12 +1,12 @@
-import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/widgets/custom_account_section.dart';
-import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/widgets/custom_profile_container.dart';
-import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/widgets/custom_profile_tile.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_screen/widgets/custom_account_section.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_screen/widgets/custom_profile_container.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_screen/widgets/custom_profile_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 
-class ProProfileScreen extends StatelessWidget {
-  const ProProfileScreen({super.key});
+class EnaProfileScreen extends StatelessWidget {
+  const EnaProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class ProProfileScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //TODO customer details passing to customProfileContainer
-            const CustomProProfileContainer(
-              customerName: 'Hamdan L',
+            const CustomEnaProfileContainer(
+              customerName: 'Finose M',
               customerProfilePic: "",
             ),
             Padding(
@@ -33,7 +33,7 @@ class ProProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const CustomProAccountSection(),
+            const CustomEnaAccountSection(),
             GestureDetector(
               onTap: () {
                 showDialog(
@@ -57,12 +57,12 @@ class ProProfileScreen extends StatelessWidget {
                       );
                     });
               },
-              child: const CustomProProfileTile(
+              child: const CustomEnaProfileTile(
                 title: 'My Earnings',
                 icon: IconlyLight.wallet,
               ),
             ),
-            const CustomProProfileTile(
+            const CustomEnaProfileTile(
               title: 'My Address',
               icon: IconlyLight.discovery,
             ),
@@ -70,12 +70,12 @@ class ProProfileScreen extends StatelessWidget {
               onTap: () {
                 customBottomSheet(context);
               },
-              child: const CustomProProfileTile(
+              child: const CustomEnaProfileTile(
                 title: 'Support',
                 icon: IconlyLight.info_circle,
               ),
             ),
-            const CustomProProfileTile(
+            const CustomEnaProfileTile(
               title: 'FAQ',
               icon: IconlyLight.shield_done,
             ),
@@ -102,7 +102,7 @@ class ProProfileScreen extends StatelessWidget {
                       );
                     });
               },
-              child: const CustomProProfileTile(
+              child: const CustomEnaProfileTile(
                 title: 'Refer & Earn',
                 icon: IconlyLight.chat,
               ),
@@ -149,7 +149,7 @@ class ProProfileScreen extends StatelessWidget {
                     });
                 // Navigator.of(context).pushNamedAndRemoveUntil(
               },
-              child: const CustomProProfileTile(
+              child: const CustomEnaProfileTile(
                 title: 'Logout',
                 icon: IconlyLight.logout,
               ),
@@ -208,7 +208,6 @@ class ProProfileScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: 5.h),
                   Card(
                     child: ListTile(
                       leading: const Icon(Icons.contact_support_outlined),
@@ -224,6 +223,7 @@ class ProProfileScreen extends StatelessWidget {
                       },
                     ),
                   ),
+                  SizedBox(height: 5.h),
                   SizedBox(height: 5.h),
                   Card(
                     child: ListTile(

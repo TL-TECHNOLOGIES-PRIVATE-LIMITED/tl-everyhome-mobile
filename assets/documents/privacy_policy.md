@@ -1,4 +1,4 @@
-﻿EVERYHOME - Privacy Policy
+﻿**EVERYHOME - Privacy Policy**
 
 [Insert the effective date]
 
@@ -59,7 +59,7 @@ We want to inform users of this service that these third parties have access to 
 
 **Security**
 
-We value your trust in providing us with your personal information, thus we are striving to use commercially acceptable means of protecting it. 
+We value your trust in providing us with your personal information, thus we are striving to use commercially acceptable means of protecting it.
 
 We take reasonable measures to protect the personal information we collect from unauthorized access, disclosure, alteration, or destruction. Specifically, we use encryption and other security technologies to protect your personal information.
 

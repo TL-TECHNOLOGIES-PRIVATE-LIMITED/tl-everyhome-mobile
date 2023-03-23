@@ -4,8 +4,8 @@ import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CusProfileEditScreen extends StatelessWidget {
-  const CusProfileEditScreen({super.key});
+class EnaProfileEditScreen extends StatelessWidget {
+  const EnaProfileEditScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

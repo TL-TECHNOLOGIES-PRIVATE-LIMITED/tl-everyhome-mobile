@@ -1,5 +1,6 @@
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_edit_screen/cus_profile_edit_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_edit_screen/ena_profile_edit_screen.dart';
 import 'package:every_home/presentation/modules/login/create_account_screen/create_account_screen.dart';
 import 'package:every_home/presentation/modules/login/forget_password_screen/forget_password_screen.dart';
 import 'package:every_home/presentation/modules/login/otp_screen/otp_screen.dart';
@@ -21,7 +22,7 @@ import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/e
 import 'package:every_home/presentation/modules/enabler/ena_negotatiate_screen/ena_negotiate_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_notification_screen/ena_notification_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_profile_create_screen/ena_profile_create_screen.dart';
-import 'package:every_home/presentation/modules/enabler/ena_profile_screen/cus_profile_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_screen/ena_profile_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_work_finish_sreen/ena_work_finish_screen.dart';
 import 'package:every_home/presentation/modules/login/google_map_screen/google_map_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_add_product_screen/pro_add_product_screen.dart';
@@ -29,10 +30,12 @@ import 'package:every_home/presentation/modules/product_owner/pro_create_profile
 import 'package:every_home/presentation/modules/product_owner/pro_main_screen/pro_main_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_notification_screen/pro_notification_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_product_showcase_screen/pro_product_showcase_screen.dart';
+import 'package:every_home/presentation/modules/product_owner/pro_profile_edit_screen/pro_profile_edit_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/pro_profile_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_notification_screen/cus_notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
 import 'package:every_home/presentation/splash/splash_screen.dart';
+import 'package:every_home/presentation/support_documents/disclaimer/disclaimer.dart';
 import 'package:every_home/presentation/support_documents/privacy_policy/privacy_policy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -102,10 +105,14 @@ class MainApp extends StatelessWidget {
               '/ena_profile_create_screen': (context) =>
                   const EnaProfileCreateScreen(),
               '/ena_create_portfolio_screen': (context) =>
-                  // Business module routes
                   const EnaCreatePortfolioScreen(),
+              '/ena_profile_edit_screen': (context) =>
+                  const EnaProfileEditScreen(),
+              // Business module routes
               '/pro_main_screen': (context) => ProMainScreen(),
               '/pro_profile_screen': (context) => const ProProfileScreen(),
+              '/pro_profile_edit_screen': (context) =>
+                  const ProProfileEditScreen(),
               '/pro_notification_screen': (context) =>
                   const ProNotificationScreen(),
               '/pro_add_product_screen': (context) => ProAddProductScreen(),
@@ -117,6 +124,7 @@ class MainApp extends StatelessWidget {
               // Support Documents route
               '/terms_and_conditions': (context) => const TermsAndConditions(),
               '/privacy_policy': (context) => const PrivacyPolicy(),
+              '/disclaimer': (context) => const Disclaimer(),
             },
           ),
         );

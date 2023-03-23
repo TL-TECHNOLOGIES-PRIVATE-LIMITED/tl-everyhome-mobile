@@ -59,7 +59,7 @@ class _CustomProProfileContainerState extends State<CustomProProfileContainer> {
                 ),
                 IconButton(
                   onPressed: () {
-                    //TODO edit option need to implemented
+                    Navigator.of(context).pushNamed('/pro_profile_edit_screen');
                   },
                   icon: const Icon(
                     Icons.mode_edit_outlined,

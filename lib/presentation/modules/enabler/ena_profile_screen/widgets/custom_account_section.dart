@@ -12,33 +12,33 @@ class CustomEnaAccountSection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(10),
-            bottomLeft: Radius.circular(10),
-          ),
-          child: Container(
-            height: 100.h,
-            width: 120.w,
-            decoration: const BoxDecoration(
-              color: Colors.amber,
+        Container(
+          height: 100.h,
+          width: 120.w,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
             ),
-            child: Center(
-              child: Wrap(
-                direction: Axis.vertical,
-                spacing: 5,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  SvgPicture.asset('assets/profile/customer_profile.svg'),
-                  Text(
-                    'Customer',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  )
-                ],
-              ),
+            border: Border.all(
+              color: const Color(0xffFEBA45),
+            ),
+          ),
+          child: Center(
+            child: Wrap(
+              direction: Axis.vertical,
+              spacing: 5,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                SvgPicture.asset('assets/profile/customer_profile.svg'),
+                Text(
+                  'Customer',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ],
             ),
           ),
         ),
@@ -46,6 +46,7 @@ class CustomEnaAccountSection extends StatelessWidget {
           height: 100.h,
           width: 120.w,
           decoration: BoxDecoration(
+            color: Colors.amber,
             border: Border.all(
               color: const Color(0xffFEBA45),
             ),

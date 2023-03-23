@@ -1,4 +1,3 @@
-import 'package:every_home/domain/pick_image_integration/pick_image_integration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,7 +48,9 @@ class CustomEnaProfileContainer extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/ena_profile_edit_screen');
+                  },
                   icon: const Icon(
                     Icons.mode_edit_outlined,
                     color: Colors.white,
@@ -69,101 +70,101 @@ class CustomEnaProfileContainer extends StatelessWidget {
                 right: 0,
                 child: GestureDetector(
                   onTap: () async {
-                    showBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20)),
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                color: Color(0xff22262B),
-                                // boxShadow: [
-                                //   BoxShadow(
-                                //     color: const Color.fromARGB(255, 7, 7, 7)
-                                //         .withOpacity(0.5),
-                                //     spreadRadius: 5,
-                                //     blurRadius: 7,
-                                //     offset: const Offset(
-                                //         10, 10), // changes position of shadow
-                                //   ),
-                                // ],
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: const Icon(
-                                        Icons.close_rounded,
-                                        color: Colors.white,
-                                        size: 24,
-                                      ),
-                                    ),
-                                    SizedBox(height: 10.h),
-                                    Card(
-                                      child: ListTile(
-                                        leading: const Icon(
-                                            Icons.camera_alt_rounded),
-                                        title: Text(
-                                          'Capture picture',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18.sp,
-                                          ),
-                                        ),
-                                        onTap: () {
-                                          PickImageIntegrartion()
-                                              .getFromCamera();
-                                        },
-                                      ),
-                                    ),
-                                    SizedBox(height: 5.h),
-                                    Card(
-                                      child: ListTile(
-                                        leading: const Icon(Icons.image),
-                                        title: Text(
-                                          'Upload picture from Photos',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18.sp,
-                                          ),
-                                        ),
-                                        onTap: () {
-                                          PickImageIntegrartion()
-                                              .getFromGallery();
-                                        },
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        });
+                    // showBottomSheet(
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return ClipRRect(
+                    //         borderRadius: const BorderRadius.only(
+                    //             topLeft: Radius.circular(20),
+                    //             topRight: Radius.circular(20)),
+                    //         child: Container(
+                    //           decoration: const BoxDecoration(
+                    //             color: Color(0xff22262B),
+                    //             // boxShadow: [
+                    //             //   BoxShadow(
+                    //             //     color: const Color.fromARGB(255, 7, 7, 7)
+                    //             //         .withOpacity(0.5),
+                    //             //     spreadRadius: 5,
+                    //             //     blurRadius: 7,
+                    //             //     offset: const Offset(
+                    //             //         10, 10), // changes position of shadow
+                    //             //   ),
+                    //             // ],
+                    //           ),
+                    //           child: Padding(
+                    //             padding: const EdgeInsets.symmetric(
+                    //                 vertical: 20.0, horizontal: 20),
+                    //             child: Column(
+                    //               crossAxisAlignment: CrossAxisAlignment.start,
+                    //               mainAxisSize: MainAxisSize.min,
+                    //               children: [
+                    //                 GestureDetector(
+                    //                   onTap: () {
+                    //                     Navigator.of(context).pop();
+                    //                   },
+                    //                   child: const Icon(
+                    //                     Icons.close_rounded,
+                    //                     color: Colors.white,
+                    //                     size: 24,
+                    //                   ),
+                    //                 ),
+                    //                 SizedBox(height: 10.h),
+                    //                 Card(
+                    //                   child: ListTile(
+                    //                     leading: const Icon(
+                    //                         Icons.camera_alt_rounded),
+                    //                     title: Text(
+                    //                       'Capture picture',
+                    //                       style: TextStyle(
+                    //                         color: Colors.black,
+                    //                         fontSize: 18.sp,
+                    //                       ),
+                    //                     ),
+                    //                     onTap: () {
+                    //                       PickImageIntegrartion()
+                    //                           .getFromCamera();
+                    //                     },
+                    //                   ),
+                    //                 ),
+                    //                 SizedBox(height: 5.h),
+                    //                 Card(
+                    //                   child: ListTile(
+                    //                     leading: const Icon(Icons.image),
+                    //                     title: Text(
+                    //                       'Upload picture from Photos',
+                    //                       style: TextStyle(
+                    //                         color: Colors.black,
+                    //                         fontSize: 18.sp,
+                    //                       ),
+                    //                     ),
+                    //                     onTap: () {
+                    //                       PickImageIntegrartion()
+                    //                           .getFromGallery();
+                    //                     },
+                    //                   ),
+                    //                 )
+                    //               ],
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       );
+                    //     });
                   },
-                  child: Container(
-                    height: 35.h,
-                    width: 35.w,
-                    decoration: const BoxDecoration(
-                      color: Color(0xffFEBA45),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        color: Colors.black,
-                        size: 18,
-                      ),
-                    ),
-                  ),
+                  // child: Container(
+                  //   height: 35.h,
+                  //   width: 35.w,
+                  //   decoration: const BoxDecoration(
+                  //     color: Color(0xffFEBA45),
+                  //     shape: BoxShape.circle,
+                  //   ),
+                  //   child: const Center(
+                  //     child: Icon(
+                  //       Icons.camera_alt_outlined,
+                  //       color: Colors.black,
+                  //       size: 18,
+                  //     ),
+                  //   ),
+                  // ),
                 ),
               )
             ],
