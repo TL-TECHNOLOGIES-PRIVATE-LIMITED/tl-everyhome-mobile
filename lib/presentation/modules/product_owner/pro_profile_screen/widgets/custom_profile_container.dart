@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:every_home/domain/dummy/models/dummy_bussines_model.dart';
 import 'package:every_home/domain/pick_image_integration/pick_image_integration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,10 +10,12 @@ class CustomProProfileContainer extends StatefulWidget {
     super.key,
     required this.customerName,
     required this.customerProfilePic,
+    required this.businessProfile,
   });
 
   final String customerName;
   final String customerProfilePic;
+  final DummyBussiness businessProfile;
 
   @override
   State<CustomProProfileContainer> createState() =>
@@ -59,7 +62,9 @@ class _CustomProProfileContainerState extends State<CustomProProfileContainer> {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/pro_profile_edit_screen');
+                    //TODO Business screen profile edit section
+                    Navigator.of(context).pushNamed('/pro_profile_edit_screen',
+                        arguments: widget.businessProfile);
                   },
                   icon: const Icon(
                     Icons.mode_edit_outlined,
@@ -71,8 +76,8 @@ class _CustomProProfileContainerState extends State<CustomProProfileContainer> {
           ),
           Stack(
             children: [
-              const CircleAvatar(
-                // backgroundImage: AssetImage(customerProfilePic),
+              CircleAvatar(
+                backgroundImage: AssetImage(widget.customerProfilePic),
                 radius: 50,
               ),
               Positioned(

@@ -1,3 +1,4 @@
+import 'package:every_home/domain/dummy/models/dummy_bussines_model.dart';
 import 'package:every_home/domain/pick_image_integration/image_picker_helper.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
@@ -5,10 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProProfileEditScreen extends StatelessWidget {
-  const ProProfileEditScreen({super.key});
+  ProProfileEditScreen({super.key});
+
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController mobileController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    //TODO business details recieving
+    final args = ModalRoute.of(context)!.settings.arguments as DummyBussiness;
+    nameController.text = args.name.toString();
+    emailController.text = 'tester@gmail.com';
+    mobileController.text = '9089786765';
+    addressController.text = args.place.toString();
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -40,15 +52,23 @@ class ProProfileEditScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 150.w),
                   child: Stack(
                     children: [
-                      Container(
-                        height: 90.h,
-                        width: 90.w,
-                        decoration: BoxDecoration(
-                          color: Colors.red[100],
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.amber,
-                            width: 2,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(50.r),
+                        child: Container(
+                          height: 100.h,
+                          width: 100.w,
+                          decoration: BoxDecoration(
+                            color: Colors.red[100],
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.amber,
+                              width: 2,
+                            ),
+                          ),
+                          child: Image.asset(
+                            args.profilePic.toString(),
+                            fit: BoxFit.cover,
+                            scale: 10,
                           ),
                         ),
                       ),
@@ -88,11 +108,12 @@ class ProProfileEditScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 12.h),
-                const CustomFormField(
+                CustomFormField(
+                  controller: nameController,
                   hintText: '',
                   fillColor: Colors.transparent,
-                  border: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
+                  border: const OutlineInputBorder(),
+                  focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.amber)),
                 ),
                 SizedBox(height: 16.h),
@@ -104,11 +125,12 @@ class ProProfileEditScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 12.h),
-                const CustomFormField(
+                CustomFormField(
+                  controller: emailController,
                   hintText: '',
                   fillColor: Colors.transparent,
-                  border: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
+                  border: const OutlineInputBorder(),
+                  focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.amber)),
                 ),
                 SizedBox(height: 16.h),
@@ -120,11 +142,12 @@ class ProProfileEditScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 12.h),
-                const CustomFormField(
+                CustomFormField(
+                  controller: mobileController,
                   hintText: '',
                   fillColor: Colors.transparent,
-                  border: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
+                  border: const OutlineInputBorder(),
+                  focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.amber)),
                 ),
                 SizedBox(height: 16.h),
@@ -136,11 +159,12 @@ class ProProfileEditScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 12.h),
-                const CustomFormField(
+                CustomFormField(
+                  controller: addressController,
                   hintText: '',
                   fillColor: Colors.transparent,
-                  border: OutlineInputBorder(),
-                  focusedBorder: OutlineInputBorder(
+                  border: const OutlineInputBorder(),
+                  focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.amber)),
                   minLines: 3,
                   maxLines: 4,

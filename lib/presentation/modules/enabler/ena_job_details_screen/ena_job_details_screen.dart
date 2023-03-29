@@ -45,20 +45,20 @@ class EnaJobDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const CustomEnaJobDetailsCard(),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 15.h),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
-                        'Add Snapshots',
+                        'Snapshots',
                         style: TextStyle(
                           fontSize: 18.sp,
                           color: Colors.white,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.h),
+                    SizedBox(height: 15.h),
                     const CustomEnaWorkersImages(),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 30.h),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Row(
@@ -95,12 +95,12 @@ class EnaJobDetailsScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 15.h),
                     CustomCustomerDetailsTile(
                       callButton: () => CallIntegration().callToAction(),
                       msgButton: () => MessageIntegration().messageToAction(),
                     ),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 15.h),
                     const ActionButton(),
                     SizedBox(height: 18.h),
                     CustomEnaSliderButton(

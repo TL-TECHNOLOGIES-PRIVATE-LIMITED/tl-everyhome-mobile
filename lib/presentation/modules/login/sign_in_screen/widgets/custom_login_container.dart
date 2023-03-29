@@ -13,15 +13,25 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:quickalert/quickalert.dart';
 
 // ignore: must_be_immutable
-class CustomLoginContainer extends StatelessWidget with InputValidationMixin {
+class CustomLoginContainer extends StatefulWidget with InputValidationMixin {
   CustomLoginContainer({
     super.key,
   });
+
+  @override
+  State<CustomLoginContainer> createState() => _CustomLoginContainerState();
+}
+
+class _CustomLoginContainerState extends State<CustomLoginContainer> {
   final formGlobalKey = GlobalKey<FormState>();
+
   ValueNotifier<bool> hidePasswordNotifier = ValueNotifier(true);
+
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
+  bool isValidColor = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,82 +55,77 @@ class CustomLoginContainer extends StatelessWidget with InputValidationMixin {
             ),
             SizedBox(height: 24.h),
             Form(
-                key: formGlobalKey,
-                child: Column(
-                  children: [
-                    CustomFormField(
-                      controller: emailController,
-                      hintText: 'Email',
-                      keyboardType: TextInputType.emailAddress,
-                      textInputAction: TextInputAction.next,
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.red, width: 2),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      validator: (email) {
-                        if (isEmailValid(email!)) {
-                          return null;
-                        } else {
-                          return 'Enter a valid email address';
-                        }
-                      },
+              key: formGlobalKey,
+              child: Column(
+                children: [
+                  CustomFormField(
+                    controller: emailController,
+                    hintText: 'Email',
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    SizedBox(height: 20.h),
-                    ValueListenableBuilder(
-                        valueListenable: hidePasswordNotifier,
-                        builder: (context, value, _) {
-                          return CustomFormField(
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Colors.red, width: 2),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            controller: passwordController,
-                            hintText: 'Password',
-                            textInputAction: TextInputAction.done,
-                            obscureText: hidePasswordNotifier.value,
-                            validator: (password) {
-                              if (isPasswordValid(password!)) {
-                                return null;
-                              } else {
-                                return 'Enter a valid password';
-                              }
-                            },
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                hidePasswordNotifier.value =
-                                    !hidePasswordNotifier.value;
-                              },
-                              child: value
-                                  ? const Icon(MdiIcons.eyeOffOutline,
-                                      color: Color(0xffBDBDBD))
-                                  : const Icon(MdiIcons.eyeOutline,
-                                      color: Color(0xffBDBDBD)),
-                            ),
-                          );
-                        }),
-                  ],
-                )),
+                    validator: (email) {
+                      if (widget.isEmailValid(email!)) {
+                        return null;
+                      } else {
+                        log(isValidColor.toString(), name: 'chhi');
+
+                        return 'Enter a valid email address';
+                      }
+                    },
+                  ),
+                  SizedBox(height: 20.h),
+                  ValueListenableBuilder(
+                    valueListenable: hidePasswordNotifier,
+                    builder: (context, value, _) {
+                      return CustomFormField(
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.red, width: 2),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        controller: passwordController,
+                        hintText: 'Password',
+                        textInputAction: TextInputAction.done,
+                        obscureText: hidePasswordNotifier.value,
+                        validator: (password) {
+                          if (widget.isPasswordValid(password!)) {
+                            return null;
+                          } else {
+                            return 'Enter a valid password';
+                          }
+                        },
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            hidePasswordNotifier.value =
+                                !hidePasswordNotifier.value;
+                          },
+                          child: value
+                              ? const Icon(MdiIcons.eyeOffOutline,
+                                  color: Color(0xffBDBDBD))
+                              : const Icon(MdiIcons.eyeOutline,
+                                  color: Color(0xffBDBDBD)),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
             SizedBox(height: 16.h),
             Wrap(
               spacing: 5.w,
               children: [
-                Text(
-                  'Forgot Password?',
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed('/forget_password_screen');
+                    Navigator.of(context).pushNamed('/forget_password_screen');
                   },
                   child: Text(
-                    'Resend',
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          color: LigthColor().textColorYellow,
-                          fontWeight: FontWeight.w700,
-                        ),
+                    'Forgot Password?',
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
                 ),
               ],
@@ -135,10 +140,12 @@ class CustomLoginContainer extends StatelessWidget with InputValidationMixin {
                   //TODO need to change pushNamed to pushNamedAndRemoveUntil
                   if (formGlobalKey.currentState!.validate()) {
                     // formGlobalKey.currentState!.save();
-                    final inputEmail = emailController.text.trim();
-                    final inputPassword = passwordController.text.trim();
-                    SignInModel loginModel = SignInModel(
-                        email: inputEmail, password: inputPassword);
+                    final inputEmail =
+                        emailController.text.toLowerCase().trim();
+                    final inputPassword =
+                        passwordController.text.toLowerCase().trim();
+                    SignInModel loginModel =
+                        SignInModel(email: inputEmail, password: inputPassword);
                     final loginResponse =
                         LogiAuth().loginAuthentication(loginModel);
                     if (loginResponse['status'] == true) {
@@ -156,9 +163,10 @@ class CustomLoginContainer extends StatelessWidget with InputValidationMixin {
                       }
                     } else {
                       QuickAlert.show(
-                          context: context,
-                          type: QuickAlertType.error,
-                          text: 'Your email and password doesn\'t match');
+                        context: context,
+                        type: QuickAlertType.error,
+                        text: 'Your email and password doesn\'t match',
+                      );
                     }
 
                     // use the email provided here

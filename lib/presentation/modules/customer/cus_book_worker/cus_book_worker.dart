@@ -24,8 +24,10 @@ class _CusBookWorkerState extends State<CusBookWorker> {
 
   final TextEditingController issueDescriptionContoller =
       TextEditingController();
+  final FocusNode onFocus = FocusNode();
 
   final TextEditingController cusAddressContoller = TextEditingController();
+  bool focusField = false;
   @override
   void initState() {
     super.initState();
@@ -48,10 +50,11 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                 color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          elevation: 3,
+          elevation: 1,
           title: Text(args.toString()),
         ),
         body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Stack(
             children: [
               Image.asset(
@@ -62,36 +65,51 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const CustomTitleText(
-                      title: 'Issue Type',
+                      title: 'Issue type',
                     ),
                     CustomFormField(
                       hintText: 'eg:fan installation',
                       controller: issueTypeContoller,
                     ),
-                    const CustomTitleText(title: 'Issue Description'),
+                    const CustomTitleText(title: 'Issue description'),
                     CustomFormField(
                       hintText: 'eg: Installation of new fan',
                       maxLines: 5,
                       minLines: 4,
                       controller: issueDescriptionContoller,
                     ),
+                    SizedBox(height: 5.h),
+                    Text(
+                      'Min 5 words',
+                      style: TextStyle(
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.white,
+                      ),
+                    ),
                     const CustomTitleText(
                       title: 'Amount/day',
                     ),
                     CustomFormField(
-                      hintText: '',
+                      hintText: '0.00',
                       controller: issueTypeContoller,
                     ),
-                    const CustomTitleText(title: 'Images'),
+                    const ExpansionPanelList(
+                      children: [],
+                    ),
+                    const CustomTitleText(title: 'Add snapshots'),
                     const CustomImageContainer(),
-                    const CustomTitleText(title: 'Select Address'),
+                    const CustomTitleText(title: 'Edit address'),
                     ValueListenableBuilder(
                       valueListenable: editTextFieldNotifier,
                       builder: (context, value, _) {
                         return CustomFormField(
+                          focusNode: onFocus,
                           controller: cusAddressContoller,
+                          autofocus: focusField,
                           prefixIcon: const Icon(
                             Icons.home,
                             color: Color(0xffFEBA45),
@@ -100,12 +118,13 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                               onTap: () {
                                 editTextFieldNotifier.value =
                                     !editTextFieldNotifier.value;
+                                onFocus.requestFocus();
                               },
                               child: editTextFieldNotifier.value
-                                  ? const Icon(Icons.edit_outlined,
-                                      color: Colors.grey)
-                                  : const Icon(Icons.edit_off_outlined,
-                                      color: Colors.grey)),
+                                  ? Icon(Icons.edit_outlined,
+                                      size: 24.r, color: Colors.grey)
+                                  : Icon(Icons.edit_off_outlined,
+                                      size: 24.r, color: Colors.grey)),
                           focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.amber),
                             borderRadius: BorderRadius.circular(10.r),
@@ -117,23 +136,24 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                         );
                       },
                     ),
+                    SizedBox(height: 39.h),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 30.w, right: 30.w, bottom: 50.h),
+                      child: CustomYellowButton(
+                        label: 'Pick your Date and Time',
+                        onPress: () {
+                          //TODO book worker authentication
+                          log(cusAddressContoller.text.toString());
+                          Navigator.of(context)
+                              .pushNamed('/date_and_time_screen');
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
             ],
-          ),
-        ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.only(left: 30.w, right: 30.w, bottom: 50.h),
-          child: CustomYellowButton(
-            label: 'Pick your Date and Time',
-            bgColor: const Color(0xffFFA610),
-            labelColor: const Color(0xffF0E8E8),
-            onPress: () {
-              //TODO book worker authentication
-              log(cusAddressContoller.text.toString());
-              Navigator.of(context).pushNamed('/date_and_time_screen');
-            },
           ),
         ),
       ),

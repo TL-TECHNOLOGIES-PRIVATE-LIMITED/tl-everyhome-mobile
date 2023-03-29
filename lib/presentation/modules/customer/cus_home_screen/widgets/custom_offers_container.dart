@@ -21,7 +21,7 @@ class CustomOffersContainer extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
+            child: SizedBox(
               child: Image.asset(offerImage),
             ),
           );

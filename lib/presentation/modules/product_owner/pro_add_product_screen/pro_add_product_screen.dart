@@ -1,5 +1,6 @@
-import 'dart:io';
+// ignore_for_file: must_be_immutable
 
+import 'dart:io';
 import 'package:every_home/domain/pick_image_integration/pick_image_integration.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_add_product_screen/widgets/custom_pro_range_slider.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';

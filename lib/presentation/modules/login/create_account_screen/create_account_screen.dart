@@ -1,14 +1,12 @@
-import 'package:animations/animations.dart';
 import 'package:every_home/domain/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CreateAccountScreen extends StatelessWidget {
-  CreateAccountScreen({super.key});
-  final SharedAxisTransitionType _transitionType =
-      SharedAxisTransitionType.horizontal;
-  final bool _isLoggedIn = false;
+  const CreateAccountScreen({super.key});
+
+  // final bool _isLoggedIn = false;
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+import 'package:every_home/domain/call_integration/call_integration.dart';
+import 'package:every_home/domain/message_integration/message_integration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -111,33 +113,43 @@ class CustomProJobTile extends StatelessWidget {
                   Wrap(
                     spacing: 10.w,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: const Color(0xff141414),
+                      GestureDetector(
+                        onTap: () {
+                          CallIntegration().callToAction();
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: const Color(0xff141414),
+                            ),
                           ),
-                        ),
-                        child: Center(
-                          child: Icon(
-                            Icons.call_outlined,
-                            size: 18.sp,
+                          child: Center(
+                            child: Icon(
+                              Icons.call_outlined,
+                              size: 18.sp,
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: const Color(0xff141414),
+                      GestureDetector(
+                        onTap: () {
+                          MessageIntegration().messageToAction();
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: const Color(0xff141414),
+                            ),
                           ),
-                        ),
-                        child: Center(
-                          child: Icon(
-                            Icons.message_outlined,
-                            size: 18.sp,
+                          child: Center(
+                            child: Icon(
+                              Icons.message_outlined,
+                              size: 18.sp,
+                            ),
                           ),
                         ),
                       )

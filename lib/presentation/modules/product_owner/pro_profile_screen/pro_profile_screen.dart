@@ -1,3 +1,4 @@
+import 'package:every_home/domain/dummy/models/dummy_bussines_model.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/widgets/custom_account_section.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/widgets/custom_profile_container.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/widgets/custom_profile_tile.dart';
@@ -11,16 +12,17 @@ class ProProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //TODO customer details recieving
-    // final args = ModalRoute.of(context)!.settings.arguments as DummyCustomer;
+    final args = ModalRoute.of(context)!.settings.arguments as DummyBussiness;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //TODO customer details passing to customProfileContainer
-            const CustomProProfileContainer(
-              customerName: 'Hamdan L',
-              customerProfilePic: "",
+            CustomProProfileContainer(
+              customerName: args.name.toString(),
+              customerProfilePic: args.profilePic.toString(),
+              businessProfile: args,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 30, top: 24, bottom: 16),

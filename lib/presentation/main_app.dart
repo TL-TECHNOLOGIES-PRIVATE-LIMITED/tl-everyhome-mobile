@@ -1,5 +1,7 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/modules/customer/cus_profile_edit_screen/cus_profile_edit_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_works_screen/cus_works_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_profile_edit_screen/ena_profile_edit_screen.dart';
 import 'package:every_home/presentation/modules/login/create_account_screen/create_account_screen.dart';
 import 'package:every_home/presentation/modules/login/forget_password_screen/forget_password_screen.dart';
@@ -59,6 +61,7 @@ class MainApp extends StatelessWidget {
               currentFocus.unfocus();
             }
           },
+
           child: MaterialApp(
             // useInheritedMediaQuery: true,
             // locale: DevicePreview.locale(context),
@@ -70,7 +73,8 @@ class MainApp extends StatelessWidget {
             routes: {
               '/onboarding': (context) => const Onboarding(),
               // Login module routes
-              '/create_account_screen': (context) => CreateAccountScreen(),
+              '/create_account_screen': (context) =>
+                  const CreateAccountScreen(),
               '/signin_screen': (context) => const SignInScreen(),
               '/signup_screen': (context) => SignUpScreen(),
               '/otp_screen': (context) => const OtpScreen(),
@@ -80,6 +84,7 @@ class MainApp extends StatelessWidget {
                   const ResetPasswordScreen(),
               // Customer module routes
               '/customer_home_screen': (context) => const CusHomeScreen(),
+              '/cus_works_screen':(context) => CusWorksScreeen(),
               '/notification_screen': (context) => const NotificationScreen(),
               '/cus_main_screen': (context) => CusMainScreen(),
               '/cus_profile_screen': (context) => const CusProfileScreen(),
@@ -111,8 +116,7 @@ class MainApp extends StatelessWidget {
               // Business module routes
               '/pro_main_screen': (context) => ProMainScreen(),
               '/pro_profile_screen': (context) => const ProProfileScreen(),
-              '/pro_profile_edit_screen': (context) =>
-                  const ProProfileEditScreen(),
+              '/pro_profile_edit_screen': (context) => ProProfileEditScreen(),
               '/pro_notification_screen': (context) =>
                   const ProNotificationScreen(),
               '/pro_add_product_screen': (context) => ProAddProductScreen(),

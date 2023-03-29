@@ -37,7 +37,7 @@ class CusHomeScreen extends StatelessWidget {
                   ),
                   const CustomServiceSection(),
                   const CustomSearchBadge(
-                    searchTitle: 'Work Schedules',
+                    searchTitle: 'Work Schedules (4)',
                   ),
                   SizedBox(
                     height: 0.1.sh,
@@ -48,11 +48,17 @@ class CusHomeScreen extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
                         itemBuilder: (context, index) {
-                          return CustomWorkScheduleTile(
-                            workName: 'Ceiling Light Repainring',
-                            postedDate: '08 Aug 2023',
-                            postedTime: '8:20PM',
-                            onTap: () {},
+                          return GestureDetector(
+                            onTap: () {
+                              // Navigator.of(context)
+                              //     .pushNamed('/cus_works_screen');
+                            },
+                            child: CustomWorkScheduleTile(
+                              workName: 'Ceiling Light Repainring',
+                              postedDate: '08 Aug 2023',
+                              postedTime: '8:20PM',
+                              onTap: () {},
+                            ),
                           );
                         }),
                   ),

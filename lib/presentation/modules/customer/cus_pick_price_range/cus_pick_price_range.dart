@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:every_home/presentation/modules/customer/cus_pick_price_range/enabler_list.dart';
 import 'package:every_home/presentation/modules/customer/cus_pick_price_range/near_by_shops_list.dart';
 import 'package:every_home/presentation/modules/customer/cus_pick_price_range/widgets/custom_book_screen_appbar.dart';
@@ -7,8 +5,6 @@ import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quickalert/quickalert.dart';
-
-
 
 class CusPickPriceRange extends StatelessWidget {
   CusPickPriceRange({super.key});
@@ -63,5 +59,3 @@ class CusPickPriceRange extends StatelessWidget {
     );
   }
 }
-
-

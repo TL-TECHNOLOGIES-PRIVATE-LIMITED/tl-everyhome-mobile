@@ -24,7 +24,10 @@ class CustomFormField extends StatelessWidget {
       this.focusedBorder,
       this.focusedErrorBorder,
       this.disabledBorder,
-      this.enabledBorder});
+      this.enabledBorder,
+      this.isValidColor,
+      this.autofocus,
+      this.focusNode});
   final TextEditingController? controller;
   final String hintText;
   final Widget? suffixIcon;
@@ -46,6 +49,9 @@ class CustomFormField extends StatelessWidget {
   final InputBorder? focusedErrorBorder;
   final InputBorder? disabledBorder;
   final InputBorder? enabledBorder;
+  final Color? isValidColor;
+  final bool? autofocus;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +59,10 @@ class CustomFormField extends StatelessWidget {
       // width: 368.w,
       // height: 50.h,
       child: TextFormField(
+        autofocus: autofocus ?? false,
+        focusNode: focusNode,
         initialValue: initialValue,
-        style: TextStyle(color: Colors.black, fontSize: 14.sp),
+        style: TextStyle(color: isValidColor ?? Colors.black, fontSize: 14.sp),
         scrollPadding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom + 14.sp * 4),
         obscureText: obscureText ?? false,

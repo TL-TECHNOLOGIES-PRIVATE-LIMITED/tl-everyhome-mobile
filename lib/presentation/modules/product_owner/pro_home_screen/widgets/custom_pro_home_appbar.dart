@@ -1,3 +1,5 @@
+import 'package:every_home/domain/dummy/db_function.dart';
+import 'package:every_home/domain/dummy/models/dummy_bussines_model.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +11,7 @@ class CustomProHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<DummyBussiness> business = DBFunction().fetchBusiness();
     return SliverAppBar(
       automaticallyImplyLeading: false,
       pinned: true,
@@ -23,11 +26,14 @@ class CustomProHomeAppBar extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/pro_profile_screen');
+                    Navigator.of(context).pushNamed('/pro_profile_screen',
+                        arguments: business[1]);
                   },
-                  child: const CircleAvatar(
-                      // backgroundImage: AssetImage(''),
-                      ),
+                  child: CircleAvatar(
+                    backgroundImage:
+                        //TODO Change Profile Picture
+                        AssetImage(business[1].profilePic.toString()),
+                  ),
                 ),
                 const Positioned(
                   right: 0,

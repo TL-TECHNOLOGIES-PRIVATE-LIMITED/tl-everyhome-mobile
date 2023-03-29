@@ -13,17 +13,22 @@ class CustomEnaWorkersImages extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10.r),
-            child: Container(
-              height: 136.h,
-              width: 129.w,
-              color: Colors.white.withOpacity(0.5),
-              child: const Icon(Icons.camera_alt, size: 40),
-              // child: Image.asset(
-              //   'assets/user/image1.png',
-              //   width: 120,
-              // ),
+          GestureDetector(
+            onTap: (){
+              
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.r),
+              child: Container(
+                height: 136.h,
+                width: 129.w,
+                color: Colors.white.withOpacity(0.5),
+                child: const Icon(Icons.camera_alt, size: 40),
+                // child: Image.asset(
+                //   'assets/user/image1.png',
+                //   width: 120,
+                // ),
+              ),
             ),
           ),
           ClipRRect(

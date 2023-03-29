@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:every_home/domain/models/signin_screen/signin_model.dart';
 
 List<Map<String, dynamic>> login = [
@@ -37,7 +35,7 @@ class LogiAuth {
             'user_type': map['type'],
             'user_id': map['user_id'],
             'response': 'user found',
-            'status':true
+            'status': true
           });
           break;
         } else {

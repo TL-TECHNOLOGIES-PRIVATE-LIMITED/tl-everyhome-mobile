@@ -79,6 +79,7 @@ class OtpScreen extends StatelessWidget {
                       SizedBox(height: 32.h),
                       Form(
                         child: Pinput(
+                          length: 6,
                           defaultPinTheme: PinTheme(
                             height: 50.h,
                             width: 50.w,
