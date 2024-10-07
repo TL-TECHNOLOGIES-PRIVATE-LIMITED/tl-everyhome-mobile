@@ -1,32 +1,33 @@
-import 'package:device_preview/device_preview.dart';
+//import 'dart:ffi';
 import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/presentation/modules/customer/cus_profile_edit_screen/cus_profile_edit_screen.dart';
-import 'package:every_home/presentation/modules/customer/cus_works_screen/cus_works_screen.dart';
-import 'package:every_home/presentation/modules/enabler/ena_profile_edit_screen/ena_profile_edit_screen.dart';
-import 'package:every_home/presentation/modules/login/create_account_screen/create_account_screen.dart';
-import 'package:every_home/presentation/modules/login/forget_password_screen/forget_password_screen.dart';
-import 'package:every_home/presentation/modules/login/otp_screen/otp_screen.dart';
-import 'package:every_home/presentation/modules/login/reset_password_screen/reset_password_screen.dart';
-import 'package:every_home/presentation/modules/login/sign_in_screen/sign_in_screen.dart';
-import 'package:every_home/presentation/modules/login/sign_up_screen/sign_up_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_book_worker/cus_book_worker.dart';
-import 'package:every_home/presentation/modules/customer/cus_main_screen/cus_main_screen.dart';
-import 'package:every_home/presentation/modules/customer/cus_pick_price_range/cus_pick_price_range.dart';
-import 'package:every_home/presentation/modules/customer/cus_profile_screen/cus_profile_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_date_and_time_screen/cus_date_and_time_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_home_screen/cus_home_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_main_screen/cus_main_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_notification_screen/cus_notification_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_pick_price_range/cus_pick_price_range.dart';
+import 'package:every_home/presentation/modules/customer/cus_profile_edit_screen/cus_profile_edit_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_profile_screen/cus_profile_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_view_job_card/cus_view_job_card.dart';
 import 'package:every_home/presentation/modules/customer/cus_worker_negotiate_screen/cus_worker_negotiate_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_worker_rating_screen/cus_worker_rating_screen.dart';
-import 'package:every_home/presentation/modules/customer/cus_home_screen/cus_home_screen.dart';
+import 'package:every_home/presentation/modules/customer/cus_works_screen/cus_works_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_create_portfolio_screen/ena_create_portfolio_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_home_screen/ena_home_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/ena_job_details_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_negotatiate_screen/ena_negotiate_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_notification_screen/ena_notification_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_profile_create_screen/ena_profile_create_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_profile_edit_screen/ena_profile_edit_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_profile_screen/ena_profile_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_work_finish_sreen/ena_work_finish_screen.dart';
+import 'package:every_home/presentation/modules/login/create_account_screen/create_account_screen.dart';
+import 'package:every_home/presentation/modules/login/forget_password_screen/forget_password_screen.dart';
 import 'package:every_home/presentation/modules/login/google_map_screen/google_map_screen.dart';
+import 'package:every_home/presentation/modules/login/otp_screen/otp_screen.dart';
+import 'package:every_home/presentation/modules/login/reset_password_screen/reset_password_screen.dart';
+import 'package:every_home/presentation/modules/login/sign_in_screen/sign_in_screen.dart';
+import 'package:every_home/presentation/modules/login/sign_up_screen/sign_up_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_add_product_screen/pro_add_product_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_create_profile_screen/pro_create_profile_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_main_screen/pro_main_screen.dart';
@@ -34,7 +35,6 @@ import 'package:every_home/presentation/modules/product_owner/pro_notification_s
 import 'package:every_home/presentation/modules/product_owner/pro_product_showcase_screen/pro_product_showcase_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_profile_edit_screen/pro_profile_edit_screen.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_profile_screen/pro_profile_screen.dart';
-import 'package:every_home/presentation/modules/customer/cus_notification_screen/cus_notification_screen.dart';
 import 'package:every_home/presentation/splash/onboarding.dart';
 import 'package:every_home/presentation/splash/splash_screen.dart';
 import 'package:every_home/presentation/support_documents/disclaimer/disclaimer.dart';
@@ -51,7 +51,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(428, 926),
+      designSize: Size(428, 926),
       builder: (context, _) {
         return GestureDetector(
           onTap: () {
@@ -61,7 +61,6 @@ class MainApp extends StatelessWidget {
               currentFocus.unfocus();
             }
           },
-
           child: MaterialApp(
             // useInheritedMediaQuery: true,
             // locale: DevicePreview.locale(context),
@@ -84,7 +83,7 @@ class MainApp extends StatelessWidget {
                   const ResetPasswordScreen(),
               // Customer module routes
               '/customer_home_screen': (context) => const CusHomeScreen(),
-              '/cus_works_screen':(context) => CusWorksScreeen(),
+              '/cus_works_screen': (context) => CusWorksScreeen(),
               '/notification_screen': (context) => const NotificationScreen(),
               '/cus_main_screen': (context) => CusMainScreen(),
               '/cus_profile_screen': (context) => const CusProfileScreen(),

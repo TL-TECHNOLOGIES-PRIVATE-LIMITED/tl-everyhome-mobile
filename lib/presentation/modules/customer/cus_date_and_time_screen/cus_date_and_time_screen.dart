@@ -1,9 +1,9 @@
 import 'dart:developer';
 
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CusDateAndTimeScreen extends StatelessWidget {
@@ -28,12 +28,10 @@ class CusDateAndTimeScreen extends StatelessWidget {
             config: CalendarDatePicker2Config(
               selectedDayHighlightColor: LigthColor().buttonColorYellow,
             ),
-            initialValue: [
-              DateTime.now(),
-            ],
             onValueChanged: (value) {
               log(value.toString(), name: 'value changed');
             },
+            value: [],
           ),
           Padding(
             padding: EdgeInsets.only(left: 28.w),

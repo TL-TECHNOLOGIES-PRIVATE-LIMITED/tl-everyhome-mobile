@@ -104,7 +104,7 @@ class EnaNegotiateScreen extends StatelessWidget {
                           radius: 80,
                           label: const Text('SWIPE TO CONFIRM'),
                           alignLabel: Alignment(0.25.w, 0),
-                          action: () {},
+                          action: () async {},
                           buttonColor: const Color(0xff24282D),
                           icon: const Icon(
                             Icons.navigate_next,

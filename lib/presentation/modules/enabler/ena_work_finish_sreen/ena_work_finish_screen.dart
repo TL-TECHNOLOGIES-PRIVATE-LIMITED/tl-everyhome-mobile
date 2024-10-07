@@ -1,6 +1,5 @@
 import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_job_details_card.dart';
 import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_workers_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:slider_button/slider_button.dart';
@@ -165,7 +164,7 @@ class EnaWorkFinshScreen extends StatelessWidget {
                   radius: 80,
                   label: const Text('FINISH WORK'),
                   alignLabel: const Alignment(0, 0),
-                  action: () {},
+                  action: () async {},
                   buttonColor: const Color(0xff24282D),
                   icon: const Icon(
                     Icons.navigate_next,
