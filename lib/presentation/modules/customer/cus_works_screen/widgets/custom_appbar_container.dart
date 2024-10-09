@@ -1,8 +1,5 @@
-import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconly/iconly.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 
 class CustomAppbarContainer extends StatelessWidget {
@@ -47,7 +44,7 @@ class CustomAppbarContainer extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Works Lists (16)',
+                              ' Works',
                               style: TextStyle(
                                 color: const Color(0xffFFFDFD),
                                 fontSize: 20.sp,
@@ -59,34 +56,6 @@ class CustomAppbarContainer extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 15.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 0.75.sw,
-                          child: const CustomFormField(
-                              prefixIcon: Icon(
-                                IconlyLight.search,
-                                color: Colors.black,
-                              ),
-                              hintText: 'Search your Requirements'),
-                        ),
-                        SizedBox(width: 0.02.sh),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.white,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/filter_icon.svg',
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    )
                   ],
                 ),
               ),

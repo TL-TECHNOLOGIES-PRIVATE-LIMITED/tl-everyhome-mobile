@@ -11,8 +11,8 @@ class CusViewJobCard extends StatelessWidget {
 
   final ValueNotifier<int> _indexNotifier = ValueNotifier(0);
   final List<Widget> _pages = [
-    const ReviewsList(),
     const AboutList(),
+    const ReviewsList(),
     const PortfolioList(),
   ];
   @override

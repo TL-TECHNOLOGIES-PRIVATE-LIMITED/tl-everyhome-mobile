@@ -24,7 +24,7 @@ class EnablerList extends StatelessWidget {
             image: worker[index].profilePic.toString(),
             jobTitle: worker[index].name.toString(),
             jobLocation: worker[index].place.toString(),
-            rating: 3.5,
+            rating: 3.4,
             reviewCount: '6',
           ),
         );

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:every_home/const.dart';
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/modules/customer/cus_book_worker/widgets/custom_image_container.dart';
 import 'package:every_home/presentation/modules/customer/cus_book_worker/widgets/custom_title_text.dart';
@@ -19,14 +20,13 @@ class _CusBookWorkerState extends State<CusBookWorker> {
   final formGlobalKey = GlobalKey<FormState>();
 
   final ValueNotifier<bool> editTextFieldNotifier = ValueNotifier(true);
-
   final TextEditingController issueTypeContoller = TextEditingController();
-
   final TextEditingController issueDescriptionContoller =
       TextEditingController();
+  final TextEditingController cusAddressContoller = TextEditingController();
+
   final FocusNode onFocus = FocusNode();
 
-  final TextEditingController cusAddressContoller = TextEditingController();
   bool focusField = false;
   @override
   void initState() {
@@ -51,7 +51,10 @@ class _CusBookWorkerState extends State<CusBookWorker> {
             onPressed: () => Navigator.of(context).pop(),
           ),
           elevation: 1,
-          title: Text(args.toString()),
+          title: Text(
+            args.toString(),
+            style: Appbartextstyle,
+          ),
         ),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -62,7 +65,7 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                 height: 0.7.sh,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                padding: EdgeInsets.symmetric(horizontal: 15.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -91,17 +94,29 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                       ),
                     ),
                     const CustomTitleText(
-                      title: 'Amount/day',
+                      title: 'Add Audio Instruction',
                     ),
-                    CustomFormField(
-                      hintText: '0.00',
-                      controller: issueTypeContoller,
+                    Container(
+                      height: 60.h,
+                      width: 400.w,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.mic),
+                        ),
+                      ),
                     ),
+                    // CustomFormField(
+                    //   hintText: '0.00',
+                    //   controller: issueTypeContoller,
+                    // ),
                     const ExpansionPanelList(
                       children: [],
                     ),
-                    const CustomTitleText(title: 'Add snapshots'),
-                    const CustomImageContainer(),
                     const CustomTitleText(title: 'Edit address'),
                     ValueListenableBuilder(
                       valueListenable: editTextFieldNotifier,
@@ -136,6 +151,8 @@ class _CusBookWorkerState extends State<CusBookWorker> {
                         );
                       },
                     ),
+                    const CustomTitleText(title: 'Add snapshots'),
+                    const CustomImageContainer(),
                     SizedBox(height: 39.h),
                     Padding(
                       padding: EdgeInsets.only(

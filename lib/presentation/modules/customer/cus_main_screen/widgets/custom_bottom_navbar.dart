@@ -21,6 +21,7 @@ class CustomBottomNavigationBarCus extends StatelessWidget {
                 currentIndex: newIndex,
                 onTap: (index) {
                   cusBottomNavIndexNotifier.value = index;
+                  print(cusBottomNavIndexNotifier.value);
                 },
                 unselectedItemColor: Colors.white,
                 selectedItemColor: LigthColor().textColorYellow,

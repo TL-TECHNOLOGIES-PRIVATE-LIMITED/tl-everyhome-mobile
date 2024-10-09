@@ -42,7 +42,7 @@ class CusProfileScreen extends StatelessWidget {
                     builder: (ctx) {
                       return AlertDialog(
                         content: const Text(
-                          'Comming soon',
+                          'abcd home\n Kvadakara\n calicut\n673105',
                           style: TextStyle(
                             color: Colors.black,
                           ),
@@ -59,13 +59,9 @@ class CusProfileScreen extends StatelessWidget {
                     });
               },
               child: const CustomProfileTile(
-                title: 'My Earnings',
-                icon: IconlyLight.wallet,
+                title: 'My Address',
+                icon: IconlyLight.discovery,
               ),
-            ),
-            const CustomProfileTile(
-              title: 'My Address',
-              icon: IconlyLight.discovery,
             ),
             GestureDetector(
               onTap: () {

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:every_home/const.dart';
 import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CusDateAndTimeScreen extends StatelessWidget {
   CusDateAndTimeScreen({super.key});
   final today = DateUtils.dateOnly(DateTime.now());
+
+  // Use a ValueNotifier to manage the selected time
+  final ValueNotifier<String?> selectedTimeNotifier =
+      ValueNotifier<String?>(null);
+
+  final List<String> availableTimings = [
+    '9:00 am',
+    '10:00 am',
+    '11:00 am',
+    '12:00 pm',
+    '1:00 pm',
+    '2:00 pm',
+    '3:00 pm',
+    '4:00 pm',
+    '5:00 pm'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +36,10 @@ class CusDateAndTimeScreen extends StatelessWidget {
               color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text('Select Date & Time'),
+        title: Text(
+          'Select Date & Time',
+          style: Appbartextstyle,
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,104 +66,32 @@ class CusDateAndTimeScreen extends StatelessWidget {
           ),
           SizedBox(height: 20.h),
           Center(
-            child: Wrap(
-              alignment: WrapAlignment.spaceAround,
-              runSpacing: 8,
-              spacing: 10,
-              children:
-                  // controller.timings
-                  //     .map(
-                  //       (e) =>
-                  [
-                ChoiceChip(
-                  // selected: controller.selTime.value == e.timing,
-                  selected: true,
-                  selectedColor: LigthColor().buttonColorYellow,
-                  onSelected: (val) {
-                    // controller.selTime.value = e.timing;
-                    // controller.update();
-                  },
-                  label: const SizedBox(
-                      width: 60,
-                      child: Text('10:00 am', textAlign: TextAlign.center)),
-                ),
-                ChoiceChip(
-                  // selected: controller.selTime.value == e.timing,
-                  selected: false,
-                  selectedColor: LigthColor().buttonColorYellow,
-                  onSelected: (val) {
-                    // controller.selTime.value = e.timing;
-                    // controller.update();
-                  },
-                  label: const SizedBox(
-                      width: 60,
-                      child: Text('11:00 am', textAlign: TextAlign.center)),
-                ),
-                ChoiceChip(
-                  // selected: controller.selTime.value == e.timing,
-                  selected: false,
-                  selectedColor: LigthColor().buttonColorYellow,
-                  onSelected: (val) {
-                    // controller.selTime.value = e.timing;
-                    // controller.update();
-                  },
-                  label: const SizedBox(
-                      width: 60,
-                      child: Text('12:00 am', textAlign: TextAlign.center)),
-                ),
-                ChoiceChip(
-                  // selected: controller.selTime.value == e.timing,
-                  selected: false,
-                  selectedColor: LigthColor().buttonColorYellow,
-                  onSelected: (val) {
-                    // controller.selTime.value = e.timing;
-                    // controller.update();
-                  },
-                  label: const SizedBox(
-                      width: 60,
-                      child: Text('1:00 pm', textAlign: TextAlign.center)),
-                ),
-                ChoiceChip(
-                  // selected: controller.selTime.value == e.timing,
-                  selected: false,
-                  selectedColor: LigthColor().buttonColorYellow,
-                  onSelected: (val) {
-                    // controller.selTime.value = e.timing;
-                    // controller.update();
-                  },
-                  label: const SizedBox(
-                      width: 60,
-                      child: Text('2:00 pm', textAlign: TextAlign.center)),
-                ),
-                ChoiceChip(
-                  // selected: controller.selTime.value == e.timing,
-                  selected: false,
-                  selectedColor: LigthColor().buttonColorYellow,
-                  onSelected: (val) {
-                    // controller.selTime.value = e.timing;
-                    // controller.update();
-                  },
-                  label: const SizedBox(
-                      width: 60,
-                      child: Text('3:00 pm', textAlign: TextAlign.center)),
-                ),
-                ChoiceChip(
-                  // selected: controller.selTime.value == e.timing,
-                  selected: false,
-                  selectedColor: LigthColor().buttonColorYellow,
-                  onSelected: (val) {
-                    // controller.selTime.value = e.timing;
-                    // controller.update();
-                  },
-                  label: const SizedBox(
-                      width: 60,
-                      child: Text('4:00 pm', textAlign: TextAlign.center)),
-                ),
-              ],
-
-              // .toList(),
+            child: ValueListenableBuilder<String?>(
+              valueListenable: selectedTimeNotifier,
+              builder: (context, selectedTime, _) {
+                return Wrap(
+                  alignment: WrapAlignment.spaceAround,
+                  runSpacing: 7,
+                  spacing: 10,
+                  children: availableTimings.map((time) {
+                    return ChoiceChip(
+                      selected: selectedTime == time,
+                      selectedColor: LigthColor().buttonColorYellow,
+                      onSelected: (selected) {
+                        if (selected) {
+                          selectedTimeNotifier.value = time;
+                        }
+                      },
+                      label: SizedBox(
+                        width: 60,
+                        child: Text(time, textAlign: TextAlign.center),
+                      ),
+                    );
+                  }).toList(),
+                );
+              },
             ),
-          )
+          ),
         ],
       ),
       bottomNavigationBar: Padding(
@@ -153,8 +101,9 @@ class CusDateAndTimeScreen extends StatelessWidget {
           bgColor: const Color(0xffFFA610),
           labelColor: Colors.white,
           onPress: () {
-            //TODO book worker authentication
-            // log(cusAddressContoller.text.toString());
+            // Get selected time
+            log('Selected time: ${selectedTimeNotifier.value}');
+            // Navigate or perform booking logic
             Navigator.of(context).pushNamed('/cus_pick_price_range');
           },
         ),

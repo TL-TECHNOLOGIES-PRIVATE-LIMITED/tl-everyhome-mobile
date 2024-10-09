@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:every_home/domain/pick_image_integration/image_picker_helper.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+ValueNotifier<File?> customerimage = ValueNotifier<File?>(null);
 
 class CusProfileEditScreen extends StatelessWidget {
   const CusProfileEditScreen({super.key});
@@ -40,24 +44,45 @@ class CusProfileEditScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 150.w),
                   child: Stack(
                     children: [
-                      Container(
-                        height: 90.h,
-                        width: 90.w,
-                        decoration: BoxDecoration(
-                          color: Colors.red[100],
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.amber,
-                            width: 2,
-                          ),
-                        ),
+                      ValueListenableBuilder(
+                        valueListenable: customerimage,
+                        builder: (context, value, child) {
+                          return Container(
+                            height: 90.h,
+                            width: 90.w,
+                            decoration: BoxDecoration(
+                              color: Colors.red[100],
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.amber,
+                                width: 2,
+                              ),
+                            ),
+                            child: value != null
+                                ? ClipOval(
+                                    child: Image.file(
+                                      value,
+                                      fit: BoxFit.cover,
+                                      width: 90.w,
+                                      height: 90.h,
+                                    ),
+                                  )
+                                : const Icon(
+                                    Icons.person,
+                                    size: 60, // Placeholder icon size
+                                    color: Colors.white,
+                                  ),
+                          );
+                        },
                       ),
                       Positioned(
                         bottom: 0,
                         right: 0,
                         child: GestureDetector(
-                          onTap: () {
-                            ImagePickerHelper().pickImage(context);
+                          onTap: () async {
+                            final File? image =
+                                await ImagePickerHelper().pickImage(context);
+                            customerimage.value = image;
                           },
                           child: Container(
                             height: 35.h,
@@ -149,7 +174,9 @@ class CusProfileEditScreen extends StatelessWidget {
                 Center(
                   child: CustomYellowButton(
                     label: 'Update Profile',
-                    onPress: () {},
+                    onPress: () {
+                      Navigator.pop(context);
+                    },
                   ),
                 )
               ],

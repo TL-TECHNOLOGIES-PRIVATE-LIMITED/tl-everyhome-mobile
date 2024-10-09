@@ -49,7 +49,7 @@ class AboutList extends StatelessWidget {
             padding: EdgeInsets.zero,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               // crossAxisCount: 4,
-              crossAxisCount: 4,
+              crossAxisCount: 3,
               mainAxisSpacing: 1,
               crossAxisSpacing: 1,
               childAspectRatio: 2,
@@ -58,7 +58,12 @@ class AboutList extends StatelessWidget {
             itemBuilder: (context, index) {
               return const Padding(
                 padding: EdgeInsets.only(left: 8.0),
-                child: Chip(label: Text('Electrician')),
+                child: Chip(
+                  shadowColor: Colors.black,
+                  elevation: 4,
+                  backgroundColor: Colors.transparent,
+                  label: Text('Electrician'),
+                ),
               );
             },
           )

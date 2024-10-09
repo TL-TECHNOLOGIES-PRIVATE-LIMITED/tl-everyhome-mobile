@@ -16,6 +16,7 @@ class EnaProfileCreateScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: const Color(0xff262E39),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 3,
           title: const Text(
             'Create Profile',

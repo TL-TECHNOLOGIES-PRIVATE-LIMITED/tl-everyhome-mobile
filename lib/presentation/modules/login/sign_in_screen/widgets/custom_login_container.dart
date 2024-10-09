@@ -5,8 +5,8 @@ import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/domain/models/signin_screen/signin_model.dart';
 import 'package:every_home/domain/validation/signin_screen/signin_validation.dart';
 import 'package:every_home/presentation/modules/login/sign_in_screen/widgets/custom_signin_text.dart';
-import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
+import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -151,15 +151,22 @@ class _CustomLoginContainerState extends State<CustomLoginContainer> {
                     if (loginResponse['status'] == true) {
                       if (loginResponse['user_type'] == 1) {
                         log('customer');
-                        Navigator.of(context).pushNamed('/cus_main_screen');
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/cus_main_screen',
+                          (route) => false,
+                        );
                       } else if (loginResponse['user_type'] == 2) {
                         log('enabler');
-                        Navigator.of(context)
-                            .pushNamed('/ena_profile_create_screen');
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/ena_profile_create_screen',
+                          (route) => false,
+                        );
                       } else {
                         log('business');
-                        Navigator.of(context)
-                            .pushNamed('/pro_create_profile_screen');
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/pro_create_profile_screen',
+                          (route) => false,
+                        );
                       }
                     } else {
                       QuickAlert.show(
