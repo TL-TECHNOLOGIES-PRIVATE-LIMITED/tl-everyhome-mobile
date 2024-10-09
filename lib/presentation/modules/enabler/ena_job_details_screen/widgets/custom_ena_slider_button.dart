@@ -7,7 +7,7 @@ class CustomEnaSliderButton extends StatelessWidget {
     super.key,
     required this.onSlide,
   });
-  final Function onSlide;
+  final Future<bool?> Function() onSlide;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,11 @@ class CustomEnaSliderButton extends StatelessWidget {
           radius: 80,
           label: const Text('SWIPE TO CONFIRM'),
           alignLabel: Alignment(0.25.w, 0),
-          action: () async {},
+          action: onSlide
+          //     () async {
+          //   Navigator.pop(context);
+          // }
+          ,
           buttonColor: const Color(0xff24282D),
           icon: const Icon(
             Icons.navigate_next,

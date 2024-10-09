@@ -18,8 +18,8 @@ class CustomProgresIndicator extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15.r),
       child: Container(
-        height: 100.h,
-        width: 100.w,
+        height: 110.h,
+        width: 120.w,
         color: Colors.white,
         child: Center(
           child: CircularPercentIndicator(

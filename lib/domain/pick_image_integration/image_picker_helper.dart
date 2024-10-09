@@ -24,8 +24,8 @@ class ImagePickerHelper {
               children: [
                 Text(
                   title ?? 'Pick Image',
-                  style:  TextStyle(
-                      fontSize: 15.sp, fontWeight: FontWeight.bold),
+                  style:
+                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,

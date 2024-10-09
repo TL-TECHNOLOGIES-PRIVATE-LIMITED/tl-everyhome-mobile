@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +16,7 @@ class CustomWalletContainer extends StatelessWidget {
       borderRadius: BorderRadius.circular(10.r),
       child: Container(
         height: 45.h,
-        // width: 180.w,
+        width: 180.w,
         color: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 10.h),
         child: Center(

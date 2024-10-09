@@ -1,3 +1,4 @@
+import 'package:every_home/const.dart';
 import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_job_details_card.dart';
 import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_workers_image.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,10 @@ class EnaWorkFinshScreen extends StatelessWidget {
       backgroundColor: const Color(0xff262E39),
       appBar: AppBar(
         elevation: 3,
-        title: const Text('Job Details'),
+        title: Text(
+          'Job Details',
+          style: Appbartextstyle,
+        ),
         backgroundColor: const Color(0xff262E39),
         actions: const [Icon(Icons.more_vert)],
       ),
@@ -23,9 +27,8 @@ class EnaWorkFinshScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CustomEnaJobDetailsCard(),
-            SizedBox(height: 50.h),
             const CustomEnaWorkersImages(),
-            SizedBox(height: 45.h),
+            SizedBox(height: 35.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
@@ -153,7 +156,7 @@ class EnaWorkFinshScreen extends StatelessWidget {
               endIndent: 20,
               color: Colors.white,
             ),
-            SizedBox(height: 88.h),
+            SizedBox(height: 68.h),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
@@ -164,7 +167,9 @@ class EnaWorkFinshScreen extends StatelessWidget {
                   radius: 80,
                   label: const Text('FINISH WORK'),
                   alignLabel: const Alignment(0, 0),
-                  action: () async {},
+                  action: () async {
+                    Navigator.pop(context);
+                  },
                   buttonColor: const Color(0xff24282D),
                   icon: const Icon(
                     Icons.navigate_next,

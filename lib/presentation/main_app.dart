@@ -20,7 +20,7 @@ import 'package:every_home/presentation/modules/enabler/ena_notification_screen/
 import 'package:every_home/presentation/modules/enabler/ena_profile_create_screen/ena_profile_create_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_profile_edit_screen/ena_profile_edit_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_profile_screen/ena_profile_screen.dart';
-import 'package:every_home/presentation/modules/enabler/ena_work_finish_sreen/ena_work_finish_screen.dart';
+import 'package:every_home/presentation/modules/enabler/ena_works_screen/ena_work_finish_sreen/ena_work_finish_screen.dart';
 import 'package:every_home/presentation/modules/login/create_account_screen/create_account_screen.dart';
 import 'package:every_home/presentation/modules/login/forget_password_screen/forget_password_screen.dart';
 import 'package:every_home/presentation/modules/login/google_map_screen/google_map_screen.dart';
@@ -42,6 +42,8 @@ import 'package:every_home/presentation/support_documents/privacy_policy/privacy
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'modules/enabler/ena_works_screen/enabler_work_completed_screen/ena_work_completed_screen.dart';
+import 'modules/enabler/ena_works_screen/enabler_work_pending_screen/ena_work_active_screen.dart';
 import 'support_documents/terms_and_conditions/terms_and_conditions.dart';
 
 class MainApp extends StatelessWidget {
@@ -106,6 +108,10 @@ class MainApp extends StatelessWidget {
               '/ena_profile_screen': (context) => const EnaProfileScreen(),
               '/ena_work_finish_screen': (context) =>
                   const EnaWorkFinshScreen(),
+              '/ena_work_active_screen': (context) =>
+                  const EnaWorkActiveScreen(),
+              '/ena_work_completed_screen': (context) =>
+                  const EnaWorkCompletedScreen(),
               '/ena_profile_create_screen': (context) =>
                   const EnaProfileCreateScreen(),
               '/ena_create_portfolio_screen': (context) =>

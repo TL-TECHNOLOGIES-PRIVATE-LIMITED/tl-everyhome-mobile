@@ -70,8 +70,8 @@ class MapIntegration {
   }
 
   getDirection() async {
-    const String lat = '8.5581';
-    const String long = '76.8816';
+    const String lat = '11.608495';
+    const String long = '75.591705';
     bool serviceEnabled;
     var userPosition = await getLocation();
     final currentLatitude = userPosition['latitude'];

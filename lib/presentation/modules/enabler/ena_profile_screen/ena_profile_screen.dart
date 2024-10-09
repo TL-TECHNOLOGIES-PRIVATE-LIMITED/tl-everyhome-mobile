@@ -20,7 +20,6 @@ class EnaProfileScreen extends StatelessWidget {
             //TODO customer details passing to customProfileContainer
             const CustomEnaProfileContainer(
               customerName: 'Finose M',
-              customerProfilePic: "",
             ),
             Padding(
               padding: const EdgeInsets.only(left: 30, top: 24, bottom: 16),

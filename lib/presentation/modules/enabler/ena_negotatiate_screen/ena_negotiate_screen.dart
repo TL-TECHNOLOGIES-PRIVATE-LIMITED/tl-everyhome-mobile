@@ -1,3 +1,4 @@
+import 'package:every_home/const.dart';
 import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_job_details_card.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,10 @@ class EnaNegotiateScreen extends StatelessWidget {
         backgroundColor: const Color(0xff262E39),
         appBar: AppBar(
           elevation: 3,
-          title: const Text('Negotiate'),
+          title: Text(
+            'Negotiate',
+            style: Appbartextstyle,
+          ),
           backgroundColor: const Color(0xff262E39),
           actions: const [Icon(Icons.more_vert)],
         ),
@@ -58,16 +62,18 @@ class EnaNegotiateScreen extends StatelessWidget {
                         'Type your amount',
                         style: TextStyle(
                           fontSize: 18,
+                          fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                     ),
                     SizedBox(height: 20.h),
                     SizedBox(
-                      width: 150.w,
+                      width: 200.w,
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: TextFormField(
+                          keyboardType: TextInputType.number,
                           style: TextStyle(
                             fontSize: 35.sp,
                             fontWeight: FontWeight.w500,
@@ -76,24 +82,25 @@ class EnaNegotiateScreen extends StatelessWidget {
                           decoration: const InputDecoration(
                             // focusedBorder: OutlineInputBorder(),
                             filled: true,
-                            fillColor: Color(0xFF353D4A),
+                            fillColor: Colors.transparent,
                             border: InputBorder.none,
-                            // prefixIcon: Text(
-                            //   ' ₹ ',
-                            //   style: TextStyle(
-                            //     color: Colors.white,
-                            //     fontSize: 35,
-                            //     fontWeight: FontWeight.w500,
-                            //   ),
-                            // ),
+                            prefixIcon: Text(
+                              ' ₹ ',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 35,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                             hintText: '0.00',
+                            hintStyle: TextStyle(color: Colors.white54),
                             prefixIconConstraints:
                                 BoxConstraints(minWidth: 0, minHeight: 0),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 206.h),
+                    SizedBox(height: 50.h),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
@@ -104,7 +111,9 @@ class EnaNegotiateScreen extends StatelessWidget {
                           radius: 80,
                           label: const Text('SWIPE TO CONFIRM'),
                           alignLabel: Alignment(0.25.w, 0),
-                          action: () async {},
+                          action: () async {
+                            Navigator.pop(context);
+                          },
                           buttonColor: const Color(0xff24282D),
                           icon: const Icon(
                             Icons.navigate_next,

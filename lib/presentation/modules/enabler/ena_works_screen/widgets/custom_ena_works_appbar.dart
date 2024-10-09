@@ -1,8 +1,5 @@
-import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconly/iconly.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 
 class CustomEnaWorksAppBar extends StatelessWidget {
@@ -48,11 +45,11 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                     SizedBox(height: MediaQuery.of(context).viewPadding.top),
                     Row(
                       children: [
-                        SizedBox(width: 15.w),
+                        SizedBox(width: 25.w),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'Works Lists (15)',
+                            'Work',
                             style: TextStyle(
                               color: const Color(0xffFFFDFD),
                               fontSize: 20.sp,
@@ -62,38 +59,9 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                         )
                       ],
                     ),
-                    const Divider(
-                      thickness: 2,
+                    SizedBox(
+                      height: 10.h,
                     ),
-                    SizedBox(height: 10.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 0.75.sw,
-                          child: const CustomFormField(
-                              prefixIcon: Icon(
-                                IconlyLight.search,
-                                color: Colors.black,
-                              ),
-                              hintText: 'Search your Requirements'),
-                        ),
-                        SizedBox(width: 0.02.sh),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            color: Colors.white,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/filter_icon.svg',
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    )
                   ],
                 ),
               ),
@@ -107,9 +75,10 @@ class CustomEnaWorksAppBar extends StatelessWidget {
                 valueListenable: _indexNotifier,
                 builder: (context, newIndex, _) {
                   return MaterialSegmentedControl(
-                    verticalOffset: 10.h,
+                    verticalOffset: 14.h,
                     horizontalPadding: const EdgeInsets.all(10),
-                    borderWidth: 1,
+                    borderWidth: 2,
+                    borderRadius: 10,
                     selectedColor: const Color(0xffFEBA45),
                     onSegmentTapped: (value) {
                       _indexNotifier.value = value;

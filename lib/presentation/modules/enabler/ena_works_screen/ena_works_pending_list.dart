@@ -14,7 +14,7 @@ class EnaWorksPendingList extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed('/ena_job_details_screen');
+            Navigator.of(context).pushNamed('/ena_work_active_screen');
           },
           child: const CustomEnaWorkJobTile(
             image: '',

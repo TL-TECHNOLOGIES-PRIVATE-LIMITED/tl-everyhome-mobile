@@ -1,3 +1,4 @@
+import 'package:every_home/const.dart';
 import 'package:every_home/domain/call_integration/call_integration.dart';
 import 'package:every_home/domain/map_integration/map_integration.dart';
 import 'package:every_home/domain/message_integration/message_integration.dart';
@@ -6,11 +7,8 @@ import 'package:every_home/presentation/modules/enabler/ena_job_details_screen/w
 import 'package:every_home/presentation/modules/enabler/widgets/action_button.dart';
 import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_job_details_card.dart';
 import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_workers_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quickalert/models/quickalert_type.dart';
-import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class EnaJobDetailsScreen extends StatelessWidget {
   EnaJobDetailsScreen({super.key});
@@ -32,7 +30,10 @@ class EnaJobDetailsScreen extends StatelessWidget {
           appBar: AppBar(
             elevation: 3,
             toolbarHeight: 50,
-            title: const Text('Job Details'),
+            title: Text(
+              'Job Details',
+              style: Appbartextstyle,
+            ),
             backgroundColor: const Color(0xff262E39),
             actions: const [Icon(Icons.more_vert)],
           ),
@@ -45,7 +46,7 @@ class EnaJobDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const CustomEnaJobDetailsCard(),
-                    SizedBox(height: 15.h),
+                    SizedBox(height: 10.h),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
@@ -56,9 +57,7 @@ class EnaJobDetailsScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 15.h),
                     const CustomEnaWorkersImages(),
-                    SizedBox(height: 30.h),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Row(
@@ -68,6 +67,7 @@ class EnaJobDetailsScreen extends StatelessWidget {
                             'About Customer',
                             style: TextStyle(
                               fontSize: 18,
+                              fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
                           ),
@@ -104,11 +104,8 @@ class EnaJobDetailsScreen extends StatelessWidget {
                     const ActionButton(),
                     SizedBox(height: 18.h),
                     CustomEnaSliderButton(
-                      onSlide: () {
-                        QuickAlert.show(
-                          context: context,
-                          type: QuickAlertType.confirm,
-                        );
+                      onSlide: () async {
+                        Navigator.pop(context);
                       },
                     )
                   ],

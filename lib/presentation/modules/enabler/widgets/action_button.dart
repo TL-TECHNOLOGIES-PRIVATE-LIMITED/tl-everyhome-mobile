@@ -12,7 +12,9 @@ class ActionButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           style: ElevatedButton.styleFrom(
             minimumSize: Size(174.w, 50.h),
             shape: const StadiumBorder(),

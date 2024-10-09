@@ -18,7 +18,14 @@ class EnaCreatePortfolioScreen extends StatelessWidget {
         backgroundColor: const Color(0xff262E39),
         appBar: AppBar(
           elevation: 3,
-          title: const Text('Create Profile'),
+          title: const Text(
+            'Create Profile',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
+          ),
           backgroundColor: const Color(0xff262E39),
         ),
         body: Stack(
@@ -59,8 +66,25 @@ class EnaCreatePortfolioScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10.h),
-                    const CustomFormField(
-                      hintText: 'Hourly Rate',
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 200.w,
+                          child: const CustomFormField(
+                            hintText: 'Hourly Rate',
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Text(
+                          '/hr',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

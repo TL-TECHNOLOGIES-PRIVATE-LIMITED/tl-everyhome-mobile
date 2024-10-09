@@ -1,3 +1,4 @@
+import 'package:every_home/presentation/modules/enabler/ena_profile_create_screen/widgets/skillselector.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,14 @@ class EnaProfileCreateScreen extends StatelessWidget {
         backgroundColor: const Color(0xff262E39),
         appBar: AppBar(
           elevation: 3,
-          title: const Text('Create Profile'),
+          title: const Text(
+            'Create Profile',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
+          ),
           backgroundColor: const Color(0xff262E39),
         ),
         body: Stack(
@@ -42,11 +50,12 @@ class EnaProfileCreateScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 12.h),
-                    const CustomFormField(
-                      hintText: 'Skills',
-                      maxLines: 2,
-                      minLines: 2,
-                    ),
+                    SkillSelector(),
+                    // const CustomFormField(
+                    //   hintText: 'Skills',
+                    //   maxLines: 2,
+                    //   minLines: 2,
+                    // ),
                     SizedBox(height: 40.h),
                     Text(
                       "Work Experience",
