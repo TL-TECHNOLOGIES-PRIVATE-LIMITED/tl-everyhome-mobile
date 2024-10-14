@@ -1,9 +1,10 @@
-import 'package:every_home/const.dart';
-import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_job_details_card.dart';
-import 'package:every_home/presentation/modules/enabler/widgets/custom_ena_workers_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:slider_button/slider_button.dart';
+
+import '../../../../../const.dart';
+import '../../widgets/custom_ena_job_details_card.dart';
+import '../../widgets/custom_ena_workers_image.dart';
 
 class EnaWorkCompletedScreen extends StatelessWidget {
   const EnaWorkCompletedScreen({super.key});

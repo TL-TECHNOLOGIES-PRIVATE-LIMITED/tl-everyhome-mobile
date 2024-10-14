@@ -1,12 +1,13 @@
 import 'dart:developer';
 
-import 'package:every_home/domain/core/theme.dart';
 import 'package:every_home/presentation/modules/login/otp_screen/widgets/custom_text.dart';
-import 'package:every_home/presentation/modules/login/widgets/custom_signin_text.dart';
-import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
+
+import '../../../../domain/core/theme.dart';
+import '../../../widgets/custom_button.dart';
+import '../sign_in_screen/widgets/custom_signin_text.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});

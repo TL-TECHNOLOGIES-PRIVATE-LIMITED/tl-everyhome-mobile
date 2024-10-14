@@ -104,12 +104,10 @@ class _CustomWebWiewState extends State<CustomWebWiew> {
 
     _controller = controller;
   }
-  
 
   @override
   Widget build(BuildContext context) {
     log('webwiew rebuilds');
     return WebViewWidget(controller: _controller);
   }
-
 }

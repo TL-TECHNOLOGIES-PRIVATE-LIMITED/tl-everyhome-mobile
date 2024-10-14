@@ -1,13 +1,15 @@
 // ignore_for_file: must_be_immutable
 
 import 'dart:io';
+
 import 'package:every_home/domain/pick_image_integration/pick_image_integration.dart';
 import 'package:every_home/presentation/modules/product_owner/pro_add_product_screen/widgets/custom_pro_range_slider.dart';
 import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quickalert/quickalert.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 class ProAddProductScreen extends StatelessWidget {
   ProAddProductScreen({super.key});
@@ -138,7 +140,7 @@ class ProAddProductScreen extends StatelessWidget {
                                                 ),
                                                 child: Padding(
                                                   padding: const EdgeInsets
-                                                          .symmetric(
+                                                      .symmetric(
                                                       vertical: 20.0,
                                                       horizontal: 20),
                                                   child: Column(

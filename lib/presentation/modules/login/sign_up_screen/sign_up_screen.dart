@@ -1,13 +1,14 @@
-import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/domain/validation/signin_screen/signin_validation.dart';
 import 'package:every_home/presentation/modules/login/sign_up_screen/widgets/custom_facebook_button.dart';
 import 'package:every_home/presentation/modules/login/sign_up_screen/widgets/custom_google_button.dart';
 import 'package:every_home/presentation/modules/login/sign_up_screen/widgets/custom_signup_text.dart';
-import 'package:every_home/presentation/widgets/custom_form_field.dart';
-import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
+import '../../../../domain/core/theme.dart';
+import '../../../../domain/validation/signin_screen/signin_validation.dart';
+import '../../../widgets/custom_button.dart';
+import '../../../widgets/custom_form_field.dart';
 
 // ignore: must_be_immutable
 class SignUpScreen extends StatelessWidget with InputValidationMixin {

@@ -1,4 +1,4 @@
-import 'package:every_home/domain/models/signin_screen/signin_model.dart';
+import '../models/signin_screen/signin_model.dart';
 
 List<Map<String, dynamic>> login = [
   {

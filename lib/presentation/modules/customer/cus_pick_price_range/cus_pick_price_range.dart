@@ -1,18 +1,19 @@
-import 'package:every_home/presentation/modules/customer/cus_pick_price_range/enabler_list.dart';
-import 'package:every_home/presentation/modules/customer/cus_pick_price_range/near_by_shops_list.dart';
 import 'package:every_home/presentation/modules/customer/cus_pick_price_range/widgets/custom_book_screen_appbar.dart';
-import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart'; // Import Lottie package
+import 'package:lottie/lottie.dart';
+
+import '../../../widgets/custom_button.dart';
+import 'enabler_list.dart';
+import 'near_by_shops_list.dart'; // Import Lottie package
 
 class CusPickPriceRange extends StatelessWidget {
   CusPickPriceRange({super.key});
 
   final ValueNotifier<int> _indexNotifier = ValueNotifier(0);
   final List<Widget> _pages = [
-    const EnablerList(),
-    const NearByShopsList(),
+    EnablerList(),
+    NearByShopsList(),
   ];
 
   @override

@@ -2,7 +2,7 @@ import 'package:every_home/presentation/modules/customer/cus_view_job_card/widge
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomNegotiateAppBar extends StatelessWidget {
   const CustomNegotiateAppBar({

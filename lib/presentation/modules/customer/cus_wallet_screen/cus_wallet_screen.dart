@@ -1,127 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CusWalletScreen extends StatelessWidget {
   const CusWalletScreen({super.key});
 
+  // UPI URL to redirect to Google Pay with pre-filled details
+  final String upiUrl =
+      'upi://pay?pa=aseemmtk@oksbi&pn=Aseem&am=100.00&cu=INR&tn=Wallet Payment';
+
+  // Alternative Intent URL for UPI payments (using correct package name)
+  final String upiIntentUrl =
+      'intent://pay?pa=aseemmtk@oksbi&pn=Aseem&am=100.00&cu=INR&tn=Wallet%20Payment#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end';
+
+  // Function to open Google Pay with the UPI payment details
+  void _launchGooglePay(BuildContext context) async {
+    final Uri uri = Uri.parse(upiUrl); // Convert the string to Uri
+    final Uri intentUri = Uri.parse(upiIntentUrl); // Intent URL
+
+    // Log the URIs for debugging
+    print('UPI URL: $upiUrl');
+    print('Intent URL: $upiIntentUrl');
+
+    // Check if any UPI app is available to handle the URI
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+      print('Launching UPI URL: $uri');
+    } else if (await canLaunchUrl(intentUri)) {
+      await launchUrl(intentUri); // Use intent URL as a fallback
+      print('Launching Intent URL: $intentUri');
+    } else {
+      // No UPI apps available
+      print(
+          'No UPI apps available to handle this URI. Check if UPI apps are installed and configured correctly.');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text(
+                'Could not launch Google Pay. Please check if it is installed.')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text('Wallet'),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text('Wallet'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () =>
+              _launchGooglePay(context), // Redirect to Google Pay when clicked
+          child: const Text('Pay with Google Pay'),
         ),
-        body: Stack(
-          children: [
-            Align(
-              child: SvgPicture.asset('assets/polygons/background_ring.svg'),
-            ),
-            Align(
-              child: SvgPicture.asset(
-                'assets/polygons/background_ring.svg',
-                height: 200,
-                width: 200,
-              ),
-            ),
-
-            //orange triangle
-            Positioned(
-              top: 0.2.sh,
-              left: 0.15.sw,
-              child: RotationTransition(
-                turns: const AlwaysStoppedAnimation(40 / 360),
-                child: Image.asset(
-                  'assets/polygons/polygon_1.png',
-                ),
-              ),
-            ),
-            //black circle
-            Positioned(
-              top: 0.2.sh,
-              right: 0.25.sw,
-              child: RotationTransition(
-                turns: const AlwaysStoppedAnimation(40 / 360),
-                child: Image.asset(
-                  'assets/polygons/Ellipse_1.png',
-                ),
-              ),
-            ),
-            //Black Circle
-            Positioned(
-              top: 0.3.sh,
-              left: 0.07.sw,
-              child: RotationTransition(
-                turns: const AlwaysStoppedAnimation(40 / 360),
-                child: Image.asset(
-                  'assets/polygons/Ellipse_1.png',
-                ),
-              ),
-            ),
-            //Blue traingle
-            Positioned(
-              top: 0.5.sh,
-              right: 0.17.sw,
-              child: RotationTransition(
-                turns: const AlwaysStoppedAnimation(40 / 360),
-                child: Image.asset(
-                  'assets/polygons/polygon_2.png',
-                ),
-              ),
-            ),
-            //Blue Triangle
-            Positioned(
-              top: 0.45.sh,
-              left: 0.1.sw,
-              child: Image.asset('assets/polygons/polygon_2.png'),
-            ),
-            Positioned(
-              top: 0.57.sh,
-              left: 0.4.sw,
-              child: RotationTransition(
-                turns: const AlwaysStoppedAnimation(60 / 360),
-                child: Image.asset(
-                  'assets/polygons/polygon_1.png',
-                ),
-              ),
-            ),
-            Positioned.fill(
-              bottom: 100.h,
-              child: Align(
-                child: Text(
-                  'Hey!',
-                  style: TextStyle(
-                    fontSize: 35.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-            Positioned.fill(
-              child: Align(
-                child: Text(
-                  'We are cooking it up...',
-                  style: TextStyle(
-                    fontSize: 35.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-            Positioned.fill(
-              top: 100.h,
-              child: Align(
-                child: Text(
-                  'Stay Tuned!',
-                  style: TextStyle(
-                    fontSize: 30.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xffFEBA45),
-                  ),
-                ),
-              ),
-            )
-          ],
-        ));
+      ),
+    );
   }
 }

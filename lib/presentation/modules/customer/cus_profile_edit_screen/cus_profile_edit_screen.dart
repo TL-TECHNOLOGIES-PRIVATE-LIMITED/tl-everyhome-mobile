@@ -1,10 +1,11 @@
 import 'dart:io';
 
-import 'package:every_home/domain/pick_image_integration/image_picker_helper.dart';
-import 'package:every_home/presentation/widgets/custom_button.dart';
-import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../domain/pick_image_integration/image_picker_helper.dart';
+import '../../../widgets/custom_button.dart';
+import '../../../widgets/custom_form_field.dart';
 
 ValueNotifier<File?> customerimage = ValueNotifier<File?>(null);
 

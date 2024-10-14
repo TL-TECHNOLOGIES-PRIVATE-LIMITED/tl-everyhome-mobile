@@ -1,10 +1,11 @@
-import 'package:every_home/domain/dummy/models/dummy_worker_model.dart';
-import 'package:every_home/presentation/modules/customer/cus_view_job_card/widgets/custom_job_details_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
+
+import '../../../../../domain/dummy/models/dummy_worker_model.dart';
+import 'custom_job_details_tile.dart';
 
 class CustomProfileContainer extends StatelessWidget {
   const CustomProfileContainer({

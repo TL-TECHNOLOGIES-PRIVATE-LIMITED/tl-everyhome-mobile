@@ -1,9 +1,10 @@
-import 'package:every_home/domain/core/theme.dart';
-import 'package:every_home/domain/validation/signin_screen/signin_validation.dart';
-import 'package:every_home/presentation/widgets/custom_form_field.dart';
-import 'package:every_home/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../domain/core/theme.dart';
+import '../../../../../domain/validation/signin_screen/signin_validation.dart';
+import '../../../../widgets/custom_button.dart';
+import '../../../../widgets/custom_form_field.dart';
 
 class CustomForgotPasswordContainer extends StatelessWidget
     with InputValidationMixin {

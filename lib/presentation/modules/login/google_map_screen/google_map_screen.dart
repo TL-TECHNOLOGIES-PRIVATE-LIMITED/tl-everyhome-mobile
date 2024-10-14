@@ -1,13 +1,13 @@
-import 'package:every_home/domain/map_integration/map_integration.dart';
-import 'package:every_home/domain/message_integration/message_integration.dart';
 import 'package:every_home/presentation/modules/login/google_map_screen/widgets/custom_adress_container.dart';
 import 'package:every_home/presentation/modules/login/google_map_screen/widgets/custom_web_view.dart';
-
-import 'package:every_home/presentation/widgets/custom_button.dart';
-import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
+import '../../../../domain/map_integration/map_integration.dart';
+import '../../../../domain/message_integration/message_integration.dart';
+import '../../../widgets/custom_button.dart';
+import '../../../widgets/custom_form_field.dart';
 // Import for Android features.
 // Import for iOS features.
 
@@ -30,7 +30,7 @@ class GoogleMapScreenState extends State<GoogleMapScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            const CustomWebWiew(latitude: '8.5799533', longitude: '76.8632717'),
+            CustomWebWiew(latitude: '8.5799533', longitude: '76.8632717'),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(

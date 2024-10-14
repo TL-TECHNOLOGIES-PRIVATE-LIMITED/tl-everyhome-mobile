@@ -1,8 +1,8 @@
-import 'package:every_home/domain/call_integration/call_integration.dart';
-import 'package:every_home/domain/message_integration/message_integration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:every_home/domain/call_integration/call_integration.dart';
+import 'package:every_home/domain/message_integration/message_integration.dart';
 
 class CustomProJobTile extends StatelessWidget {
   const CustomProJobTile({

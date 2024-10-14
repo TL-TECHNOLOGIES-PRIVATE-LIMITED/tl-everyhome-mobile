@@ -1,9 +1,10 @@
-import 'package:every_home/presentation/modules/enabler/ena_home_screen/ena_home_screen.dart';
 import 'package:every_home/presentation/modules/enabler/ena_main_screen/widgets/custom_bottom_navbar.dart';
-import 'package:every_home/presentation/modules/enabler/ena_wallet_screen/ena_wallet_screen.dart';
-import 'package:every_home/presentation/modules/enabler/ena_works_screen/ena_works_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../ena_home_screen/ena_home_screen.dart';
+import '../ena_wallet_screen/ena_wallet_screen.dart';
+import '../ena_works_screen/ena_works_screen.dart';
 
 class EnaMainScreen extends StatelessWidget {
   EnaMainScreen({super.key});

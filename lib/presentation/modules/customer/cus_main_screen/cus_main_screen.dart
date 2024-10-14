@@ -1,10 +1,11 @@
-import 'package:every_home/presentation/modules/customer/cus_favourites_screen/cus_favourites_screen.dart';
 import 'package:every_home/presentation/modules/customer/cus_main_screen/widgets/custom_bottom_navbar.dart';
-import 'package:every_home/presentation/modules/customer/cus_wallet_screen/cus_wallet_screen.dart';
-import 'package:every_home/presentation/modules/customer/cus_works_screen/cus_works_screen.dart';
-import 'package:every_home/presentation/modules/customer/cus_home_screen/cus_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../cus_favourites_screen/cus_favourites_screen.dart';
+import '../cus_home_screen/cus_home_screen.dart';
+import '../cus_wallet_screen/cus_wallet_screen.dart';
+import '../cus_works_screen/cus_works_screen.dart';
 
 class CusMainScreen extends StatelessWidget {
   CusMainScreen({super.key});

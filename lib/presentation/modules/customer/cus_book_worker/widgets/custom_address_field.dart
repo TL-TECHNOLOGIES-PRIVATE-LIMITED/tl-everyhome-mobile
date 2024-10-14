@@ -2,8 +2,9 @@ import 'package:every_home/presentation/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 
 class CustomAddressField extends StatelessWidget {
- CustomAddressField({
-    super.key, this.controller,
+  CustomAddressField({
+    super.key,
+    this.controller,
   });
 
   final ValueNotifier<bool> editTextFieldNotifier = ValueNotifier(true);

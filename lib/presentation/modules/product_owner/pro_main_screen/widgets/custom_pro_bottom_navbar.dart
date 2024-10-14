@@ -1,7 +1,7 @@
-import 'package:every_home/domain/core/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconly/iconly.dart';
+import 'package:every_home/domain/core/theme.dart';
 
 ValueNotifier<int> proBottomNavIndexNotifier = ValueNotifier(0);
 
