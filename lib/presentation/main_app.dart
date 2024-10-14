@@ -53,7 +53,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(428, 926),
+      designSize: const Size(428, 926),
       builder: (context, _) {
         return GestureDetector(
           onTap: () {
