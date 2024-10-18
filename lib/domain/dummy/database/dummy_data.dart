@@ -130,7 +130,7 @@ List<Map<String, dynamic>> dummyWorker = [
     "user_id": 2,
     "name": "Dennis Nunez",
     "place": "North Korea Colombia,Guyana",
-    "worker_price": 916,
+    "worker_price": 918,
     "profile_pic": "assets/persons/person1.jfif",
     "description":
         "particular fifth dirt few gentle wing if perhaps team earlier forgotten percent floating bigger fox victory freedom travel weigh pride hall score powder root",
