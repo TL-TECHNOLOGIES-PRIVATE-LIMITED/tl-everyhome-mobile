@@ -142,7 +142,7 @@ List<Map<String, dynamic>> dummyWorker = [
     "user_id": 2,
     "name": "Sally Oliver",
     "place": "Tunisia Aruba,Kyrgyzstan",
-    "worker_price": 825,
+    "worker_price": 850,
     "profile_pic": "assets/persons/person2.jfif",
     "description":
         "weight refused flat typical compound tax square magic drove impossible case develop rather sight inside tightly coffee flame grew against report tool total tip",
