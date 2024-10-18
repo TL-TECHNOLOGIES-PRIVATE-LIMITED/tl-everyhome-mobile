@@ -10,11 +10,12 @@ import 'near_by_shops_list.dart'; // Import Lottie package
 class CusPickPriceRange extends StatelessWidget {
   CusPickPriceRange({super.key});
 
-  final ValueNotifier<int> _indexNotifier = ValueNotifier(0);
   final List<Widget> _pages = [
     EnablerList(),
     NearByShopsList(),
   ];
+
+  final ValueNotifier<int> _indexNotifier = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {

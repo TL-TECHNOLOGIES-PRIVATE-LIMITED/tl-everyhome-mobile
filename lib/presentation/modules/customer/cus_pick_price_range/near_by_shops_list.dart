@@ -2,6 +2,8 @@ import 'package:every_home/domain/dummy/db_function.dart';
 import 'package:every_home/presentation/modules/customer/widgets/custom_job_card.dart';
 import 'package:flutter/material.dart';
 
+bool isnear = false;
+
 class NearByShopsList extends StatelessWidget {
   const NearByShopsList({super.key});
 
@@ -17,8 +19,9 @@ class NearByShopsList extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            // Navigator.of(context)
-            //     .pushNamed('/cus_view_job_card', arguments: bussiness[index]);
+            isnear = true;
+            Navigator.of(context)
+                .pushNamed('/cus_view_job_card', arguments: bussiness[index]);
           },
           child: CustomJobCard(
             image: bussiness[index].profilePic.toString(),

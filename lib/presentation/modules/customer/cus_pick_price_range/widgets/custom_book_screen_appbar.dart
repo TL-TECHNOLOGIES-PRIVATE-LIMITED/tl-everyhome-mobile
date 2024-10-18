@@ -1,7 +1,13 @@
-import 'package:every_home/presentation/modules/customer/cus_pick_price_range/widgets/custom_range_slider_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:iconly/iconly.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
+
+import '../../../../widgets/custom_button.dart';
+import '../../../../widgets/custom_form_field.dart';
+import 'custom_cus_Filter_chip.dart';
+import 'custom_range_slider_container.dart';
 
 class CustomBookScreenAppBar extends StatelessWidget {
   const CustomBookScreenAppBar({
@@ -13,6 +19,12 @@ class CustomBookScreenAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Create ValueNotifiers for tracking selected filters
+    final ValueNotifier<int?> rateNotifier = ValueNotifier<int?>(null);
+    final ValueNotifier<int?> distanceNotifier = ValueNotifier<int?>(null);
+    final ValueNotifier<RangeValues> rangeValueNotifier =
+        ValueNotifier<RangeValues>(const RangeValues(500, 1000));
+
     return Stack(
       children: [
         Padding(
@@ -22,7 +34,6 @@ class CustomBookScreenAppBar extends StatelessWidget {
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10)),
             child: Container(
-              // height: 340.h,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -75,63 +86,121 @@ class CustomBookScreenAppBar extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(child: CustomRangeSliderContainer()),
-                          // SizedBox(width: 10.w),
-                          // GestureDetector(
-                          //   onTap: () {
-                          //     showModalBottomSheet(
-                          //         context: context,
-                          //         backgroundColor: Colors.transparent,
-                          //         builder: (ctx) {
-                          //           return Container(
-                          //             // height: 551.h,
-                          //             width: double.infinity,
-                          //             decoration: BoxDecoration(
-                          //               color: Colors.white,
-                          //               borderRadius: BorderRadius.only(
-                          //                 topLeft: Radius.circular(20.r),
-                          //                 topRight: Radius.circular(20.r),
-                          //               ),
-                          //             ),
-                          //             child: Column(
-                          //               crossAxisAlignment:
-                          //                   CrossAxisAlignment.start,
-                          //               mainAxisSize: MainAxisSize.min,
-                          //               children: [
-                          //                 Center(
-                          //                     child:
-                          //                         CustomRangeSliderContainer()),
-                          //                 SizedBox(height: 18.h),
-                          //                 const CustomCusFilterChip(),
-                          //                 SizedBox(height: 12.h),
-                          //                 const CustomCusFilterChip(),
-                          //                 SizedBox(height: 33.h),
-                          //                 Center(
-                          //                   child: CustomYellowButton(
-                          //                     label: 'Filter',
-                          //                     onPress: () {},
-                          //                   ),
-                          //                 ),
-                          //                 SizedBox(height: 24.h),
-                          //               ],
-                          //             ),
-                          //           );
-                          //         });
-                          //   },
-                          //   child: ClipRRect(
-                          //     borderRadius: BorderRadius.circular(8),
-                          //     child: Container(
-                          //       height: 55.h,
-                          //       width: 55.w,
-                          //       color: Colors.white,
-                          //       child: Center(
-                          //         child: SvgPicture.asset(
-                          //           'assets/icons/filter_icon.svg',
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ),
-                          // )
+                          Expanded(
+                            child: SizedBox(
+                              height: 55.h,
+                              child: CustomFormField(
+                                  prefixIcon: Icon(
+                                    IconlyLight.search,
+                                    color: Colors.black,
+                                  ),
+                                  hintText: 'Search your Requirements'),
+                            ),
+                          ),
+                          SizedBox(width: 10.w),
+                          GestureDetector(
+                            onTap: () {
+                              showModalBottomSheet(
+                                context: context,
+                                backgroundColor: Colors.transparent,
+                                isScrollControlled: true,
+                                builder: (ctx) {
+                                  return SizedBox(
+                                    height:
+                                        MediaQuery.of(ctx).size.height * 0.62,
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20.r),
+                                          topRight: Radius.circular(20.r),
+                                        ),
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                                20.h, 24.w, 20.h, 0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: const Icon(
+                                                      Icons.arrow_back_ios_new),
+                                                ),
+                                                const Text('Filter'),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    // Reset the filters
+                                                    rateNotifier.value = null;
+                                                    distanceNotifier.value =
+                                                        null;
+                                                    rangeValueNotifier.value =
+                                                        const RangeValues(
+                                                            500, 1000);
+                                                  },
+                                                  child: const Text('Reset'),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Center(
+                                            child: CustomRangeSliderContainer(
+                                              rangeValueNotifier:
+                                                  rangeValueNotifier,
+                                            ),
+                                          ),
+                                          SizedBox(height: 5.h),
+                                          CustomCusFilterChip(
+                                            type: 'rate',
+                                            selectedIndexNotifier: rateNotifier,
+                                          ),
+                                          SizedBox(height: 5.h),
+                                          CustomCusFilterChip(
+                                            type: 'dist',
+                                            selectedIndexNotifier:
+                                                distanceNotifier,
+                                          ),
+                                          SizedBox(height: 15.h),
+                                          Center(
+                                            child: CustomYellowButton(
+                                              label: 'Filter',
+                                              onPress: () {
+                                                // Apply filters
+                                              },
+                                            ),
+                                          ),
+                                          SizedBox(height: 24.h),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Container(
+                                height: 55.h,
+                                width: 55.w,
+                                color: Colors.white,
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                    'assets/icons/filter_icon.svg',
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     )
@@ -172,119 +241,6 @@ class CustomBookScreenAppBar extends StatelessWidget {
                 );
               },
             ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class CustomCusFilterChip extends StatelessWidget {
-  const CustomCusFilterChip({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Text(
-            'Ratings',
-            style: TextStyle(
-              color: const Color(0xff252C35),
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-        Center(
-          child: Wrap(
-            alignment: WrapAlignment.spaceAround,
-            runSpacing: 8,
-            spacing: 10,
-            children: [
-              ChoiceChip(
-                shape: const RoundedRectangleBorder(),
-                label: Wrap(
-                  spacing: 5,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Text(
-                      '5-4',
-                      style: TextStyle(
-                        color: const Color(0xff252C35),
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const Icon(Icons.star, color: Colors.black)
-                  ],
-                ),
-                selected: true,
-              ),
-              ChoiceChip(
-                shape: const RoundedRectangleBorder(),
-                label: Wrap(
-                  spacing: 5,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Text(
-                      '4-3',
-                      style: TextStyle(
-                        color: const Color(0xff252C35),
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const Icon(Icons.star, color: Colors.black)
-                  ],
-                ),
-                selected: true,
-              ),
-              ChoiceChip(
-                shape: const RoundedRectangleBorder(),
-                label: Wrap(
-                  spacing: 5,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Text(
-                      '3-2',
-                      style: TextStyle(
-                        color: const Color(0xff252C35),
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const Icon(Icons.star, color: Colors.black)
-                  ],
-                ),
-                selected: true,
-              ),
-              ChoiceChip(
-                labelStyle: const TextStyle(color: Colors.black),
-                shape: const RoundedRectangleBorder(),
-                label: Wrap(
-                  spacing: 5,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Text(
-                      '2-1',
-                      style: TextStyle(
-                        color: const Color(0xff252C35),
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const Icon(Icons.star, color: Colors.black)
-                  ],
-                ),
-                selected: true,
-              ),
-            ],
           ),
         ),
       ],

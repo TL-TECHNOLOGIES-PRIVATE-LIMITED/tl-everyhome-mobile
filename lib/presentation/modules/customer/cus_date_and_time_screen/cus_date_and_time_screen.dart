@@ -71,11 +71,14 @@ class CusDateAndTimeScreen extends StatelessWidget {
               builder: (context, selectedTime, _) {
                 return Wrap(
                   alignment: WrapAlignment.spaceAround,
-                  runSpacing: 7,
-                  spacing: 10,
+                  runSpacing: 6,
+                  spacing: 20,
                   children: availableTimings.map((time) {
                     return ChoiceChip(
                       selected: selectedTime == time,
+                      shadowColor: Colors.black,
+                      elevation: 10,
+                      backgroundColor: Colors.white12,
                       selectedColor: LigthColor().buttonColorYellow,
                       onSelected: (selected) {
                         if (selected) {

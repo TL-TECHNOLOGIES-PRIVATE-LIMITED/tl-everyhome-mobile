@@ -30,7 +30,8 @@ class GoogleMapScreenState extends State<GoogleMapScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            CustomWebWiew(latitude: '8.5799533', longitude: '76.8632717'),
+            CustomWebView(),
+            //CustomWebWiew(latitude: '8.5799533', longitude: '76.8632717'),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
